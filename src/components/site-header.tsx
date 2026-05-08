@@ -67,9 +67,18 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
-            <Link href="/contact" className="button-secondary hidden lg:inline-flex">
-              Inquire Now
+          <div className="flex items-center gap-2 md:gap-3">
+            <Link
+              href="/sign-in"
+              className="button-auth-ghost hidden min-h-[42px] items-center justify-center text-[0.68rem] md:inline-flex lg:text-[0.72rem]"
+            >
+              Sign In
+            </Link>
+            <Link
+              href="/register"
+              className="button-auth-solid hidden min-h-[42px] items-center justify-center text-[0.68rem] md:inline-flex lg:text-[0.72rem]"
+            >
+              Register Now
             </Link>
             <button
               type="button"
@@ -128,9 +137,14 @@ export function SiteHeader() {
           </nav>
 
           <div className="mt-12">
-            <Link href="/contact" className="button-secondary" onClick={() => setOpen(false)}>
-              Inquire Now
-            </Link>
+            <div className="flex flex-wrap gap-3">
+              <Link href="/sign-in" className="button-auth-ghost" onClick={() => setOpen(false)}>
+                Sign In
+              </Link>
+              <Link href="/register" className="button-auth-solid" onClick={() => setOpen(false)}>
+                Register Now
+              </Link>
+            </div>
           </div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Inter, Noto_Nastaliq_Urdu, Playfair_Display } from "next/font/google";
-import { SiteFooter } from "@/components/site-footer";
-import { SiteHeader } from "@/components/site-header";
+import { DM_Sans, Inter, Noto_Nastaliq_Urdu, Playfair_Display } from "next/font/google";
+import { AppChrome } from "@/components/app-chrome";
 import "./globals.css";
 
 const inter = Inter({
@@ -11,6 +10,11 @@ const inter = Inter({
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
+  subsets: ["latin"],
+});
+
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
@@ -36,14 +40,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${playfair.variable} ${urdu.variable} h-full antialiased`}
+      className={`${inter.variable} ${playfair.variable} ${dmSans.variable} ${urdu.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-cream text-ink">
-        <SiteHeader />
-        <main className="page-shell flex min-h-[calc(100vh-5rem)] flex-col">
-          {children}
-        </main>
-        <SiteFooter />
+        <AppChrome>{children}</AppChrome>
       </body>
     </html>
   );
