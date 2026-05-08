@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Newsreader:opsz,wght@6..72,500;6..72,600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d1d1d1;
+            border-radius: 10px;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fed65b",
+                        "on-tertiary-fixed": "#1a1c19",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "surface-container-low": "#f6f3f2",
+                        "on-surface-variant": "#44474e",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#745c00",
+                        "on-tertiary-fixed-variant": "#454744",
+                        "tertiary-fixed-dim": "#c6c7c2",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-container-high": "#eae7e7",
+                        "secondary": "#735c00",
+                        "tertiary": "#090b09",
+                        "outline": "#74777f",
+                        "on-primary-fixed": "#001b3d",
+                        "primary": "#000a1e",
+                        "secondary-fixed": "#ffe088",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#20221f",
+                        "primary-container": "#002147",
+                        "tertiary-fixed": "#e3e3de",
+                        "surface-tint": "#465f88",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-primary": "#aec7f6",
+                        "outline-variant": "#c4c6cf",
+                        "primary-fixed-dim": "#aec7f6",
+                        "background": "#fcf9f8",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-surface": "#313030",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-variant": "#e5e2e1",
+                        "on-primary-container": "#708ab5",
+                        "on-tertiary-container": "#888985",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-background": "#1c1b1b",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "h1": ["Newsreader"],
+                        "h2": ["Newsreader"],
+                        "label-caps": ["Inter"],
+                        "h3": ["Newsreader"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "h2": ["36px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "h3": ["28px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex">
+<!-- SideNavBar Anchor -->
+<aside class="bg-surface-container-lowest dark:bg-surface-container-lowest h-screen w-64 fixed left-0 top-0 overflow-y-auto border-r border-outline-variant flex flex-col py-base gap-2 z-50">
+<div class="px-6 py-4">
+<h1 class="font-h3 text-h3 text-primary dark:text-primary-fixed font-bold leading-none">Student Portal</h1>
+<p class="text-xs text-on-surface-variant uppercase tracking-widest mt-1">Academic Excellence</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1 px-2">
+<!-- Active state mapping: This is an Admin Console/Dashboard context -->
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg mx-2 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-body-md">My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-body-md">Store</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-md">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-md">Profile</span>
+</a>
+</nav>
+<div class="mt-auto px-4 py-6 border-t border-outline-variant">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-label-caps text-label-caps hover:bg-primary-container transition-colors mb-4">
+                Speak to Counselor
+            </button>
+<a class="flex items-center gap-3 px-4 py-2 text-error hover:bg-error-container/20 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-body-md">Logout</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 flex-1 flex flex-col h-screen">
+<!-- Header Section -->
+<header class="h-20 flex items-center justify-between px-gutter border-b border-outline-variant bg-surface-bright sticky top-0 z-40">
+<div>
+<h2 class="font-h2 text-h2 text-primary">Consultations &amp; Orders Inbox</h2>
+<p class="text-on-surface-variant text-sm">Manage student inquiries and service requests across all channels.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 border border-outline-variant rounded-lg bg-surface-container-low focus:ring-1 focus:ring-primary focus:border-primary outline-none text-sm w-64 transition-all" placeholder="Search inquiries..." type="text"/>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 border border-primary text-primary font-label-caps text-label-caps rounded hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="filter_list">filter_list</span>
+                    Filter
+                </button>
+</div>
+</header>
+<!-- Unified Content Hub -->
+<div class="flex-1 flex overflow-hidden">
+<!-- Inquiry List -->
+<section class="w-2/5 flex flex-col border-r border-outline-variant bg-surface overflow-y-auto custom-scrollbar">
+<!-- Tabs for filtering -->
+<div class="flex border-b border-outline-variant sticky top-0 bg-surface z-10">
+<button class="flex-1 py-4 text-label-caps font-label-caps text-primary border-b-2 border-primary">All (24)</button>
+<button class="flex-1 py-4 text-label-caps font-label-caps text-on-surface-variant hover:bg-surface-container-low">Consultations</button>
+<button class="flex-1 py-4 text-label-caps font-label-caps text-on-surface-variant hover:bg-surface-container-low">Orders</button>
+</div>
+<!-- List Items -->
+<div class="divide-y divide-outline-variant">
+<!-- Item 1: Urgent -->
+<div class="p-5 bg-secondary-container/10 border-l-4 border-error hover:bg-secondary-container/20 cursor-pointer transition-colors relative">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="rate_review">rate_review</span>
+<span class="font-bold text-primary">Ahmad Hassan</span>
+</div>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold">2m ago</span>
+</div>
+<p class="text-sm font-semibold text-on-surface line-clamp-1">Personal Statement for Oxford Application</p>
+<p class="text-xs text-on-surface-variant mt-1">Writing Order • Undergrad</p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 bg-error text-on-error text-[10px] font-bold rounded uppercase">Urgent</span>
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold rounded uppercase">New</span>
+</div>
+</div>
+<!-- Item 2: Active -->
+<div class="p-5 hover:bg-surface-container-low cursor-pointer transition-colors border-l-4 border-transparent">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary" data-icon="diversity_3">diversity_3</span>
+<span class="font-bold text-primary">Fatima Bibi</span>
+</div>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold">1h ago</span>
+</div>
+<p class="text-sm text-on-surface line-clamp-1">Scholarship consultation for German Universities</p>
+<p class="text-xs text-on-surface-variant mt-1">Consultation • Master's</p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 bg-primary-fixed text-on-primary-fixed-variant text-[10px] font-bold rounded uppercase">In-Progress</span>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="p-5 hover:bg-surface-container-low cursor-pointer transition-colors border-l-4 border-transparent">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="event_note">event_note</span>
+<span class="font-bold text-primary">Zain Ul Abideen</span>
+</div>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold">4h ago</span>
+</div>
+<p class="text-sm text-on-surface line-clamp-1">CSS Mock Exam Registration Slot Request</p>
+<p class="text-xs text-on-surface-variant mt-1">Event Request • CSS Prep</p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 bg-surface-container-highest text-on-surface-variant text-[10px] font-bold rounded uppercase">New</span>
+</div>
+</div>
+<!-- Item 4: Completed -->
+<div class="p-5 opacity-60 hover:opacity-100 hover:bg-surface-container-low cursor-pointer transition-colors border-l-4 border-transparent">
+<div class="flex justify-between items-start mb-2">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="rate_review">rate_review</span>
+<span class="font-bold text-primary">Sara Khan</span>
+</div>
+<span class="text-[10px] text-on-surface-variant uppercase font-bold">Yesterday</span>
+</div>
+<p class="text-sm text-on-surface line-clamp-1">IELTS Bootcamp Enrollment Form</p>
+<p class="text-xs text-on-surface-variant mt-1">Registration • Language</p>
+<div class="mt-3 flex gap-2">
+<span class="px-2 py-0.5 bg-secondary-container text-on-secondary-container text-[10px] font-bold rounded uppercase">Completed</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Detail View / Inbox Workspace -->
+<section class="flex-1 flex flex-col bg-surface-container-lowest overflow-y-auto custom-scrollbar">
+<!-- Detail Header -->
+<div class="p-8 border-b border-outline-variant flex justify-between items-center bg-white shadow-sm">
+<div class="flex items-center gap-4">
+<img alt="Student Profile" class="w-16 h-16 rounded-full object-cover border-2 border-secondary" data-alt="A professional headshot of a young South Asian man in his early 20s, wearing a crisp white dress shirt and a navy blue blazer. He has a warm, confident expression, set against a blurred academic library background with soft, natural morning light. The visual style is high-end, clean, and institutional, reflecting academic excellence and professional growth within the Hazara Global Consultancy brand ecosystem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiYoWSpTRMBzTx5OciBEAR6OpVTR0vGzD69Et7GbdgEaIlzxmpsAjuxLEbDSkGVdiaCwYSBttDeY9ZEvOO6ykaWOz504HjJgi69_McdUo87SSHQWUvI2MsDzUME4HjqmhzIHa38eaJrxOrJCVvGlj6RrJxHxAQFgj7rKevFyyU-sZJC2sf_f72AsusYP-_RKQOiIQfsJhUbmzDFoUjpgK9qPQR_SYLw4Ml9sZ1yCbkeFIecqh8dczlmRb7VsGOvXOu8VsFm_-S9rY"/>
+<div>
+<h3 class="font-h3 text-h3 text-primary">Ahmad Hassan</h3>
+<div class="flex items-center gap-3 text-sm text-on-surface-variant">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="mail">mail</span> ahmad.hassan@example.com</span>
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-sm" data-icon="call">call</span> +92 300 1234567</span>
+</div>
+</div>
+</div>
+<div class="flex gap-2">
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded transition-colors" title="Archive">
+<span class="material-symbols-outlined" data-icon="archive">archive</span>
+</button>
+<button class="p-2 text-error hover:bg-error-container/20 rounded transition-colors" title="Flag Urgent">
+<span class="material-symbols-outlined" data-icon="flag" style="font-variation-settings: 'FILL' 1;">flag</span>
+</button>
+</div>
+</div>
+<!-- Message Content -->
+<div class="p-8 space-y-8 flex-1">
+<!-- Inquiry Metadata -->
+<div class="grid grid-cols-3 gap-6">
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Service Type</p>
+<p class="font-bold text-primary">Content Writing Order</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Target Institution</p>
+<p class="font-bold text-primary">University of Oxford</p>
+</div>
+<div class="p-4 bg-surface-container-low rounded-lg border border-outline-variant">
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase mb-1">Deadline</p>
+<p class="font-bold text-error">Oct 15, 2024</p>
+</div>
+</div>
+<!-- Narrative Message -->
+<div class="bg-white p-6 rounded-lg border border-outline-variant shadow-sm relative">
+<div class="absolute -top-3 left-6 bg-primary text-on-primary px-3 py-1 text-[10px] font-label-caps rounded">ORIGINAL MESSAGE</div>
+<p class="font-h3 text-xl text-primary mb-4 italic leading-relaxed">"I am applying for the undergraduate Computer Science program at Oxford and need professional review and polishing of my Personal Statement. I have a draft ready but it needs better flow and a stronger narrative regarding my extracurricular coding projects in Hazara."</p>
+<div class="flex gap-4 mt-6 pt-6 border-t border-outline-variant">
+<a class="flex items-center gap-2 text-primary font-bold text-sm hover:underline" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+                                draft_ps_v1.docx
+                            </a>
+</div>
+</div>
+<!-- Admin Notes Section -->
+<div class="space-y-4">
+<h4 class="font-label-caps text-label-caps text-primary uppercase border-b border-primary/20 pb-2">Admin Internal Notes</h4>
+<div class="flex gap-4 items-start">
+<div class="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-bold text-xs">SK</div>
+<div class="flex-1 bg-surface-container rounded-lg p-4">
+<p class="text-sm text-on-surface">Spoke to the student on WhatsApp. High priority candidate with 4.0 GPA. Assign to Lead Consultant Zainab immediately.</p>
+<p class="text-[10px] text-on-surface-variant mt-2 uppercase">Sajid Khan • 1 hour ago</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Response Action Area -->
+<div class="p-6 bg-white border-t border-outline-variant sticky bottom-0 z-10">
+<div class="flex flex-col gap-4">
+<textarea class="w-full h-32 p-4 border border-outline-variant rounded-lg bg-surface-container-low focus:ring-1 focus:ring-primary focus:border-primary outline-none text-sm custom-scrollbar resize-none" placeholder="Write a response or add a private note..."></textarea>
+<div class="flex justify-between items-center">
+<div class="flex gap-2">
+<button class="px-4 py-2 border border-outline text-on-surface-variant font-label-caps text-label-caps rounded hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="attach_file">attach_file</span>
+                                    Attach
+                                </button>
+<button class="px-4 py-2 border border-outline text-on-surface-variant font-label-caps text-label-caps rounded hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined text-sm" data-icon="schedule">schedule</span>
+                                    Schedule
+                                </button>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-2 bg-surface-container-highest text-primary font-label-caps text-label-caps rounded hover:bg-outline-variant transition-colors">
+                                    Internal Note
+                                </button>
+<button class="px-8 py-2 bg-primary text-on-primary font-label-caps text-label-caps rounded shadow-md hover:bg-primary-container transition-all flex items-center gap-2">
+                                    Send Response
+                                    <span class="material-symbols-outlined text-sm" data-icon="send">send</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Contextual FAB (Only for specific primary action) -->
+<button class="fixed bottom-8 right-8 w-14 h-14 bg-secondary-container text-on-secondary-container rounded-full shadow-lg flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-50">
+<span class="material-symbols-outlined text-3xl" data-icon="add_comment">add_comment</span>
+</button>
+</body></html>

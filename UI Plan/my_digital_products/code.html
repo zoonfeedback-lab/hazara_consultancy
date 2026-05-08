@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcf9f8;
+        }
+        .serif-heading {
+            font-family: 'Newsreader', serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fed65b",
+                        "on-tertiary-fixed": "#1a1c19",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "surface-container-low": "#f6f3f2",
+                        "on-surface-variant": "#44474e",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#745c00",
+                        "on-tertiary-fixed-variant": "#454744",
+                        "tertiary-fixed-dim": "#c6c7c2",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-container-high": "#eae7e7",
+                        "secondary": "#735c00",
+                        "tertiary": "#090b09",
+                        "outline": "#74777f",
+                        "on-primary-fixed": "#001b3d",
+                        "primary": "#000a1e",
+                        "secondary-fixed": "#ffe088",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#20221f",
+                        "primary-container": "#002147",
+                        "tertiary-fixed": "#e3e3de",
+                        "surface-tint": "#465f88",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-primary": "#aec7f6",
+                        "outline-variant": "#c4c6cf",
+                        "primary-fixed-dim": "#aec7f6",
+                        "background": "#fcf9f8",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-surface": "#313030",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-variant": "#e5e2e1",
+                        "on-primary-container": "#708ab5",
+                        "on-tertiary-container": "#888985",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-background": "#1c1b1b",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "h1": ["Newsreader"],
+                        "h2": ["Newsreader"],
+                        "label-caps": ["Inter"],
+                        "h3": ["Newsreader"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "h2": ["36px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "h3": ["28px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background">
+<!-- TopNavBar Suppression: Page is task-focused Student Portal sub-page -->
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col py-base gap-2 bg-surface-container-lowest border-r border-outline-variant h-screen w-64 fixed left-0 top-0 overflow-y-auto">
+<div class="px-gutter py-base mb-base">
+<h1 class="font-h3 text-h3 text-primary font-bold">Student Portal</h1>
+<p class="font-body-md text-on-surface-variant opacity-70">Academic Excellence</p>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg mx-2 transition-transform scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-body-md">My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-body-md">Store</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-md">Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-md">Profile</span>
+</a>
+<div class="mt-auto pb-4">
+<a class="flex items-center gap-3 px-4 py-3 mx-2 rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-body-md">Logout</span>
+</a>
+</div>
+</nav>
+<div class="p-gutter mt-auto">
+<button class="w-full py-3 bg-primary text-on-primary rounded-lg font-label-caps text-label-caps uppercase hover:bg-primary-container transition-colors shadow-md">
+                    Speak to Counselor
+                </button>
+</div>
+</aside>
+<!-- Main Canvas -->
+<main class="flex-1 md:ml-64 min-h-screen">
+<!-- Header Section -->
+<header class="pt-section-padding pb-gutter px-margin-mobile md:px-gutter max-w-container-max mx-auto border-b border-outline-variant">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-gutter">
+<div>
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-2">Student Portal</span>
+<h2 class="font-h1 text-h1 serif-heading text-primary">Digital Library &amp; Downloads</h2>
+</div>
+<!-- Categories Tabs -->
+<div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-hide">
+<button class="px-6 py-2 bg-primary text-on-primary font-label-caps text-label-caps rounded-full whitespace-nowrap">All</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-label-caps text-label-caps rounded-full transition-colors whitespace-nowrap">Lectures</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-label-caps text-label-caps rounded-full transition-colors whitespace-nowrap">Notes</button>
+<button class="px-6 py-2 bg-surface-container-high text-on-surface-variant hover:bg-surface-container-highest font-label-caps text-label-caps rounded-full transition-colors whitespace-nowrap">Solved Papers</button>
+</div>
+</div>
+</header>
+<!-- Product Grid -->
+<section class="py-gutter px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Card 1: Notes -->
+<div class="bg-white border border-outline-variant p-6 hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300 group">
+<div class="relative h-48 mb-6 overflow-hidden bg-surface-container">
+<img alt="Academic Notes" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A detailed close-up shot of handwritten academic notes on high-quality stationery, illuminated by soft natural morning light. The scene includes a premium fountain pen resting on the margin, with the shallow depth of field focusing on the intricate calligraphy. The aesthetic is clean, intellectual, and academic, mirroring a prestigious university atmosphere with a palette of whites, deep navy, and subtle gold accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByLh3pBR-v5dLXENKeiktJy0Y8cf2HG8hqJlh1lA9vi_xeX-JULeL93ku2ZKsdADBLpAEZC3TkwDTdDcUe7_GUW_6YeAhw3h958ksoXMnjZJVvhS2XNqRPSk1X6GQjSYT3RdlqWPoQcFTyzTEyRyoTSe1v2k8XlhJBwBJos1gXZ8eq9Onz5Cx_BqixTHIzx2L9V9X_FdhGsFIdfvobGMV-1jNIb1D6z1vIHa9D-Hlhm7FZidK_pJHdUVCmUWbgcE-Dhix-O8gjEHY"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-secondary text-on-secondary font-label-caps text-label-caps rounded-full">NOTES</span>
+</div>
+</div>
+<h3 class="font-h3 text-h3 serif-heading text-primary mb-2">CSS General Science &amp; Ability</h3>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Comprehensive 2024 revision notes covering environmental sciences and logical reasoning modules.</p>
+<div class="flex items-center justify-between border-t border-outline-variant pt-4">
+<span class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span> PDF • 12.4 MB
+                            </span>
+<button class="flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-secondary transition-colors font-bold">
+                                DOWNLOAD PDF <span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+</button>
+</div>
+</div>
+<!-- Card 2: Lectures -->
+<div class="bg-white border border-outline-variant p-6 hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300 group">
+<div class="relative h-48 mb-6 overflow-hidden bg-surface-container">
+<img alt="Video Lecture" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A professional video screen capture showing a high-end digital lecture interface. The frame features a charismatic professor in a modern wood-paneled office environment, with clear instructional graphics overlaid on the side. The lighting is bright and corporate, emphasizing clarity and focus. The overall atmosphere conveys global consultancy expertise and premium educational quality in deep navy and gold tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjLVZ-G1HjTtFlji6qiHA9eiQ6Ybqt5V6Ocwvv-gsODX5ObrhJQZ_JU2IXUalkeCVV0h0WE9c9-lFOS3_ArIGWDUu-Rva_GUnHETkPSFg_N-L3L6dymt33tzkY0eHDNqgfIdiyjAhWxzbXgI5bQl6_6hjKQgl3RG2N_wF2QTarEXnYANz1kU5E5Jm1ubDhmxdVVURS-GVPYUT7HABTpXKRITQ_cxvJQc7PieqyDEyBh0kqgsnYcV1dbxXNehnUI1BucgOiyedRJas"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-primary text-on-primary font-label-caps text-label-caps rounded-full">LECTURE</span>
+</div>
+<div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-primary/20 backdrop-blur-sm">
+<span class="material-symbols-outlined text-on-primary text-5xl" data-icon="play_circle" data-weight="fill" style="font-variation-settings: 'FILL' 1;">play_circle</span>
+</div>
+</div>
+<h3 class="font-h3 text-h3 serif-heading text-primary mb-2">Advanced English Précis</h3>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">A masterclass on summary writing and vocabulary enhancement for competitive examinations.</p>
+<div class="flex items-center justify-between border-t border-outline-variant pt-4">
+<span class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="timer">timer</span> 45:12 MIN
+                            </span>
+<button class="flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-secondary transition-colors font-bold">
+                                WATCH NOW <span class="material-symbols-outlined text-sm" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<!-- Card 3: Solved Papers -->
+<div class="bg-white border border-outline-variant p-6 hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300 group">
+<div class="relative h-48 mb-6 overflow-hidden bg-surface-container">
+<img alt="Solved Papers" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A stack of premium, cream-colored examination papers arranged neatly on a dark mahogany desk. The top paper shows structured solved answers with elegant gold-bordered headers. The lighting is focused and warm, like a quiet library study carrel. The image represents tradition, success, and organized academic preparation within the context of a prestigious Hazara consultancy office." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCb7XXM3HRHyUIu02SHfdyWJ-UoY6tz2pbm5vDKqqHjymr-Q1aYk5oqxrNf5bDolXRrzLMTwljSVsuzO0tneRLDG0bcP49dqTR4icFA0mnF32U1CQ81ttkejYZ2BBGrEDlVrOq7sY62TpsRXhQRvK8cpdHQvQVcvOzadAFl-S2XYlJ0MiB9_6SS2LBE4rVoyjC2p_Gb_sbEfgk1t0kKan-nYaLLPgQy5xU07t5Qofvs_-Kn65Z-vomFpF_ZjzNOsk_x2dDmnPfwsrk"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-tertiary-container text-on-tertiary-container font-label-caps text-label-caps rounded-full">SOLVED PAPER</span>
+</div>
+</div>
+<h3 class="font-h3 text-h3 serif-heading text-primary mb-2">Islamic Studies 2023</h3>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Past paper analysis and solved answers with model responses from top-ranked candidates.</p>
+<div class="flex items-center justify-between border-t border-outline-variant pt-4">
+<span class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="history_edu">history_edu</span> UPDATED FEB '24
+                            </span>
+<button class="flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-secondary transition-colors font-bold">
+                                PRINT <span class="material-symbols-outlined text-sm" data-icon="print">print</span>
+</button>
+</div>
+</div>
+<!-- Card 4: Notes -->
+<div class="bg-white border border-outline-variant p-6 hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300 group">
+<div class="relative h-48 mb-6 overflow-hidden bg-surface-container">
+<img alt="Study Material" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="A group of diverse, professional students collaborating in a bright, modern glass-walled study room. They are using high-end laptops and sharing printed digital guides. The environment is vibrant and aspirational, reflecting a global education standard. The overall aesthetic is clean and high-contrast, utilizing the corporate navy and white palette with light gold accents on the furniture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD77tpn8eWkd7WUhNaDNnTXYM24A_llNtvkmi0TkSwqqS1Q-hEYHg2YDePV1voxvWPkJn_AVK2-2YX_QP9b15RIymjF0R5vqbintK0uBcRMnZ2MR2sr1BPQOqklm2t31noIEGHGQn6oL0Ga1LGO56B0G_BPRaTsMx1tvK9DR3yA7-CSK3dfIQI0B7pbJ6n8HibV9kSdfyU3PKaVOboSEsvPT_HpXdiC27WGZbOw4EFWRnNMxLVoRrkPppqcLjoZeyDJ2el4R-pf6fY"/>
+<div class="absolute top-4 left-4">
+<span class="px-3 py-1 bg-secondary text-on-secondary font-label-caps text-label-caps rounded-full">NOTES</span>
+</div>
+</div>
+<h3 class="font-h3 text-h3 serif-heading text-primary mb-2">Global Affairs &amp; Policy</h3>
+<p class="font-body-md text-on-surface-variant mb-6 line-clamp-2">Detailed handouts for current international conflicts and economic diplomacy frameworks.</p>
+<div class="flex items-center justify-between border-t border-outline-variant pt-4">
+<span class="text-on-surface-variant text-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-sm" data-icon="description">description</span> PDF • 8.2 MB
+                            </span>
+<button class="flex items-center gap-2 font-label-caps text-label-caps text-primary hover:text-secondary transition-colors font-bold">
+                                DOWNLOAD PDF <span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Support Banner -->
+<aside class="my-section-padding px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<div class="bg-primary p-gutter md:p-12 flex flex-col md:flex-row items-center justify-between gap-gutter rounded-lg">
+<div class="max-w-2xl">
+<h2 class="font-h2 text-h2 serif-heading text-on-primary mb-4">Can't find a specific resource?</h2>
+<p class="font-body-lg text-on-primary/80">Our academic librarians are available to help you source specific past papers or lecture recordings for your curriculum.</p>
+</div>
+<button class="px-10 py-4 bg-secondary-container text-on-secondary-container font-label-caps text-label-caps uppercase rounded shadow-lg hover:translate-y-[-2px] transition-transform">
+                        Contact Support
+                    </button>
+</div>
+</aside>
+<!-- Footer -->
+<footer class="bg-primary text-on-primary border-t-4 border-secondary full-width py-section-padding">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile">
+<div class="col-span-1 md:col-span-2">
+<h2 class="font-h2 text-h2 text-secondary-fixed serif-heading mb-4">Hazara Global Consultancy</h2>
+<p class="font-body-md text-on-primary/70 max-w-md">Providing academic authority and aspirational growth for the next generation of global leaders from the heart of Pakistan.</p>
+<p class="mt-8 font-body-md opacity-60">© 2024 Hazara Global Consultancy. Abbottabad, Pakistan.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps uppercase tracking-widest text-secondary mb-6">Quick Links</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">About Us</a></li>
+<li><a class="font-body-md text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">Privacy Policy</a></li>
+<li><a class="font-body-md text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps uppercase tracking-widest text-secondary mb-6">Support</h4>
+<ul class="space-y-4">
+<li><a class="font-body-md text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">WhatsApp Support</a></li>
+<li><a class="font-body-md text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">Contact</a></li>
+</ul>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>

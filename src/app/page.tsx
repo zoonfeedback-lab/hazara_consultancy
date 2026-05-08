@@ -1,65 +1,287 @@
-import Image from "next/image";
+import Link from "next/link";
+import { CountUpStat } from "@/components/count-up-stat";
+import { Reveal } from "@/components/reveal";
+import { ConsultationBanner, SectionIntro } from "@/components/section-primitives";
+import {
+  announcements,
+  events,
+  featuredProgram,
+  services,
+  stats,
+  testimonials,
+} from "@/lib/site-data";
 
-export default function Home() {
+export default function HomePage() {
+  const featuredServices = services.slice(0, 6);
+  const upcomingEvents = events.filter((event) => !event.isPast).slice(0, 2);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <>
+      <section className="gradient-panel relative overflow-hidden pt-24 text-cream">
+        <div className="hero-orb" />
+        <div className="hero-orb-alt" />
+        <div className="site-container grid min-h-[70vh] items-center gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr]">
+          <Reveal className="relative z-10">
+            <span className="eyebrow text-gold-soft">CSS/PMS Mentorship</span>
+            <h1 className="display-title mt-6 max-w-4xl text-[clamp(4rem,8vw,4.75rem)] leading-[0.98]">
+              The serious mentorship academy for CSS, PMS, and public service
+              ambition.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-cream/82">
+              Hazara Global Consultancy helps students across Abbottabad, Hazara,
+              and Khyber Pakhtunkhwa prepare with sharper writing, stronger
+              strategy, and real accountability.
+            </p>
+            <p className="urdu-accent mt-5 text-gold-soft">
+              کامیابی محنت سے بنتی ہے، مگر رہنمائی اسے رفتار دیتی ہے۔
+            </p>
+            <div className="mt-10 flex flex-wrap gap-4">
+              <Link href="/contact" className="button-secondary">
+                Book Consultation
+              </Link>
+              <Link href="/programs" className="button-primary">
+                View Programs
+              </Link>
+              <Link href="/contact" className="button-ghost border-white/18 text-cream">
+                Inquire Now
+              </Link>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120} className="relative z-10">
+            <div className="featured-card rounded-[24px] p-8 md:p-10">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
+                    Flagship Pathway
+                  </div>
+                  <h2 className="display-title mt-3 text-3xl">
+                    1-on-1 Civil Service Mentorship
+                  </h2>
+                </div>
+                <div className="rounded-full border border-gold/35 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-soft">
+                  Summer Intake
+                </div>
+              </div>
+              <div className="mt-8 grid gap-4 md:grid-cols-2">
+                <div className="rounded-[18px] bg-white/7 p-5">
+                  <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
+                    Next Programs
+                  </div>
+                  <ul className="mt-4 space-y-3 text-sm leading-6 text-cream/82">
+                    <li>Essay Acceleration Lab • 18 May</li>
+                    <li>Current Affairs Note System • 24 May</li>
+                    <li>Women in Public Leadership Forum • 07 June</li>
+                  </ul>
+                </div>
+                <div className="rounded-[18px] bg-gold/10 p-5">
+                  <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
+                    Why Families Trust Us
+                  </div>
+                  <p className="mt-4 text-sm leading-7 text-cream/82">
+                    Small-batch mentorship, direct writing evaluations, and a
+                    premium learning environment rooted in Abbottabad.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+      </section>
+
+      <section className="border-y border-gold/15 bg-paper py-4">
+        <div className="overflow-hidden">
+          <div className="ticker-track px-6 text-sm font-semibold uppercase tracking-[0.16em] text-navy">
+            {[...announcements, ...announcements].map((item, index) => (
+              <div key={`${item}-${index}`} className="flex items-center gap-4 whitespace-nowrap">
+                <span className="text-gold">●</span>
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="-mt-2 bg-cream pb-6">
+        <div className="site-container">
+          <div className="featured-card grid rounded-[22px] py-4 md:grid-cols-4">
+            {stats.map((stat) => (
+              <CountUpStat key={stat.label} {...stat} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-frame bg-cream">
+        <div className="site-container">
+          <Reveal>
+            <SectionIntro
+              label="Core Services"
+              title="Precision support across preparation, planning, and public trust."
+              copy="Our public-facing services are designed for students, parents, institutions, and event partners who expect clarity, premium delivery, and a world-class standard close to home."
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </Reveal>
+
+          <div className="mt-14 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+            <Reveal className="card-shell p-10">
+              <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+                Featured Service
+              </div>
+              <h3 className="display-title mt-4 text-3xl text-navy md:text-4xl">
+                CSS/PMS Preparation
+              </h3>
+              <p className="mt-4 max-w-2xl leading-8 text-ink/78">
+                Deep mentorship for aspirants who want better writing, sharper
+                thinking, and a preparation system that respects the seriousness
+                of the exam.
+              </p>
+              <div className="mt-8 grid gap-4 md:grid-cols-3">
+                <div className="rounded-[16px] bg-mist p-5 text-sm leading-7">
+                  Diagnostic readiness assessment
+                </div>
+                <div className="rounded-[16px] bg-mist p-5 text-sm leading-7">
+                  Essay, précis, and current affairs labs
+                </div>
+                <div className="rounded-[16px] bg-mist p-5 text-sm leading-7">
+                  Weekly evaluation and mock review
+                </div>
+              </div>
+              <Link href="/services/css-pms-prep" className="button-primary mt-8">
+                Learn More
+              </Link>
+            </Reveal>
+
+            <div className="grid gap-6">
+              {featuredServices.slice(1, 3).map((service, index) => (
+                <Reveal key={service.slug} delay={index * 90} className="card-shell p-8">
+                  <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+                    For {service.audience.split(" ")[0]}
+                  </div>
+                  <h3 className="display-title mt-3 text-2xl text-navy">{service.name}</h3>
+                  <p className="mt-3 leading-7 text-ink/78">{service.short}</p>
+                  <Link
+                    href={service.detail ? `/services/${service.slug}` : "/contact"}
+                    className="button-ghost mt-6"
+                  >
+                    {service.detail ? "Explore" : "Contact"}
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="section-frame bg-paper">
+        <div className="site-container">
+          <Reveal>
+            <SectionIntro
+              label="Featured Bootcamp"
+              title={featuredProgram.title}
+              copy={`${featuredProgram.duration} • ${featuredProgram.schedule} • ${featuredProgram.format}`}
+            />
+          </Reveal>
+          <Reveal delay={120} className="featured-card mt-12 rounded-[24px] p-8 md:p-10">
+            <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr]">
+              <div>
+                <div className="rounded-full border border-gold/30 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-soft inline-flex">
+                  {featuredProgram.status}
+                </div>
+                <ul className="mt-8 grid gap-4 md:grid-cols-2">
+                  {featuredProgram.curriculum.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-[16px] border border-white/12 bg-white/7 px-5 py-4 text-sm leading-7 text-cream/84"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className="paper-panel rounded-[22px] border border-white/8 p-7 text-navy">
+                <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+                  Program Promise
+                </div>
+                <p className="mt-4 text-base leading-8">
+                  A high-rhythm bootcamp built for candidates who want momentum,
+                  strong writing correction, and a disciplined study environment.
+                </p>
+                <div className="muted-rule mt-6" />
+                <div className="mt-6 flex flex-wrap gap-3">
+                  <Link href="/programs" className="button-primary">
+                    View Programs
+                  </Link>
+                  <Link href="/contact" className="button-secondary">
+                    Register Interest
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section-frame bg-cream">
+        <div className="site-container">
+          <Reveal>
+            <SectionIntro
+              label="Testimonials"
+              title="Families and aspirants trust thoughtful rigor."
+              copy="We want the platform to feel premium, but the proof is still in the outcomes and the experience students have with us week after week."
+            />
+          </Reveal>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {testimonials.map((testimonial, index) => (
+              <Reveal key={testimonial.name} delay={index * 90} className="card-shell p-8">
+                <p className="display-title text-2xl text-gold">“</p>
+                <p className="mt-3 text-base leading-8 text-ink/84">{testimonial.quote}</p>
+                <div className="mt-8">
+                  <div className="font-semibold text-navy">{testimonial.name}</div>
+                  <div className="mt-1 text-sm text-ink/68">{testimonial.role}</div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section-frame bg-navy text-cream">
+        <div className="site-container">
+          <Reveal>
+            <SectionIntro
+              label="Upcoming Events"
+              title="Programs and public events that extend our impact beyond the classroom."
+              copy="From women-centered forums to public leadership seminars, our events are designed to build confidence, dialogue, and institutional trust."
+            />
+          </Reveal>
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {upcomingEvents.map((event, index) => (
+              <Reveal
+                key={event.slug}
+                delay={index * 90}
+                className="rounded-[22px] border border-white/10 bg-white/6 p-8 shadow-[0_20px_60px_rgba(0,0,0,0.18)]"
+              >
+                <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
+                  {event.date}
+                </div>
+                <h3 className="display-title mt-4 text-3xl">{event.title}</h3>
+                <p className="mt-4 text-sm uppercase tracking-[0.15em] text-cream/68">
+                  {event.location}
+                </p>
+                <p className="mt-5 leading-8 text-cream/82">{event.description}</p>
+                <Link href="/events" className="button-secondary mt-7">
+                  View Events
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <ConsultationBanner
+        title="Need a tailored recommendation before choosing a path?"
+        copy="Book a consultation for CSS/PMS preparation, admissions guidance, writing review, or institutional collaboration."
+      />
+    </>
   );
 }

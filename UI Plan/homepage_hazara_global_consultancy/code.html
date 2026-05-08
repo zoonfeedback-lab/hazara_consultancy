@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hazara Global Consultancy | CSS/PMS Excellence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fed65b",
+                        "on-tertiary-fixed": "#1a1c19",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "surface-container-low": "#f6f3f2",
+                        "on-surface-variant": "#44474e",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#745c00",
+                        "on-tertiary-fixed-variant": "#454744",
+                        "tertiary-fixed-dim": "#c6c7c2",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-container-high": "#eae7e7",
+                        "secondary": "#735c00",
+                        "tertiary": "#090b09",
+                        "outline": "#74777f",
+                        "on-primary-fixed": "#001b3d",
+                        "primary": "#000a1e",
+                        "secondary-fixed": "#ffe088",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#20221f",
+                        "primary-container": "#002147",
+                        "tertiary-fixed": "#e3e3de",
+                        "surface-tint": "#465f88",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-primary": "#aec7f6",
+                        "outline-variant": "#c4c6cf",
+                        "primary-fixed-dim": "#aec7f6",
+                        "background": "#fcf9f8",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-surface": "#313030",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-variant": "#e5e2e1",
+                        "on-primary-container": "#708ab5",
+                        "on-tertiary-container": "#888985",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-background": "#1c1b1b",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "h1": ["Newsreader"],
+                        "h2": ["Newsreader"],
+                        "label-caps": ["Inter"],
+                        "h3": ["Newsreader"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "h2": ["36px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "h3": ["28px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 24px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md overflow-x-hidden">
+<!-- TopNavBar -->
+<nav class="bg-primary docked full-width top-0 sticky z-50 shadow-md border-b border-secondary/20 h-20 transition-all duration-300 ease-in-out">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-base">
+<span class="font-h3 text-h3 text-secondary-fixed font-bold">Hazara Global Consultancy</span>
+</div>
+<div class="hidden md:flex items-center gap-gutter">
+<div class="flex gap-6">
+<a class="font-body-md text-body-md uppercase tracking-wider text-secondary-fixed border-b-2 border-secondary-fixed pb-1" href="#">Services</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">CSS/PMS Prep</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">Bootcamps</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">Events</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">Store</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">Portal</a>
+</div>
+<div class="flex items-center gap-4 border-l border-white/10 pl-6">
+<button class="text-on-primary font-body-md px-4 py-2 hover:bg-primary-fixed/10 transition-all">Urdu</button>
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 font-bold rounded-lg hover:shadow-lg transition-all">Apply Now</button>
+</div>
+</div>
+<!-- Mobile Menu Toggle -->
+<button class="md:hidden text-on-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-[870px] flex items-center pt-20 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="A grand academic hall with high ceilings and historical architecture, illuminated by soft natural light streaming through large windows. The scene conveys prestige and intellectual rigor, featuring a deep navy and gold color palette consistent with a high-end educational institution. The atmosphere is quiet, focused, and professional." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkKyDrR_BVUy1-9sYm3viFJesFxl6zJg7Mp6p6nzUzECdEdFRb20Zpr5IkKd20Auf7khG8DV8vDVRYM5Ly8VAORzl_ywm1by_Si4NzppV7JQzsJaJj484NEtNlOJjffedol38onjeNdLmDhkZ4XGXIlF9b3U-OgYinlKPAcs1U4VIM4Cuv3Ed2LBrIe5FP_eSKjYAF1k_AtldfSzwVHkjEJN5iM2l1Hrpr7VltN2gdBGnpX7NnKmuVrptshQLbxxfl73oXwgf51Xw"/>
+<div class="absolute inset-0 bg-primary/70 backdrop-blur-[2px]"></div>
+</div>
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-gutter w-full grid md:grid-cols-2 gap-gutter items-center">
+<div class="text-on-primary space-y-8">
+<div class="inline-block border border-secondary text-secondary px-4 py-1 rounded-full font-label-caps text-label-caps bg-secondary/10">
+                    ACCREDITED CSS/PMS ACADEMY
+                </div>
+<h1 class="font-h1 text-h1 max-w-xl">Your Gateway to Civil Service Excellence</h1>
+<p class="font-body-lg text-body-lg text-on-primary/80 max-w-lg">سول سروسز کے امتحان میں کامیابی کا سفر اب یہاں سے</p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-secondary text-on-primary px-8 py-4 font-bold rounded-lg hover:bg-secondary/90 transition-all shadow-xl">Start Your Journey</button>
+<button class="border-2 border-on-primary text-on-primary px-8 py-4 font-bold rounded-lg hover:bg-white/10 transition-all">View Programs</button>
+</div>
+</div>
+<!-- Hero Feature Card -->
+<div class="hidden md:block bg-surface/10 backdrop-blur-md border border-white/20 p-8 rounded-xl">
+<div class="flex items-center gap-4 mb-6">
+<div class="w-12 h-12 bg-secondary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary">school</span>
+</div>
+<div>
+<h4 class="font-h3 text-on-primary text-xl">Batch 2024 Admissions</h4>
+<p class="text-on-primary/60 text-sm">Now open for Abbottabad Campus</p>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-center text-on-primary border-b border-white/10 pb-2">
+<span>Intensive Essay Workshop</span>
+<span class="text-secondary font-bold">Oct 12</span>
+</div>
+<div class="flex justify-between items-center text-on-primary border-b border-white/10 pb-2">
+<span>Current Affairs Masterclass</span>
+<span class="text-secondary font-bold">Oct 15</span>
+</div>
+<div class="flex justify-between items-center text-on-primary border-b border-white/10 pb-2">
+<span>Precise Writing Bootcamp</span>
+<span class="text-secondary font-bold">Oct 18</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Trust Metrics Bar -->
+<div class="bg-primary-container py-12 relative z-20 -mt-10 max-w-[1200px] mx-auto rounded-xl shadow-2xl">
+<div class="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-on-primary/10">
+<div class="text-center px-gutter py-4 md:py-0">
+<div class="font-h1 text-secondary text-4xl mb-1">1000+</div>
+<div class="font-label-caps text-on-primary-container text-white/70">STUDENTS MENTORED</div>
+</div>
+<div class="text-center px-gutter py-4 md:py-0">
+<div class="font-h1 text-secondary text-4xl mb-1">85%</div>
+<div class="font-label-caps text-on-primary-container text-white/70">PASS RATE</div>
+</div>
+<div class="text-center px-gutter py-4 md:py-0">
+<div class="font-h1 text-secondary text-4xl mb-1">20+</div>
+<div class="font-label-caps text-on-primary-container text-white/70">EXPERT FACULTY</div>
+</div>
+</div>
+</div>
+<!-- Upcoming Programs Strip -->
+<section class="bg-secondary-container/20 py-4 overflow-hidden border-y border-secondary/10 mt-12">
+<div class="flex whitespace-nowrap gap-gutter items-center animate-[scroll_30s_linear_infinite]">
+<div class="flex items-center gap-4 text-primary font-bold">
+<span class="material-symbols-outlined text-secondary">event</span>
+                UPCOMING: CSS ESSAY BOOTCAMP (NOV 01)
+            </div>
+<span class="text-secondary">•</span>
+<div class="flex items-center gap-4 text-primary font-bold">
+<span class="material-symbols-outlined text-secondary">event</span>
+                PMS MOCK EXAMS OPEN FOR REGISTRATION
+            </div>
+<span class="text-secondary">•</span>
+<div class="flex items-center gap-4 text-primary font-bold">
+<span class="material-symbols-outlined text-secondary">event</span>
+                VIRTUAL WRITING WORKSHOP (OCT 28)
+            </div>
+<span class="text-secondary">•</span>
+<div class="flex items-center gap-4 text-primary font-bold">
+<span class="material-symbols-outlined text-secondary">event</span>
+                GLOBAL CAREER SEMINAR (DEC 05)
+            </div>
+</div>
+</section>
+<!-- Services Overview Grid -->
+<section class="py-section-padding max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="text-center mb-16">
+<span class="font-label-caps text-secondary tracking-[0.2em]">OUR CORE SERVICES</span>
+<h2 class="font-h2 text-h2 text-primary mt-2">Comprehensive Academic Support</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Career Consultancy -->
+<div class="group bg-surface border border-outline-variant rounded-xl p-8 hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300">
+<div class="w-16 h-16 bg-primary-fixed/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">psychology</span>
+</div>
+<h3 class="font-h3 text-h3 mb-4">Career Consultancy</h3>
+<p class="text-on-surface-variant mb-6">Expert guidance tailored to your academic profile and professional aspirations in the civil services.</p>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">Learn More <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<!-- Group Programs -->
+<div class="group bg-surface border border-outline-variant rounded-xl p-8 hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300">
+<div class="w-16 h-16 bg-primary-fixed/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">groups</span>
+</div>
+<h3 class="font-h3 text-h3 mb-4">Group Programs</h3>
+<p class="text-on-surface-variant mb-6">Collaborative learning environments designed for intensive CSS/PMS exam preparation and peer review.</p>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">Learn More <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<!-- Digital Products -->
+<div class="group bg-surface border border-outline-variant rounded-xl p-8 hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300">
+<div class="w-16 h-16 bg-primary-fixed/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">smartphone</span>
+</div>
+<h3 class="font-h3 text-h3 mb-4">Digital Products</h3>
+<p class="text-on-surface-variant mb-6">Premium study notes, recorded lectures, and interactive e-books accessible from anywhere in the world.</p>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">Learn More <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<!-- Event Management -->
+<div class="group bg-surface border border-outline-variant rounded-xl p-8 hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300">
+<div class="w-16 h-16 bg-primary-fixed/30 rounded-lg flex items-center justify-center mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">event_available</span>
+</div>
+<h3 class="font-h3 text-h3 mb-4">Event Management</h3>
+<p class="text-on-surface-variant mb-6">Hosting educational seminars, seminars with past qualifiers, and institutional training sessions.</p>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">Learn More <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<!-- Writing Services -->
+<div class="group bg-surface border border-outline-variant rounded-xl p-8 hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300 md:col-span-2">
+<div class="flex flex-col md:flex-row gap-8">
+<div class="w-16 h-16 shrink-0 bg-primary-fixed/30 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">edit_note</span>
+</div>
+<div>
+<h3 class="font-h3 text-h3 mb-4">Writing &amp; Evaluation Services</h3>
+<p class="text-on-surface-variant mb-6">Professional evaluation of your CSS/PMS essays and precis writing by certified faculty. Get detailed feedback and personalized improvement strategies to maximize your score.</p>
+<a class="text-primary font-bold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">Submit Your Draft <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials Section -->
+<section class="bg-surface-container-low py-section-padding">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-end mb-12">
+<div class="max-w-xl">
+<span class="font-label-caps text-secondary tracking-[0.2em]">TESTIMONIALS</span>
+<h2 class="font-h2 text-h2 text-primary mt-2">Success Stories from Abbottabad</h2>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline flex items-center justify-center hover:bg-primary hover:text-on-primary transition-all">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<div class="bg-white p-10 rounded-xl shadow-sm relative">
+<span class="material-symbols-outlined text-secondary/20 text-6xl absolute top-6 right-8">format_quote</span>
+<p class="font-body-lg text-body-lg text-on-surface mb-8 italic">"Hazara Global Consultancy changed my perspective on CSS preparation. The faculty's individual attention and structured curriculum were instrumental in my PMS success."</p>
+<div class="flex items-center gap-4">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="A professional portrait of a confident young Pakistani man in a formal dark suit, looking directly at the camera with a slight, friendly smile. The background is a clean, softly blurred library setting, emphasizing academic success and professional achievement. High-quality editorial lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu8zeZKgQETQMxiGsM4fe7rUaMMusn4vvhsnoJMgrb2bTbyc5JNrFOHE2ItNKbayx_lxeaALo-DxFJaNCnjMW417fPYHRWhALQ2rgRZ_ueudZEZPfSBVEqyNHsokGydg_XRLM-py7NV-ocJjf8V5YoMwVR5HxzcyWf-esEpv4jEkXk7pen4P99O5_Hy19pHl89-LFHGEMWn0C0lW8Qnk-1XTOA_1hUzarJmVIDJvu0SJxQZLNR_I_N9KckA_cPweWSNT30alKXpGc"/>
+<div>
+<h5 class="font-bold text-primary">Ali Khan</h5>
+<p class="text-sm text-on-surface-variant">PMS Qualifier 2023</p>
+</div>
+</div>
+</div>
+<div class="bg-white p-10 rounded-xl shadow-sm relative">
+<span class="material-symbols-outlined text-secondary/20 text-6xl absolute top-6 right-8">format_quote</span>
+<p class="font-body-lg text-body-lg text-on-surface mb-8 italic">"The essay evaluation service provided by the consultancy is unparalleled. The detailed feedback helped me overcome my writing weaknesses in just three months."</p>
+<div class="flex items-center gap-4">
+<img class="w-14 h-14 rounded-full object-cover" data-alt="A professional portrait of a young Pakistani woman wearing a modest, stylish business attire. She has a bright, intellectual expression, standing against a minimal office backdrop with soft daylight. The image conveys themes of empowerment, education, and career excellence." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ6bwgu7u7pbbpggqrWt0fq0Flpx8zbGuC8kFNI4CXcxc_5BjFU4CUr7sBQcw58WE7bnuzjoQdHTEJNeS6qOypqavg6fpzqkQpPXDvTomSyP9G4yHtHh8uxMLvNBbE8AwCmzdsayn5P5mN2MM-q-LYZ6rvu2aEIZyOf9uegzDz2UzrYV6AXfnjK7S2jLwPm2gy1EOjRUszeBKr0pH41xXPF1NzXpdqqk_r0ZHzypZwbZZOIu0VLV2gdCA_y00dYBq1QE_3XvWn7S0"/>
+<div>
+<h5 class="font-bold text-primary">Fatima Zahra</h5>
+<p class="text-sm text-on-surface-variant">CSS Aspirant, Abbottabad</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary py-section-padding border-t-4 border-secondary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile md:px-gutter">
+<div class="col-span-1 md:col-span-1">
+<span class="font-h2 text-h2 text-secondary-fixed block mb-6">Hazara Global Consultancy</span>
+<p class="text-on-primary/70 mb-8 font-body-md">Empowering the youth of Hazara to achieve global standards in academic and professional excellence.</p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-on-primary hover:bg-secondary hover:text-on-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">social_leaderboard</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-on-primary hover:bg-secondary hover:text-on-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-on-primary hover:bg-secondary hover:text-on-secondary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+</div>
+</div>
+<div>
+<h6 class="font-label-caps text-secondary-fixed mb-8">QUICK LINKS</h6>
+<ul class="space-y-4">
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all block" href="#">About Us</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all block" href="#">Services</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all block" href="#">CSS/PMS Preparation</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all block" href="#">Upcoming Events</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label-caps text-secondary-fixed mb-8">LEGAL &amp; SUPPORT</h6>
+<ul class="space-y-4">
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all block" href="#">Privacy Policy</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all block" href="#">Terms of Service</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all block" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h6 class="font-label-caps text-secondary-fixed mb-8">GET IN TOUCH</h6>
+<p class="text-on-primary/80 mb-6">Main Mansehra Road, Abbottabad, Pakistan.</p>
+<a class="flex items-center gap-3 bg-[#25D366] text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg transition-all mb-4" href="https://wa.me/923000000000">
+<span class="material-symbols-outlined">chat</span>
+                    WhatsApp Support
+                </a>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter mt-20 pt-8 border-t border-white/10 text-center md:text-left">
+<p class="text-on-primary/60 text-sm">© 2024 Hazara Global Consultancy. Abbottabad, Pakistan. All Rights Reserved.</p>
+</div>
+</footer>
+<!-- FAB for quick action (Conditional Context) -->
+<a class="fixed bottom-8 right-8 w-16 h-16 bg-secondary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform z-[100] group" href="#">
+<span class="material-symbols-outlined text-3xl">add</span>
+<span class="absolute right-full mr-4 bg-primary text-on-primary px-4 py-2 rounded whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity text-sm pointer-events-none">Book a Session</span>
+</a>
+<style>
+        @keyframes scroll {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+    </style>
+</body></html>

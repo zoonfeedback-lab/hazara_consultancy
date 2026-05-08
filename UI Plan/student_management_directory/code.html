@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Directory | Hazara Global Consultancy Admin</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:opsz,wght@6..72,500;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#fed65b",
+                        "on-tertiary-fixed": "#1a1c19",
+                        "inverse-on-surface": "#f3f0ef",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#f0eded",
+                        "surface-container-low": "#f6f3f2",
+                        "on-surface-variant": "#44474e",
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed-variant": "#574500",
+                        "on-surface": "#1c1b1b",
+                        "surface-dim": "#dcd9d9",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#745c00",
+                        "on-tertiary-fixed-variant": "#454744",
+                        "tertiary-fixed-dim": "#c6c7c2",
+                        "on-secondary-fixed": "#241a00",
+                        "surface-container-high": "#eae7e7",
+                        "secondary": "#735c00",
+                        "tertiary": "#090b09",
+                        "outline": "#74777f",
+                        "on-primary-fixed": "#001b3d",
+                        "primary": "#000a1e",
+                        "secondary-fixed": "#ffe088",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#20221f",
+                        "primary-container": "#002147",
+                        "tertiary-fixed": "#e3e3de",
+                        "surface-tint": "#465f88",
+                        "surface": "#fcf9f8",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "inverse-primary": "#aec7f6",
+                        "outline-variant": "#c4c6cf",
+                        "primary-fixed-dim": "#aec7f6",
+                        "background": "#fcf9f8",
+                        "surface-bright": "#fcf9f8",
+                        "inverse-surface": "#313030",
+                        "primary-fixed": "#d6e3ff",
+                        "surface-variant": "#e5e2e1",
+                        "on-primary-container": "#708ab5",
+                        "on-tertiary-container": "#888985",
+                        "secondary-fixed-dim": "#e9c349",
+                        "on-background": "#1c1b1b",
+                        "on-primary": "#ffffff",
+                        "surface-container-highest": "#e5e2e1",
+                        "on-secondary": "#ffffff",
+                        "error-container": "#ffdad6"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "24px",
+                        "section-padding": "80px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "h1": ["Newsreader"],
+                        "h2": ["Newsreader"],
+                        "label-caps": ["Inter"],
+                        "h3": ["Newsreader"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "h2": ["36px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "h3": ["28px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md antialiased overflow-x-hidden">
+<!-- Sidebar Navigation -->
+<nav class="bg-surface-container-lowest dark:bg-surface-container-lowest text-primary dark:text-primary-fixed h-screen w-64 fixed left-0 top-0 overflow-y-auto border-r border-outline-variant flex flex-col py-base gap-2 z-40">
+<div class="px-gutter py-base mb-4">
+<h1 class="font-h3 text-h3 text-primary dark:text-primary-fixed">Student Portal</h1>
+<p class="text-on-surface-variant font-body-md opacity-70">Academic Excellence</p>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg mx-2 transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span>My Courses</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>Store</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span>Bookings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span>Profile</span>
+</a>
+</div>
+<div class="mt-auto px-4 py-4 flex flex-col gap-4">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg font-bold hover:bg-primary-container transition-colors text-sm">
+                Speak to Counselor
+            </button>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface mx-2 rounded-lg transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Logout</span>
+</a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen bg-surface-container-low pb-24">
+<!-- Top Navigation Bar -->
+<header class="bg-primary dark:bg-primary-container docked full-width top-0 sticky z-50 shadow-md border-b border-secondary/20 h-20">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-full">
+<div class="font-h3 text-h3 text-secondary-fixed dark:text-secondary-fixed-dim font-bold">
+                    Hazara Global Consultancy
+                </div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex gap-6 font-body-md text-body-md uppercase tracking-wider">
+<a class="text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">Services</a>
+<a class="text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">CSS/PMS Prep</a>
+<a class="text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">Bootcamps</a>
+<a class="text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">Events</a>
+<a class="text-on-primary hover:text-secondary-fixed-dim transition-colors" href="#">Store</a>
+<a class="text-secondary-fixed border-b-2 border-secondary-fixed pb-1" href="#">Portal</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-6 py-2 rounded-full font-bold transition-all duration-300 ease-in-out hover:bg-secondary-fixed">
+                        Apply Now
+                    </button>
+<span class="text-on-primary opacity-60">Urdu</span>
+</div>
+</div>
+</header>
+<!-- Student Directory Dashboard -->
+<div class="max-w-container-max mx-auto px-gutter pt-12">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
+<div>
+<h2 class="font-h1 text-h1 text-primary mb-2">Student Directory</h2>
+<p class="text-on-surface-variant font-body-lg">Manage academic records and enrollment for all Hazara Global students.</p>
+</div>
+<button class="bg-primary text-on-primary px-8 py-4 rounded font-bold shadow-md hover:translate-y-[-2px] transition-all flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="person_add">person_add</span>
+                    Manual Enrollment
+                </button>
+</div>
+<!-- Filters & Search Bar -->
+<div class="bg-surface-container-lowest p-6 rounded-xl border border-outline-variant shadow-sm mb-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
+<div class="md:col-span-5">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Search Records</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="w-full pl-10 pr-4 py-3 bg-surface border border-outline-variant rounded focus:border-primary focus:ring-0 transition-all outline-none" placeholder="Search by name, email or roll number..." type="text"/>
+</div>
+</div>
+<div class="md:col-span-3">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Academic Status</label>
+<select class="w-full py-3 bg-surface border border-outline-variant rounded focus:border-primary transition-all outline-none">
+<option>All Statuses</option>
+<option>Active</option>
+<option>Graduated</option>
+<option>Inactive</option>
+</select>
+</div>
+<div class="md:col-span-3">
+<label class="font-label-caps text-label-caps text-on-surface-variant block mb-2">Active Program</label>
+<select class="w-full py-3 bg-surface border border-outline-variant rounded focus:border-primary transition-all outline-none">
+<option>All Programs</option>
+<option>CSS Bootcamp</option>
+<option>PMS Preparation</option>
+<option>Digital Marketing</option>
+<option>IELTS Academic</option>
+</select>
+</div>
+<div class="md:col-span-1">
+<button class="w-full aspect-square flex items-center justify-center bg-surface-container-high border border-outline-variant rounded hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-primary" data-icon="filter_list">filter_list</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Data Table -->
+<div class="bg-surface-container-lowest rounded-xl border border-outline-variant shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-high border-b border-outline-variant">
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Student Name</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Email Address</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Active Enrollment</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Purchased Products</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant">Status</th>
+<th class="px-6 py-4 font-label-caps text-label-caps text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/30">
+<!-- Row 1 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a young professional male student from Hazara, Pakistan, wearing a formal navy blazer. The lighting is studio-quality, high-key, and emphasizes a clean, academic look. The background is a soft, blurred library setting, creating an atmosphere of studious ambition and success." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCu0N8InBLOWeuHbCDheCcDzjHO1se_wY7nJR3IZzOXoaOHilQuM6non0ucgJorz1v7b9DrHtzTBHEVOOiCvtsT8HdTB9uh0czoxw12S5E9480zHlV9TGYJvb36K-_dqlaOViR_oUAakPvG-8FjfTYYg40UKZJ_QTk5m4SDqg-QlOYDIw6QWNJuWcqCJlykdQXxZzS8oy4OEmiuhVMdTdXsaO3w4xg6T04--damxOnCyRggpsqNPexZYpTDdNH2xIotvFdGbqhHPFQ"/>
+<div>
+<p class="font-body-md font-bold text-primary">Ali Hamza</p>
+<p class="text-xs text-on-surface-variant">Roll: #HG2024-089</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">a.hamza@hazara.edu</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-3 rounded bg-primary-fixed/30 text-primary-fixed-dim text-xs font-bold">
+                                        CSS Bootcamp 2024
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded border-2 border-surface bg-secondary-container flex items-center justify-center text-[10px] font-bold" title="Strategy E-book">SE</div>
+<div class="w-8 h-8 rounded border-2 border-surface bg-tertiary-fixed-dim flex items-center justify-center text-[10px] font-bold" title="Current Affairs Vault">CV</div>
+<div class="w-8 h-8 rounded border-2 border-surface bg-surface-container-highest flex items-center justify-center text-[10px] font-bold">+1</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 py-1 px-2.5 rounded-full bg-green-100 text-green-800 text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span> Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A close-up portrait of a determined female student in a professional setting. She is wearing a modern hijab in a soft charcoal grey. The lighting is natural and bright, suggesting an outdoor campus environment in Abbottabad. The style is editorial and prestigious, reflecting the high standards of a global consultancy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD75RfQhaJDcZ3admOp5EG1nJqPhTyhR3080Og718-5D5v2M1-1Xmx4qUOkVs0jIVZe-PYgikjd0t97pX-2CUvf9HVSXeSWNFgbLvuOybK7eTZGHfLksf4_DzORJEhQv6MKNvDymS7Q09w3DZnJRizdVwTJ2CnAftaHt3cuetEtdH0V78YbG32G1RwU7nMV8IdWRhIXe0TFW8FKbnX5xTmii1htCxNeU7mgSG_Q3sO2AjxmtafsXM56zBQRvK8YUInlukh0Vqhv440"/>
+<div>
+<p class="font-body-md font-bold text-primary">Fatima Jinnah</p>
+<p class="text-xs text-on-surface-variant">Roll: #HG2024-112</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">fatima.j@outlook.pk</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-3 rounded bg-secondary-container/30 text-on-secondary-container text-xs font-bold">
+                                        PMS Comprehensive
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded border-2 border-surface bg-primary-fixed-dim flex items-center justify-center text-[10px] font-bold" title="English Essay Masterclass">EM</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 py-1 px-2.5 rounded-full bg-blue-100 text-blue-800 text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span> Graduated
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A portrait of a male graduate student with a confident expression. He is wearing a sharp, tailored business suit in deep navy. The scene is set in a modern, glass-walled office with soft afternoon sun filtering through. The visual style is corporate, clean, and highly professional, utilizing the brand's sophisticated gold and navy palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbdk6V_FCpd7tkVrzaCwY4VD2p_O5g0ACid-wY1e-p82sN130ghfZAktrcdXZfOAKxFoM_yCZT71rwSZmsuTyKYpjNo_eq3603i3Sj37nU6MG2GJIrZCoHghUkKQTy39ZJ6h0vltp7gAuZ7GVAo3xgyXIWXQbuJa2QtZSkJuXwFn-20dEAwr4JSC8ZN1J5DaZxzkdrtVt4WFlizprWsc0rMYotQKg6850iakB3gNXJWkkdJi1trRpyguTWTaal60_HNOC20YV1ULI"/>
+<div>
+<p class="font-body-md font-bold text-primary">Zain Abbas</p>
+<p class="text-xs text-on-surface-variant">Roll: #HG2024-045</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">z.abbas@gmail.com</td>
+<td class="px-6 py-4">
+<span class="text-on-surface-variant/50 text-xs italic">No active program</span>
+</td>
+<td class="px-6 py-4">
+<span class="text-on-surface-variant/50 text-xs">—</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 py-1 px-2.5 rounded-full bg-gray-100 text-gray-800 text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-gray-500"></span> Inactive
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-surface-container transition-colors group">
+<td class="px-6 py-4">
+<div class="flex items-center gap-3">
+<img class="w-10 h-10 rounded-full object-cover" data-alt="A professional headshot of an aspiring female scholar. Her attire is professional yet culturally relevant, featuring a beige blazer. She is smiling confidently in a minimalist architectural space that uses bright white surfaces and dark metal accents. The mood is aspirational and modern, evoking a sense of global academic readiness." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXBj-oeSR6cY9Qd0lkOpiE7Ki1C6zDJTXz3b1ymHLX9QYLlHVNPsxNaprA42qsOYDZNckqt58DmLECclErELy4V_vdeHf33YZ9jkXruZJ_wKweRreuIvDgoN4fXxPxVbv3XEuAghWn0mA24uhYTn9NGNFdG_I5FWtcwiGmHZx2AhcbeuNmCKzPULyNW1QE_3tVCidrhjjEcsY23IQrlys1qnIEe7dNKPvos3PLBz7z3eKOOcN9B-FES4vTEZNeJK0LCWS8OYiwRKU"/>
+<div>
+<p class="font-body-md font-bold text-primary">Sana Malik</p>
+<p class="text-xs text-on-surface-variant">Roll: #HG2024-201</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-4 text-on-surface-variant">sana.malik@hazara.edu</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 py-1 px-3 rounded bg-primary-fixed/30 text-primary-fixed-dim text-xs font-bold">
+                                        CSS Bootcamp 2024
+                                    </span>
+</td>
+<td class="px-6 py-4">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded border-2 border-surface bg-secondary-container flex items-center justify-center text-[10px] font-bold" title="Past Papers Analysis">PP</div>
+<div class="w-8 h-8 rounded border-2 border-surface bg-tertiary-fixed-dim flex items-center justify-center text-[10px] font-bold" title="Current Affairs Vault">CV</div>
+</div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1 py-1 px-2.5 rounded-full bg-green-100 text-green-800 text-xs font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-green-600"></span> Active
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="p-2 text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination Footer -->
+<div class="px-6 py-4 bg-surface border-t border-outline-variant flex flex-col md:flex-row md:items-center justify-between gap-4">
+<p class="text-sm text-on-surface-variant">
+                        Showing <span class="font-bold text-primary">1 - 4</span> of <span class="font-bold text-primary">1,280</span> students
+                    </p>
+<div class="flex items-center gap-2">
+<button class="p-2 rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors disabled:opacity-50" disabled="">
+<span class="material-symbols-outlined" data-icon="chevron_left">chevron_left</span>
+</button>
+<div class="flex gap-1">
+<button class="w-10 h-10 rounded bg-primary text-on-primary font-bold">1</button>
+<button class="w-10 h-10 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors">2</button>
+<button class="w-10 h-10 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors">3</button>
+<span class="w-10 h-10 flex items-center justify-center text-on-surface-variant">...</span>
+<button class="w-10 h-10 rounded hover:bg-surface-container-high text-on-surface-variant transition-colors">32</button>
+</div>
+<button class="p-2 rounded border border-outline-variant text-on-surface-variant hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Stats Overview (Asymmetric Layout) -->
+<div class="mt-12 grid grid-cols-1 md:grid-cols-4 gap-gutter">
+<div class="bg-primary text-on-primary p-8 rounded-xl flex flex-col justify-between h-48 border-b-4 border-secondary">
+<span class="material-symbols-outlined text-4xl text-secondary-fixed" data-icon="group">group</span>
+<div>
+<p class="font-label-caps text-label-caps opacity-70">Total Enrollments</p>
+<h3 class="font-h2 text-h2">1,284</h3>
+</div>
+</div>
+<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant flex flex-col justify-between h-48">
+<span class="material-symbols-outlined text-4xl text-primary" data-icon="auto_awesome">auto_awesome</span>
+<div>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Success Rate</p>
+<h3 class="font-h2 text-h2 text-primary">94.2%</h3>
+</div>
+</div>
+<div class="md:col-span-2 bg-secondary-container p-8 rounded-xl flex flex-col justify-between h-48 shadow-lg">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-4xl text-on-secondary-container" data-icon="trending_up">trending_up</span>
+<span class="bg-on-secondary-container/10 px-3 py-1 rounded-full text-xs font-bold text-on-secondary-container">+12% this month</span>
+</div>
+<div>
+<p class="font-label-caps text-label-caps text-on-secondary-container">Revenue from Digital Store</p>
+<h3 class="font-h2 text-h2 text-on-secondary-container">PKR 4.2M</h3>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer Component -->
+<footer class="ml-64 bg-primary dark:bg-tertiary-container text-on-primary dark:text-on-tertiary-container full-width py-section-padding border-t-4 border-secondary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile">
+<div class="col-span-1 md:col-span-1">
+<h2 class="font-h2 text-h2 text-secondary-fixed mb-4">Hazara Global</h2>
+<p class="font-body-md opacity-80 leading-relaxed">Empowering students from Hazara to conquer global challenges through world-class academic prep.</p>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps mb-6 text-secondary-fixed">Resources</h4>
+<ul class="flex flex-col gap-4 font-body-md">
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">About Us</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">Privacy Policy</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">Terms of Service</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps mb-6 text-secondary-fixed">Support</h4>
+<ul class="flex flex-col gap-4 font-body-md">
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">WhatsApp Support</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-transform inline-block" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-caps text-label-caps mb-6 text-secondary-fixed">Global Presence</h4>
+<p class="font-body-md opacity-80">© 2024 Hazara Global Consultancy. Abbottabad, Pakistan.</p>
+<div class="flex gap-4 mt-6">
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary-fixed transition-colors" data-icon="public">public</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary-fixed transition-colors" data-icon="alternate_email">alternate_email</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-secondary-fixed transition-colors" data-icon="distance">distance</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

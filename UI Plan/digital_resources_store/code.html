@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;family=Newsreader:ital,wght@0,500;0,600;1,500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .serif-text { font-family: 'Newsreader', serif; }
+        .body-text { font-family: 'Inter', sans-serif; }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#fed65b",
+                    "on-tertiary-fixed": "#1a1c19",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#f0eded",
+                    "surface-container-low": "#f6f3f2",
+                    "on-surface-variant": "#44474e",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-surface": "#1c1b1b",
+                    "surface-dim": "#dcd9d9",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#745c00",
+                    "on-tertiary-fixed-variant": "#454744",
+                    "tertiary-fixed-dim": "#c6c7c2",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-container-high": "#eae7e7",
+                    "secondary": "#735c00",
+                    "tertiary": "#090b09",
+                    "outline": "#74777f",
+                    "on-primary-fixed": "#001b3d",
+                    "primary": "#000a1e",
+                    "secondary-fixed": "#ffe088",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#20221f",
+                    "primary-container": "#002147",
+                    "tertiary-fixed": "#e3e3de",
+                    "surface-tint": "#465f88",
+                    "surface": "#fcf9f8",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "inverse-primary": "#aec7f6",
+                    "outline-variant": "#c4c6cf",
+                    "primary-fixed-dim": "#aec7f6",
+                    "background": "#fcf9f8",
+                    "surface-bright": "#fcf9f8",
+                    "inverse-surface": "#313030",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-variant": "#e5e2e1",
+                    "on-primary-container": "#708ab5",
+                    "on-tertiary-container": "#888985",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-background": "#1c1b1b",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "section-padding": "80px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "h1": ["Newsreader"],
+                    "h2": ["Newsreader"],
+                    "label-caps": ["Inter"],
+                    "h3": ["Newsreader"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "h2": ["36px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "h3": ["28px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- Top Navigation Bar -->
+<nav class="bg-primary dark:bg-primary-container docked full-width top-0 sticky z-50 border-b border-secondary/20 shadow-md">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="font-h3 text-h3 text-secondary-fixed dark:text-secondary-fixed-dim font-bold tracking-tight">
+                Hazara Global Consultancy
+            </div>
+<div class="hidden md:flex gap-gutter items-center">
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-primary/80 hover:text-on-primary transition-colors" href="#">Services</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-primary/80 hover:text-on-primary transition-colors" href="#">CSS/PMS Prep</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-primary/80 hover:text-on-primary transition-colors" href="#">Bootcamps</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-secondary-fixed border-b-2 border-secondary-fixed pb-1" href="#">Store</a>
+<a class="font-body-md text-body-md uppercase tracking-wider text-on-primary/80 hover:text-on-primary transition-colors" href="#">Portal</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-4 text-on-primary">
+<button class="flex items-center hover:text-secondary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="flex items-center hover:text-secondary-fixed transition-colors">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+<div class="h-6 w-[1px] bg-on-primary/20"></div>
+<button class="text-secondary-fixed font-label-caps uppercase text-label-caps">Urdu</button>
+</div>
+<button class="hidden lg:block bg-secondary-container text-on-secondary-container px-6 py-2 rounded-lg font-bold hover:bg-secondary-fixed transition-all">
+                    Apply Now
+                </button>
+</div>
+</div>
+</nav>
+<!-- Header Section -->
+<header class="bg-surface-container-low pt-section-padding pb-gutter border-b border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-gutter text-center md:text-left">
+<div class="inline-block bg-secondary-container/20 text-secondary border border-secondary/30 px-3 py-1 rounded-full text-label-caps font-label-caps mb-4">
+                PREMIUM DIGITAL LIBRARY
+            </div>
+<h1 class="font-h1 text-h1 text-primary mb-4 serif-text">Academic Resource Store</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+                Elevate your competitive examination preparation with the best notes, recorded lectures, and research materials curated by Hazara's top academicians.
+            </p>
+</div>
+</header>
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-gutter py-section-padding">
+<!-- Filter Bar -->
+<div class="flex flex-wrap items-center justify-between mb-12 gap-4">
+<div class="flex gap-2">
+<span class="bg-primary text-on-primary px-4 py-1.5 rounded-full text-sm font-medium">All Resources</span>
+<span class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full text-sm font-medium hover:bg-surface-variant cursor-pointer transition-colors">Lectures</span>
+<span class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full text-sm font-medium hover:bg-surface-variant cursor-pointer transition-colors">Study Notes</span>
+<span class="bg-surface-container-high text-on-surface-variant px-4 py-1.5 rounded-full text-sm font-medium hover:bg-surface-variant cursor-pointer transition-colors">Past Papers</span>
+</div>
+<div class="relative group">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-10 pr-4 py-2 border border-outline-variant bg-white rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none w-64 transition-all" placeholder="Search resources..." type="text"/>
+</div>
+</div>
+<!-- Store Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Item 1: CSS Lectures -->
+<div class="bg-white border border-outline-variant/50 rounded-xl overflow-hidden group hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A sophisticated professional studio setting for educational video recording. A high-quality microphone stands in the foreground with a blurry background of multi-monitor setups displaying complex political maps of the world. The lighting is focused and warm, creating an atmosphere of deep academic study and expert analysis. The overall color palette is a mix of deep navy and golden highlights." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAE1T_7xscLFkQKze6ploduojkU-Xm0hDzoAboEHbGtRwfqGVYlGlMLuVuqK4pLUcTpvS76uhq_60L2RW7g7YGdHSMGCmiRsHvuQDjWNFBOB4hHYiHQVCheSPy_WwHLVdB-Ohj9E9GrReuO5Zv0eGZMXNoSS7URjWroGt-uDuX0JKaTqhVyx87au_nJnd9HtIKiY8zRDo9r3fxc8x8IQ6yNkmGHhq6yvs1AXnkKJtROUQs7pM_zEFSBfVel68V6_Um2ZlkFYnnqBP0"/>
+<div class="absolute top-3 right-3 bg-primary/90 text-white px-3 py-1 rounded text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="play_circle">play_circle</span>
+                        VIDEO SERIES
+                    </div>
+</div>
+<div class="p-6">
+<h3 class="font-h3 text-h3 serif-text text-primary mb-2">CSS Current Affairs Package</h3>
+<p class="text-on-surface-variant text-body-md mb-6 line-clamp-2">
+                        Comprehensive recorded lecture series covering 2024 global shifts, strategic regional analysis, and high-scoring answer techniques.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="text-label-caps font-label-caps text-outline uppercase tracking-widest">Price</span>
+<span class="text-2xl font-bold text-primary">Rs. 8,500</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold flex items-center gap-2 hover:bg-primary-container transition-colors active:scale-95 duration-200">
+                            Buy Now
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 2: Premium Study Notes -->
+<div class="bg-white border border-outline-variant/50 rounded-xl overflow-hidden group hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Close up of high-quality hand-crafted academic notes on premium paper. The pages feature elegant serif typography and clean organizational layouts with gold ink accents for headings. A classic fountain pen rests beside the stack of papers on a dark wooden desk, illuminated by soft morning sunlight. The mood is one of prestigious scholarship and meticulous intellectual preparation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzkJPBGCNU8chkdQUY2rH8I93XRQDyDBQCSvlfuoTIj_LKHTrQ7dlHfqoEzT2Q9fqnZdWUnBXnL7uTnn9IWydLC84MZa9eKbrU7K3dM0zLYffLARIpXa5J7ECa0ROmm7jzauCbfMTvYWyBBmhfTHlr-oolw0gq3nesgrvHAfDgOW0wkKLfl9cZfmYREMIz-y6-BsjlHqZCDYjdB67sGkBreqbEKMmg5mlrAppQuGIzmap1JngbYtoRAlWo3E_9LsEhQsLBT_Tt0P4"/>
+<div class="absolute top-3 right-3 bg-secondary text-white px-3 py-1 rounded text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="description">description</span>
+                        PREMIUM PDF
+                    </div>
+</div>
+<div class="p-6">
+<h3 class="font-h3 text-h3 serif-text text-primary mb-2">Islamic Studies &amp; Pakistan Affairs</h3>
+<p class="text-on-surface-variant text-body-md mb-6 line-clamp-2">
+                        Hand-crafted, structured notes with updated data, map diagrams, and critical analysis perspectives for maximum marks.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="text-label-caps font-label-caps text-outline uppercase tracking-widest">Price</span>
+<span class="text-2xl font-bold text-primary">Rs. 4,200</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold flex items-center gap-2 hover:bg-primary-container transition-colors active:scale-95 duration-200">
+                            Buy Now
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 3: Solved Past Papers -->
+<div class="bg-white border border-outline-variant/50 rounded-xl overflow-hidden group hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300">
+<div class="relative aspect-video overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A collection of leather-bound academic journals and exam papers neatly arranged in a library setting. The focus is on a document with examiner comments written in the margins. The setting is a quiet, prestigious university library with bookshelves filled with old volumes in the background. Soft, diffused lighting highlights the texture of the paper and the seriousness of the academic environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALBwMcLtcgNnIt1VaT9sKU7tpJ_nDcp4_MCZiWuJb0igNe93GgN-cE1-5uZ4HyTLmXj84pZxxMjA3FcdkN9NL9RoVVEU6vM5l5VrZaby1Bv8N-6cnoLSydAlc2rRdkawl0asU_En_uqney6aK9C01zljfmyrjFOgYyPsYI3c6ecKAttxOPIhD7iHMML0IcoJ3kv7ULaIR5ZdT19afmBnllT8HdO4ZBPLOATI3pfGszw8OGFJospzuq3c3qRDbF7nBVdComYOsCyso"/>
+<div class="absolute top-3 right-3 bg-tertiary text-white px-3 py-1 rounded text-xs font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]" data-icon="history_edu">history_edu</span>
+                        EXAM GUIDE
+                    </div>
+</div>
+<div class="p-6">
+<h3 class="font-h3 text-h3 serif-text text-primary mb-2">10-Year Solved Collection</h3>
+<p class="text-on-surface-variant text-body-md mb-6 line-clamp-2">
+                        Detailed solutions for CSS compulsory subjects with exclusive examiner feedback and model outlines for every question.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="text-label-caps font-label-caps text-outline uppercase tracking-widest">Price</span>
+<span class="text-2xl font-bold text-primary">Rs. 5,900</span>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-bold flex items-center gap-2 hover:bg-primary-container transition-colors active:scale-95 duration-200">
+                            Buy Now
+                        </button>
+</div>
+</div>
+</div>
+<!-- Item 4: General Ability Math -->
+<div class="bg-white border border-outline-variant/50 rounded-xl overflow-hidden group hover:shadow-[0_12px_32px_rgba(0,33,71,0.08)] transition-all duration-300">
+<div class="relative aspect-video overflow-hidden">
+<div class="w-full h-full bg-surface-container flex items-center justify-center p-8">
+<div class="text-center">
+<span class="material-symbols-outlined text-primary text-6xl mb-2" data-icon="calculate">calculate</span>
+<p class="text-label-caps font-bold text-primary">Coming Soon</p>
+</div>
+</div>
+</div>
+<div class="p-6">
+<h3 class="font-h3 text-h3 serif-text text-primary mb-2">General Ability Masterclass</h3>
+<p class="text-on-surface-variant text-body-md mb-6 line-clamp-2">
+                        Logical reasoning and quantitative analysis modules specifically designed for CSS/PMS screening tests.
+                    </p>
+<div class="flex items-center justify-between mt-auto">
+<div class="flex flex-col">
+<span class="text-label-caps font-label-caps text-outline uppercase tracking-widest text-xs">Notify me</span>
+</div>
+<button class="bg-surface-container-high text-on-surface-variant px-6 py-2.5 rounded-lg font-bold flex items-center gap-2 cursor-not-allowed">
+                            Pre-Order
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Trust Badges Section -->
+<div class="mt-section-padding border-t border-outline-variant/30 pt-16">
+<h2 class="font-h2 text-h2 text-center serif-text text-primary mb-12">The Hazara Quality Guarantee</h2>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter text-center">
+<div class="p-6">
+<div class="w-16 h-16 bg-secondary-container/30 text-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="verified">verified</span>
+</div>
+<h4 class="font-h3 text-xl font-bold mb-2">Expert Curated</h4>
+<p class="text-on-surface-variant">Every resource is reviewed and verified by CSP officers and top-tier academics from our panel.</p>
+</div>
+<div class="p-6">
+<div class="w-16 h-16 bg-secondary-container/30 text-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="update">update</span>
+</div>
+<h4 class="font-h3 text-xl font-bold mb-2">Regular Updates</h4>
+<p class="text-on-surface-variant">Purchase once and receive free digital updates for the current academic session as syllabus changes occur.</p>
+</div>
+<div class="p-6">
+<div class="w-16 h-16 bg-secondary-container/30 text-secondary rounded-full flex items-center justify-center mx-auto mb-6">
+<span class="material-symbols-outlined text-3xl" data-icon="support_agent">support_agent</span>
+</div>
+<h4 class="font-h3 text-xl font-bold mb-2">Academic Support</h4>
+<p class="text-on-surface-variant">Get access to exclusive Q&amp;A sessions with content creators for clarifying complex concepts.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-tertiary-container full-width py-section-padding border-t-4 border-secondary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile">
+<div class="md:col-span-1">
+<div class="font-h2 text-h2 text-secondary-fixed mb-6 serif-text">Hazara Global</div>
+<p class="text-on-primary/70 mb-6">Empowering students through premium educational consultancy and academic resources since 2018.</p>
+<div class="flex gap-4">
+<a class="text-on-primary hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined" data-icon="public">public</span></a>
+<a class="text-on-primary hover:text-secondary-fixed transition-colors" href="#"><span class="material-symbols-outlined" data-icon="forum">forum</span></a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Quick Links</h5>
+<ul class="space-y-4">
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">About Us</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Success Stories</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Consultancy Portal</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Support</h5>
+<ul class="space-y-4">
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">WhatsApp Support</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Terms of Service</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Help Center</a></li>
+<li><a class="text-on-primary/80 hover:text-on-primary hover:translate-x-1 transition-all inline-block" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 uppercase tracking-widest text-sm">Newsletter</h5>
+<p class="text-on-primary/70 mb-4">Subscribe for academic tips and exam updates.</p>
+<div class="flex">
+<input class="bg-white/10 border border-white/20 text-white px-4 py-2 rounded-l outline-none w-full focus:bg-white/20 transition-all" placeholder="Email" type="email"/>
+<button class="bg-secondary-container text-on-secondary-container px-4 py-2 rounded-r font-bold">Join</button>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-margin-mobile mt-16 pt-8 border-t border-white/10 text-center text-on-primary/50 text-sm">
+            © 2024 Hazara Global Consultancy. Abbottabad, Pakistan. All Rights Reserved.
+        </div>
+</footer>
+</body></html>

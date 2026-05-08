@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,400..800;1,6..72,400..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-container": "#fed65b",
+                    "on-tertiary-fixed": "#1a1c19",
+                    "inverse-on-surface": "#f3f0ef",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container": "#f0eded",
+                    "surface-container-low": "#f6f3f2",
+                    "on-surface-variant": "#44474e",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-surface": "#1c1b1b",
+                    "surface-dim": "#dcd9d9",
+                    "error": "#ba1a1a",
+                    "on-secondary-container": "#745c00",
+                    "on-tertiary-fixed-variant": "#454744",
+                    "tertiary-fixed-dim": "#c6c7c2",
+                    "on-secondary-fixed": "#241a00",
+                    "surface-container-high": "#eae7e7",
+                    "secondary": "#735c00",
+                    "tertiary": "#090b09",
+                    "outline": "#74777f",
+                    "on-primary-fixed": "#001b3d",
+                    "primary": "#000a1e",
+                    "secondary-fixed": "#ffe088",
+                    "on-error": "#ffffff",
+                    "tertiary-container": "#20221f",
+                    "primary-container": "#002147",
+                    "tertiary-fixed": "#e3e3de",
+                    "surface-tint": "#465f88",
+                    "surface": "#fcf9f8",
+                    "on-primary-fixed-variant": "#2d476f",
+                    "inverse-primary": "#aec7f6",
+                    "outline-variant": "#c4c6cf",
+                    "primary-fixed-dim": "#aec7f6",
+                    "background": "#fcf9f8",
+                    "surface-bright": "#fcf9f8",
+                    "inverse-surface": "#313030",
+                    "primary-fixed": "#d6e3ff",
+                    "surface-variant": "#e5e2e1",
+                    "on-primary-container": "#708ab5",
+                    "on-tertiary-container": "#888985",
+                    "secondary-fixed-dim": "#e9c349",
+                    "on-background": "#1c1b1b",
+                    "on-primary": "#ffffff",
+                    "surface-container-highest": "#e5e2e1",
+                    "on-secondary": "#ffffff",
+                    "error-container": "#ffdad6"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "base": "8px",
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "gutter": "24px",
+                    "section-padding": "80px"
+            },
+            "fontFamily": {
+                    "body-lg": ["Inter"],
+                    "h1": ["Newsreader"],
+                    "h2": ["Newsreader"],
+                    "label-caps": ["Inter"],
+                    "h3": ["Newsreader"],
+                    "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "h1": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                    "h2": ["36px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "h3": ["28px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .custom-shadow {
+            box-shadow: 0 12px 32px rgba(0, 33, 71, 0.08);
+        }
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #735c00;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #fed65b;
+        }
+    </style>
+</head>
+<body class="bg-background font-body-md text-on-background">
+<!-- Admin Console Shell -->
+<div class="flex min-h-screen">
+<!-- SideNavBar (Shared Component) -->
+<aside class="bg-surface-container-lowest h-screen w-64 fixed left-0 top-0 overflow-y-auto border-r border-outline-variant flex flex-col py-base gap-2 z-40">
+<div class="px-6 py-8">
+<h1 class="font-h3 text-h3 text-primary font-bold">Student Portal</h1>
+<p class="text-on-surface-variant font-label-caps tracking-widest mt-1">Academic Excellence</p>
+</div>
+<nav class="flex-grow">
+<ul class="space-y-1">
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-body-md">Dashboard</span>
+</a>
+</li>
+<!-- Active State: My Courses maps to Program Manager intent -->
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-secondary-container text-on-secondary-container font-bold rounded-lg transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="school">school</span>
+<span class="font-body-md">My Courses</span>
+</a>
+</li>
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span class="font-body-md">Store</span>
+</a>
+</li>
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_month">calendar_month</span>
+<span class="font-body-md">Bookings</span>
+</a>
+</li>
+<li class="mx-2">
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface rounded-lg transition-all scale-95 active:scale-100" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-body-md">Profile</span>
+</a>
+</li>
+</ul>
+</nav>
+<div class="px-4 mt-auto mb-6">
+<button class="w-full bg-primary-container text-on-primary-container py-3 rounded-lg font-bold hover:bg-primary transition-colors flex items-center justify-center gap-2">
+                    Speak to Counselor
+                </button>
+<button class="w-full flex items-center gap-3 px-4 py-3 mt-4 text-on-surface-variant hover:bg-error-container hover:text-on-error-container rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-body-md">Logout</span>
+</button></div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 flex flex-col">
+<!-- Top Header Action Bar -->
+<header class="bg-surface border-b border-outline-variant sticky top-0 z-30 px-gutter h-24 flex items-center justify-between">
+<div>
+<h2 class="font-h2 text-h2 text-primary">Program &amp; Bootcamp Manager</h2>
+<nav class="flex items-center gap-2 mt-1">
+<span class="text-on-surface-variant text-sm">Console</span>
+<span class="material-symbols-outlined text-sm text-outline">chevron_right</span>
+<span class="text-secondary font-semibold text-sm">Programs</span>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group">
+<button class="bg-primary text-secondary-fixed px-6 py-3 rounded-DEFAULT font-bold flex items-center gap-2 hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined" data-icon="add">add</span>
+                            Add New Program
+                        </button>
+</div>
+</div>
+</header>
+<!-- Dashboard Content -->
+<section class="p-gutter max-w-container-max w-full mx-auto">
+<!-- Filters & Controls -->
+<div class="bg-white p-6 rounded-lg custom-shadow flex flex-col md:flex-row md:items-center justify-between gap-6 mb-gutter border border-outline-variant/30">
+<div class="flex items-center gap-4 overflow-x-auto pb-2 md:pb-0">
+<button class="px-4 py-2 bg-secondary-container text-on-secondary-container font-bold rounded-full text-sm whitespace-nowrap">All Programs (24)</button>
+<button class="px-4 py-2 hover:bg-surface-container-high text-on-surface-variant rounded-full text-sm transition-all whitespace-nowrap">CSS/PMS Preparation</button>
+<button class="px-4 py-2 hover:bg-surface-container-high text-on-surface-variant rounded-full text-sm transition-all whitespace-nowrap">Skill Bootcamps</button>
+<button class="px-4 py-2 hover:bg-surface-container-high text-on-surface-variant rounded-full text-sm transition-all whitespace-nowrap">Academic Store</button>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-on-surface-variant font-label-caps">Sort By:</span>
+<select class="border border-outline-variant bg-surface-container-lowest px-4 py-2 rounded-lg text-sm focus:border-primary focus:ring-1 focus:ring-primary outline-none">
+<option>Most Popular</option>
+<option>Starting Soon</option>
+<option>Drafts First</option>
+<option>Alphabetical</option>
+</select>
+<button class="p-2 text-on-surface-variant hover:bg-surface-container-high rounded-lg transition-all">
+<span class="material-symbols-outlined" data-icon="search">search</span>
+</button>
+</div>
+</div>
+<!-- Program Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Program Card 1: Active -->
+<div class="bg-white border border-outline-variant/40 rounded-lg overflow-hidden flex flex-col custom-shadow group hover:border-secondary transition-all">
+<div class="h-48 relative overflow-hidden">
+<img alt="CSS Prep 2024" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A brightly lit, sophisticated lecture hall in an upscale corporate training center. Modern architectural lines, polished wood accents, and high-end digital screens set a professional academic tone. The atmosphere is focused and prestigious, utilizing a professional navy and gold accent palette consistent with a global consultancy brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAtrtIgzxL1HzbwyrPNyx5PY6R54p3uolAgyALeXU8RAEi3Yh9wDCrrraxJK6ZcckcAmrD2rS6NoHwXOIVSu24oQt8_giovSqa1Suc8bXNsi_y4LUSKjFoCnWteb5bFX7CNPUgj9XTE_A14elpas_cauoFRwR-TCf7Xsijhat8ESGH6egmYllt2j5yVVhMM7ZIejOcVmaZrFUsvSHzZe-RKXxvLg_BOX2DlQqrNseZMfNx4tj7-3-yQb3alMyTWFRsJehZrGRf0M_M"/>
+<div class="absolute top-4 left-4">
+<span class="bg-primary/90 text-secondary-fixed px-3 py-1 text-xs font-bold rounded-full backdrop-blur-sm">CSS/PMS</span>
+</div>
+</div>
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-xl text-primary leading-tight">CSS Comprehensive Prep 2024 (Batch A)</h3>
+<div class="flex items-center">
+<div class="relative inline-block w-10 mr-2 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-outline appearance-none cursor-pointer transition-all duration-300" id="toggle1" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="toggle1"></label>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Live</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="group">group</span>
+<span class="text-sm">482 Enrolled</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="event">event</span>
+<span class="text-sm">Starts Nov 15</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-DEFAULT font-bold hover:bg-primary-container transition-all">Edit Details</button>
+<button class="p-2 border border-outline-variant text-primary hover:bg-surface-container-high rounded-DEFAULT">
+<span class="material-symbols-outlined" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Program Card 2: Draft -->
+<div class="bg-white border border-outline-variant/40 rounded-lg overflow-hidden flex flex-col custom-shadow group hover:border-secondary transition-all">
+<div class="h-48 relative overflow-hidden grayscale">
+<img alt="Python Bootcamp" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A collaborative workspace with students working on high-tech laptops in a bright, airy modern office setting. Large windows allow natural daylight to flood the room, emphasizing a clean, light-mode aesthetic. The visual style is editorial and corporate, representing a high-caliber skill bootcamp with navy blue and metallic gold design elements." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBEdRKAMdv8YmmxDmijyelABLFCYBp0iKri9isZf0CfkaqHWZ9EV6skdPbwP9vAjcA_eyXvqPrYcm7WuDDJfCujzmywPRw0ScKZ9IOw4OkkNBcMp-uWFTpi9gEzHDM8wQSE1Algn2hW42Mhluj8bCCy5K_CcuAbm3EJislLPlrcBKN2NlA9Qu_uSnOsPVbgvZ8j3RiOBJPkNL7oEXDdceO4tDTERJNlWD06Tf5uihmdQvm1-KMsmhliRQFlDTOUFSOjZRvd3CxS8OU"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+<div class="absolute top-4 left-4">
+<span class="bg-surface-container-highest text-on-surface-variant px-3 py-1 text-xs font-bold rounded-full">BOOTCAMP</span>
+</div>
+<div class="absolute top-4 right-4">
+<span class="bg-white/90 text-primary px-3 py-1 text-xs font-bold rounded-full border border-primary/20">DRAFT</span>
+</div>
+</div>
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-xl text-primary leading-tight">Advanced Data Science &amp; AI Bootcamp</h3>
+<div class="flex items-center">
+<div class="relative inline-block w-10 mr-2 align-middle select-none">
+<input class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-outline appearance-none cursor-pointer transition-all duration-300" id="toggle2" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="toggle2"></label>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-outline">Offline</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="group">group</span>
+<span class="text-sm">0 Enrolled</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="update">update</span>
+<span class="text-sm">Drafted 2h ago</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-DEFAULT font-bold hover:bg-primary-container transition-all">Resume Editing</button>
+<button class="p-2 border border-outline-variant text-primary hover:bg-surface-container-high rounded-DEFAULT">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Program Card 3: Featured -->
+<div class="bg-white border-2 border-secondary rounded-lg overflow-hidden flex flex-col custom-shadow group transition-all relative">
+<div class="absolute -right-12 top-6 bg-secondary text-on-secondary py-1 px-12 rotate-45 z-10 font-label-caps text-[10px] shadow-sm">FEATURED</div>
+<div class="h-48 relative overflow-hidden">
+<img alt="IELTS Masters" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A classic, prestigious university library with tall wooden bookshelves and green glass reading lamps. The lighting is warm and intellectual, creating a sense of history and academic authority. The image has a rich, deep color profile with navy blue shadows and golden highlight glows, perfectly capturing the aspirational growth mission of a premier educational consultancy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAinuDa4th5q5HhknN4UbwkGV0Y3EcTnMtUPOQH4aYV9_XzMlXk4zXSlbOieVGycpX223KTl6r1Y5NIpLz-iyu7Jbn4IEggzSSwOuaKZjw7Lw6UfaTk-xgYp9Y2GK4UsQLTRMJ6Ex1U2zhdBU-AZFC5kQ1iykBt5FSBh2rLqoo5-qfDfNIzrqAD57A3spOmvhYi4LzhUAAjVcw7C45RSr7CMXOsZe_lwsfnOjdG_ZULpZKDGBE6dvRDxUypeB9-bn_wT1IRdh2XfZQ"/>
+<div class="absolute top-4 left-4">
+<span class="bg-secondary text-on-secondary px-3 py-1 text-xs font-bold rounded-full">ENGLISH</span>
+</div>
+</div>
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-xl text-primary leading-tight">IELTS Masters: 8.5 Band Guarantee</h3>
+<div class="flex items-center">
+<div class="relative inline-block w-10 mr-2 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-outline appearance-none cursor-pointer transition-all duration-300" id="toggle3" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="toggle3"></label>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Live</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="group" style="font-variation-settings: 'FILL' 1;">group</span>
+<span class="text-sm font-bold text-primary">1,240 Enrolled</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="bolt">bolt</span>
+<span class="text-sm">High Demand</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-DEFAULT font-bold hover:bg-primary-container transition-all">Edit Details</button>
+<button class="p-2 border border-outline-variant text-primary hover:bg-surface-container-high rounded-DEFAULT">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Program Card 4: Store Item -->
+<div class="bg-white border border-outline-variant/40 rounded-lg overflow-hidden flex flex-col custom-shadow group hover:border-secondary transition-all">
+<div class="h-48 relative overflow-hidden">
+<img alt="CSS Books" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A high-end studio shot of premium academic textbooks and curated stationery neatly arranged on a minimalist white desk. The lighting is soft and high-key, highlighting the clean textures of the paper and professional branding. The aesthetic is modern and corporate, using the brand's primary navy and secondary gold tones to evoke a sense of quality and trust." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEqfY9ZxVcenVHZ6xYULNQLsJ-MfoqoFT2jgt4G4YhFyDuPSTbUB9myf5BU60QjcuZyHiFCuiMy9wq1zt-0W9aCdF51deZ8gh5ZC71kPBygA4R1qpFhIGjVwp3VNHs31UUdDLoCp1djTcQbBmktW-Fr95WGIxa_YZn-1rlw1QhFqvSUVWiExjDd1cS2Ca0n-x5Q9ejX4SWqe71gID0WWerWeCdZzZ-AMgmo8qbWaXjpHP0DjIRC9taj-tUh5TV7JQsHtr9LxbSlnk"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-container px-3 py-1 text-xs font-bold rounded-full">STORE</span>
+</div>
+</div>
+<div class="p-6 flex-grow">
+<div class="flex justify-between items-start mb-4">
+<h3 class="font-h3 text-xl text-primary leading-tight">CSS Essential Reading Bundle (2024 Edition)</h3>
+<div class="flex items-center">
+<div class="relative inline-block w-10 mr-2 align-middle select-none">
+<input checked="" class="toggle-checkbox absolute block w-5 h-5 rounded-full bg-white border-4 border-outline appearance-none cursor-pointer transition-all duration-300" id="toggle4" name="toggle" type="checkbox"/>
+<label class="toggle-label block overflow-hidden h-5 rounded-full bg-surface-container-highest cursor-pointer" for="toggle4"></label>
+</div>
+<span class="text-[10px] font-bold uppercase tracking-wider text-secondary">Live</span>
+</div>
+</div>
+<div class="flex items-center gap-4 mb-6">
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="inventory_2">inventory_2</span>
+<span class="text-sm">125 In Stock</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant">
+<span class="material-symbols-outlined text-lg" data-icon="shopping_bag">shopping_bag</span>
+<span class="text-sm">210 Sales</span>
+</div>
+</div>
+<div class="flex items-center gap-2 mt-auto">
+<button class="flex-1 bg-primary text-on-primary py-2 rounded-DEFAULT font-bold hover:bg-primary-container transition-all">Edit Details</button>
+<button class="p-2 border border-outline-variant text-primary hover:bg-surface-container-high rounded-DEFAULT">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Placeholder/Empty State -->
+<div class="bg-surface-container border-2 border-dashed border-outline-variant/60 rounded-lg flex flex-col items-center justify-center p-gutter min-h-[400px] text-center">
+<div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-4 custom-shadow">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="add_circle">add_circle</span>
+</div>
+<h4 class="font-h3 text-primary text-lg mb-2">Create New Entry</h4>
+<p class="text-on-surface-variant text-sm mb-6 max-w-[200px]">Launch a new academic program or skill bootcamp for your students.</p>
+<button class="text-primary font-bold border-b-2 border-secondary-container hover:text-secondary transition-colors">Start Designing</button>
+</div>
+</div>
+<!-- Pagination/Footer Stats -->
+<div class="mt-section-padding flex flex-col md:flex-row items-center justify-between border-t border-outline-variant pt-8">
+<p class="text-on-surface-variant text-sm mb-4 md:mb-0">Showing 1 to 4 of 24 active programs in Hazara Global Consultancy</p>
+<div class="flex items-center gap-2">
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container-high transition-all text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<button class="w-10 h-10 bg-primary text-on-primary rounded-lg font-bold">1</button>
+<button class="w-10 h-10 hover:bg-surface-container-high text-primary rounded-lg font-bold transition-all">2</button>
+<button class="w-10 h-10 hover:bg-surface-container-high text-primary rounded-lg font-bold transition-all">3</button>
+<button class="p-2 border border-outline-variant rounded-lg hover:bg-surface-container-high transition-all text-primary">
+<span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer (Shared Component Integration) -->
+<footer class="mt-auto bg-primary full-width py-section-padding border-t-4 border-secondary">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-margin-mobile">
+<div class="md:col-span-1">
+<h2 class="font-h2 text-h2 text-secondary-fixed mb-4">Hazara Global</h2>
+<p class="text-on-primary/80 text-sm leading-relaxed">
+                            © 2024 Hazara Global Consultancy. Abbottabad, Pakistan.
+                        </p>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-secondary-fixed font-bold uppercase tracking-widest text-xs">Quick Links</span>
+<a class="text-on-primary/80 hover:text-on-primary transition-all hover:translate-x-1" href="#">About Us</a>
+<a class="text-on-primary/80 hover:text-on-primary transition-all hover:translate-x-1" href="#">Privacy Policy</a>
+<a class="text-on-primary/80 hover:text-on-primary transition-all hover:translate-x-1" href="#">Terms of Service</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="text-secondary-fixed font-bold uppercase tracking-widest text-xs">Support</span>
+<a class="text-on-primary/80 hover:text-on-primary transition-all hover:translate-x-1" href="#">WhatsApp Support</a>
+<a class="text-on-primary/80 hover:text-on-primary transition-all hover:translate-x-1" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-4">
+<span class="text-secondary-fixed font-bold uppercase tracking-widest text-xs">Accreditation</span>
+<div class="flex gap-4">
+<div class="w-12 h-12 bg-white/10 rounded-DEFAULT flex items-center justify-center border border-secondary-fixed/30">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="verified">verified</span>
+</div>
+<div class="w-12 h-12 bg-white/10 rounded-DEFAULT flex items-center justify-center border border-secondary-fixed/30">
+<span class="material-symbols-outlined text-secondary-fixed" data-icon="award_star">award_star</span>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</main>
+</div>
+</body></html>
