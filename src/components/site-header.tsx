@@ -6,9 +6,9 @@ import { useEffect, useState } from "react";
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
   { href: "/programs", label: "Programs" },
-  { href: "/products", label: "Store" },
   { href: "/events", label: "Events" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
@@ -53,7 +53,7 @@ export function SiteHeader() {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden items-center gap-6 xl:flex">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -67,24 +67,18 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-2 md:gap-3">
+          <div className="flex items-center gap-3">
             <Link
-              href="/sign-in"
-              className="button-auth-ghost hidden min-h-[42px] items-center justify-center text-[0.68rem] md:inline-flex lg:text-[0.72rem]"
+              href="/contact"
+              className="button-primary hidden min-h-[44px] rounded-[10px] bg-navy px-5 py-[10px] text-[0.72rem] text-gold md:inline-flex"
             >
-              Sign In
-            </Link>
-            <Link
-              href="/register"
-              className="button-auth-solid hidden min-h-[42px] items-center justify-center text-[0.68rem] md:inline-flex lg:text-[0.72rem]"
-            >
-              Register Now
+              Book Consultation
             </Link>
             <button
               type="button"
               aria-label="Open navigation"
               onClick={() => setOpen(true)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold lg:hidden"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold xl:hidden"
             >
               <span className="text-2xl leading-none">≡</span>
             </button>
@@ -93,7 +87,7 @@ export function SiteHeader() {
       </header>
 
       <div
-        className={`fixed inset-0 z-[60] bg-[rgba(6,14,28,0.55)] transition-opacity lg:hidden ${
+        className={`fixed inset-0 z-[60] bg-[rgba(6,14,28,0.55)] transition-opacity xl:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
@@ -137,14 +131,13 @@ export function SiteHeader() {
           </nav>
 
           <div className="mt-12">
-            <div className="flex flex-wrap gap-3">
-              <Link href="/sign-in" className="button-auth-ghost" onClick={() => setOpen(false)}>
-                Sign In
-              </Link>
-              <Link href="/register" className="button-auth-solid" onClick={() => setOpen(false)}>
-                Register Now
-              </Link>
-            </div>
+            <Link
+              href="/contact"
+              className="button-secondary"
+              onClick={() => setOpen(false)}
+            >
+              Book Consultation
+            </Link>
           </div>
         </div>
       </div>

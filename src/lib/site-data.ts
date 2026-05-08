@@ -21,15 +21,6 @@ export type Program = {
   highlight?: boolean;
 };
 
-export type Product = {
-  slug: string;
-  title: string;
-  description: string;
-  format: string;
-  price: string;
-  category: string;
-};
-
 export type EventItem = {
   slug: string;
   title: string;
@@ -53,11 +44,18 @@ export type BlogPost = {
   body: string[];
 };
 
+export type Mentor = {
+  name: string;
+  title: string;
+  bio: string;
+  tags: string[];
+};
+
 export const announcements = [
-  "CSS 2026 flagship mentorship registrations open for Abbottabad and online cohorts.",
-  "Précis and composition weekend lab starts 18 May with limited seats.",
+  "CSS 2026 flagship mentorship registrations are open for Abbottabad and online cohorts.",
+  "Essay and composition weekend lab starts 18 May with limited seats.",
   "Women in public leadership seminar announced in collaboration with local institutions.",
-  "Admissions planning desk now taking fall 2026 scholarship inquiries.",
+  "Admissions planning desk is now taking fall 2026 scholarship inquiries.",
 ];
 
 export const stats = [
@@ -88,16 +86,64 @@ export const testimonials = [
   },
 ];
 
+export const aboutValues = [
+  {
+    title: "Academic Integrity",
+    copy:
+      "We believe serious careers are built on honest preparation, rigorous feedback, and disciplined standards.",
+  },
+  {
+    title: "Community Focus",
+    copy:
+      "Our work is rooted in Abbottabad and the wider Hazara region, with a strong commitment to local talent and access.",
+  },
+  {
+    title: "Structured Mentorship",
+    copy:
+      "Students and families trust us because our guidance is deliberate, sequenced, and designed around real progress.",
+  },
+  {
+    title: "Results Orientation",
+    copy:
+      "Every service is shaped around outcomes: stronger writing, clearer decisions, better preparation, and confident next steps.",
+  },
+];
+
+export const mentors: Mentor[] = [
+  {
+    name: "Dr. Hamza Farooq",
+    title: "Lead CSS/PMS Strategist",
+    bio:
+      "Hamza leads high-stakes exam strategy and writing mentorship, helping aspirants build disciplined systems rather than scattered effort.",
+    tags: ["Essay Strategy", "Current Affairs", "Interview Prep"],
+  },
+  {
+    name: "Sadia Khan",
+    title: "Admissions & Career Advisor",
+    bio:
+      "Sadia works with students and families on scholarship planning, admissions positioning, and longer-term academic decision-making.",
+    tags: ["Admissions Guidance", "SOP Review", "Career Planning"],
+  },
+  {
+    name: "Usman Tariq",
+    title: "Programs & Events Lead",
+    bio:
+      "Usman designs workshops, institutional seminars, and public programs that combine strong content with polished execution.",
+    tags: ["Bootcamps", "Public Events", "Institutional Partnerships"],
+  },
+];
+
 export const services: Service[] = [
   {
     slug: "css-pms-prep",
     name: "CSS/PMS Preparation",
     short:
       "Structured mentorship for CSS, PMS, FPSC, and provincial competitive examinations.",
-    audience: "Serious aspirants seeking one-on-one guidance, evaluations, and disciplined exam strategy.",
+    audience:
+      "Serious aspirants seeking one-on-one guidance, evaluations, and disciplined exam strategy.",
     benefits: [
       "Diagnostic planning based on attempt timeline and optional subjects",
-      "Essay, précis, current affairs, and interview preparation under one roof",
+      "Essay, composition, current affairs, and interview preparation under one roof",
       "Weekly writing reviews with actionable score-improvement feedback",
     ],
     process: [
@@ -114,7 +160,8 @@ export const services: Service[] = [
     name: "Career Consultancy",
     short:
       "Career roadmaps for students and early professionals navigating public service, higher studies, and purpose-led work.",
-    audience: "Students, graduates, and families evaluating the right next step after intermediate, university, or gap years.",
+    audience:
+      "Students, graduates, and families evaluating the right next step after intermediate, university, or gap years.",
     benefits: [
       "Clearer direction across civil service, academia, and international opportunities",
       "Profile review aligned with strengths, values, and timelines",
@@ -134,7 +181,8 @@ export const services: Service[] = [
     name: "Admissions Guidance",
     short:
       "Application support for universities, scholarships, and statements of purpose.",
-    audience: "Students applying to Pakistani or international institutions who need positioning, planning, and document strategy.",
+    audience:
+      "Students applying to Pakistani or international institutions who need positioning, planning, and document strategy.",
     benefits: [
       "Shortlisted options matched to budget, merit, and goals",
       "Application calendars and document checklists",
@@ -153,10 +201,11 @@ export const services: Service[] = [
     slug: "writing-evaluation",
     name: "Writing and Evaluation",
     short:
-      "Academic writing support, content development, and rigorous evaluation for essays, précis, and applications.",
-    audience: "Exam candidates, scholarship applicants, and institutions needing polished writing support.",
+      "Academic writing support, content development, and rigorous evaluation for essays, composition, and applications.",
+    audience:
+      "Exam candidates, scholarship applicants, and institutions needing polished writing support.",
     benefits: [
-      "Detailed rubric-based essay and précis feedback",
+      "Detailed rubric-based essay and composition feedback",
       "Tone, structure, and argument refinement",
       "Support for institutional reports, profiles, and editorial pieces",
     ],
@@ -174,7 +223,8 @@ export const services: Service[] = [
     name: "Event Management",
     short:
       "Educational events, women-centered programs, institutional seminars, and civic dialogue formats.",
-    audience: "Schools, colleges, universities, NGOs, and public-interest organizations in Hazara and across KPK.",
+    audience:
+      "Schools, colleges, universities, NGOs, and public-interest organizations in Hazara and across KPK.",
     benefits: [
       "Concept-to-execution support for meaningful public programs",
       "Trusted speaker curation and moderation",
@@ -194,7 +244,8 @@ export const services: Service[] = [
     name: "Bootcamps and Cohorts",
     short:
       "Fast-moving intensive programs for essay writing, current affairs, interview prep, and subject mastery.",
-    audience: "Candidates who need concentrated momentum before exams, interviews, or admissions deadlines.",
+    audience:
+      "Candidates who need concentrated momentum before exams, interviews, or admissions deadlines.",
     benefits: [
       "Focused delivery over weekends or compact multi-week windows",
       "Practical drills instead of passive lectures",
@@ -214,7 +265,8 @@ export const services: Service[] = [
     name: "Mentorship Programs",
     short:
       "Longer-duration premium guidance tracks for students who want accountability and proximity to mentors.",
-    audience: "Students ready for disciplined long-form preparation and regular check-ins.",
+    audience:
+      "Students ready for disciplined long-form preparation and regular check-ins.",
     benefits: [
       "Small-batch support and mentor accountability",
       "Clear milestone tracking",
@@ -238,7 +290,7 @@ export const programs: Program[] = [
     schedule: "Mon, Wed, Sat • 6:00 PM - 8:30 PM",
     format: "Hybrid • Abbottabad + Live Online",
     curriculum: [
-      "Essay framing and précis labs",
+      "Essay framing and composition labs",
       "Current affairs note-making system",
       "Pakistan affairs answer structure",
       "Weekly timed mock practice",
@@ -287,63 +339,6 @@ export const programs: Program[] = [
       "Performance tracking sheets",
     ],
     status: "Register Interest",
-  },
-];
-
-export const products: Product[] = [
-  {
-    slug: "current-affairs-bundle",
-    title: "CSS Current Affairs Lecture Bundle",
-    description:
-      "Recorded lectures and briefing notes for Pakistan, regional affairs, and governance themes.",
-    format: "Recorded video + PDF",
-    price: "PKR 4,800",
-    category: "Lectures",
-  },
-  {
-    slug: "essay-framework-kit",
-    title: "Essay Framework Kit",
-    description:
-      "Outline templates, introductions, thesis drills, and annotated sample essays.",
-    format: "PDF workbook",
-    price: "PKR 2,200",
-    category: "Notes",
-  },
-  {
-    slug: "solved-past-papers",
-    title: "10-Year Solved Past Papers",
-    description:
-      "Curated solved material with commentary on approach, structure, and common mistakes.",
-    format: "PDF library",
-    price: "PKR 3,500",
-    category: "Past Papers",
-  },
-  {
-    slug: "precis-composition-pack",
-    title: "Précis & Composition Practice Pack",
-    description:
-      "Timed exercises, solved samples, and correction benchmarks for writing improvement.",
-    format: "Printable PDF",
-    price: "PKR 1,900",
-    category: "Practice Pack",
-  },
-  {
-    slug: "pak-affairs-notes",
-    title: "Pakistan Affairs Concise Notes",
-    description:
-      "Revision-ready topic sheets for ideology, constitutional development, and state structure.",
-    format: "Digital notes",
-    price: "PKR 1,650",
-    category: "Notes",
-  },
-  {
-    slug: "scholarship-sop-guide",
-    title: "Scholarship SOP Guide",
-    description:
-      "A refined guide for writing statements of purpose for graduate admissions and scholarship applications.",
-    format: "PDF guide",
-    price: "PKR 1,300",
-    category: "Admissions",
   },
 ];
 
@@ -478,6 +473,7 @@ export const featuredProgram = programs[0];
 
 export const office = {
   address: "Main Mansehra Road, Abbottabad, Khyber Pakhtunkhwa, Pakistan",
+  locationNote: "Near the city education corridor in Abbottabad.",
   phone: "+92 333 870 2211",
   email: "info@hazaraglobalconsultancy.pk",
   whatsapp: "https://wa.me/923338702211",

@@ -13,7 +13,7 @@ export default function ServicesPage() {
       <PageHero
         label="Services Overview"
         title="Specialized service lines for serious academic and professional growth."
-        copy="From CSS/PMS preparation to admissions guidance and event execution, every service is designed with clarity, trust, and premium delivery in mind."
+        copy="From CSS and PMS preparation to admissions guidance and event execution, every service is designed with clarity, trust, and premium delivery in mind."
         dark
       />
 
@@ -23,7 +23,7 @@ export default function ServicesPage() {
             <SectionIntro
               label="All Services"
               title="Built for aspirants, families, institutions, and event partners."
-              copy="Each card gives a quick sense of who the service is for, the benefits you can expect, and the next best action."
+              copy="Each card gives a quick sense of who the service is for, the benefits you can expect, and the best next step."
             />
           </Reveal>
 
@@ -32,7 +32,9 @@ export default function ServicesPage() {
               <Reveal
                 key={service.slug}
                 delay={index * 70}
-                className={`card-shell p-8 ${index % 4 === 0 ? "md:col-span-2 xl:col-span-2" : ""}`}
+                className={`card-shell p-8 ${
+                  index % 4 === 0 ? "md:col-span-2 xl:col-span-2" : ""
+                }`}
               >
                 <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
                   {service.detail ? "Detailed Service" : "Contact-Led Service"}

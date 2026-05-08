@@ -12,8 +12,8 @@ export default function ProgramsPage() {
     <>
       <PageHero
         label="Programs & Bootcamps"
-        title="A focused catalog of high-impact learning experiences."
-        copy="These programs are built for momentum: compact, premium, and practical. The data is mock for now, but the interface is ready for a future enrollment backend."
+        title="Focused learning experiences for serious candidates and institutional partners."
+        copy="Our programs are built for momentum, clarity, and strong academic rhythm. Everything here is presented as a premium consultancy offer, not a platform product."
         dark
       />
 
@@ -23,7 +23,7 @@ export default function ProgramsPage() {
             <SectionIntro
               label="Current Catalog"
               title="Available pathways for intensive preparation."
-              copy="Schedules, durations, and curriculum highlights are presented the way a serious candidate needs to scan them."
+              copy="Schedules, durations, and curriculum highlights are arranged to feel clear, editorial, and decision-friendly."
             />
           </Reveal>
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -58,19 +58,37 @@ export default function ProgramsPage() {
                 >
                   {program.title}
                 </h2>
-                <p className={`mt-3 text-sm uppercase tracking-[0.14em] ${program.highlight ? "text-cream/68" : "text-ink/62"}`}>
+                <p
+                  className={`mt-3 text-sm uppercase tracking-[0.14em] ${
+                    program.highlight ? "text-cream/68" : "text-ink/62"
+                  }`}
+                >
                   {program.schedule} • {program.format}
                 </p>
-                <ul className={`mt-7 space-y-3 text-sm leading-7 ${program.highlight ? "text-cream/84" : "text-ink/78"}`}>
+                <ul
+                  className={`mt-7 space-y-3 text-sm leading-7 ${
+                    program.highlight ? "text-cream/84" : "text-ink/78"
+                  }`}
+                >
                   {program.curriculum.map((item) => (
                     <li key={item}>• {item}</li>
                   ))}
                 </ul>
                 <div className="mt-8 flex flex-wrap gap-3">
-                  <Link href="/contact" className={program.highlight ? "button-secondary" : "button-primary"}>
+                  <Link
+                    href="/contact"
+                    className={program.highlight ? "button-secondary" : "button-primary"}
+                  >
                     Register Interest
                   </Link>
-                  <Link href="/contact" className={program.highlight ? "button-ghost border-white/15 text-cream" : "button-ghost"}>
+                  <Link
+                    href="/contact"
+                    className={
+                      program.highlight
+                        ? "button-ghost border-white/15 text-cream"
+                        : "button-ghost"
+                    }
+                  >
                     Learn More
                   </Link>
                 </div>

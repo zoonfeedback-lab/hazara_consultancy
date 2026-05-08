@@ -10,9 +10,9 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  return services.filter((service) => service.detail).map((service) => ({
-    slug: service.slug,
-  }));
+  return services
+    .filter((service) => service.detail)
+    .map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -59,7 +59,9 @@ export default async function ServiceDetailPage({ params }: Props) {
             <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
               Optional Pricing
             </div>
-            <p className="mt-4 text-base leading-8">{service.pricing ?? "Pricing shared on inquiry."}</p>
+            <p className="mt-4 text-base leading-8">
+              {service.pricing ?? "Pricing shared on inquiry."}
+            </p>
           </div>
         }
       />
@@ -108,7 +110,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
       <ConsultationBanner
         title={`Ready to start ${service.name.toLowerCase()}?`}
-        copy="We’ll help you choose the right scope, timeline, and support level for your current stage."
+        copy="We'll help you choose the right scope, timeline, and support level for your current stage."
         label={service.cta}
       />
     </>

@@ -19,6 +19,7 @@ export function SiteFooter() {
               Quick Links
             </div>
             <div className="mt-5 flex flex-col gap-3 text-sm">
+              <Link href="/about">About</Link>
               <Link href="/services">Services</Link>
               <Link href="/programs">Programs & Bootcamps</Link>
               <Link href="/events">Events</Link>

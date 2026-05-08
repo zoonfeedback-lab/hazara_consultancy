@@ -82,7 +82,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       <ConsultationBanner
         title="Need help applying this strategy to your own preparation?"
-        copy="Book a consultation and we’ll translate advice into a realistic study or writing plan."
+        copy="Book a consultation and we'll translate advice into a realistic study or writing plan."
       />
     </>
   );

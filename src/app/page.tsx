@@ -20,17 +20,16 @@ export default function HomePage() {
       <section className="gradient-panel relative overflow-hidden pt-24 text-cream">
         <div className="hero-orb" />
         <div className="hero-orb-alt" />
-        <div className="site-container grid min-h-[70vh] items-center gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr]">
+        <div className="site-container grid min-h-[72vh] items-center gap-10 py-16 lg:grid-cols-[1.05fr_0.95fr]">
           <Reveal className="relative z-10">
-            <span className="eyebrow text-gold-soft">CSS/PMS Mentorship</span>
+            <span className="eyebrow text-gold-soft">Hazara Global Consultancy</span>
             <h1 className="display-title mt-6 max-w-4xl text-[clamp(4rem,8vw,4.75rem)] leading-[0.98]">
-              The serious mentorship academy for CSS, PMS, and public service
-              ambition.
+              A premium consultancy institution for ambition, strategy, and public trust.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-cream/82">
-              Hazara Global Consultancy helps students across Abbottabad, Hazara,
-              and Khyber Pakhtunkhwa prepare with sharper writing, stronger
-              strategy, and real accountability.
+              We help students, families, and institutions across Abbottabad, Hazara,
+              and Khyber Pakhtunkhwa move with more clarity through CSS and PMS
+              preparation, admissions guidance, writing support, and purposeful programs.
             </p>
             <p className="urdu-accent mt-5 text-gold-soft">
               کامیابی محنت سے بنتی ہے، مگر رہنمائی اسے رفتار دیتی ہے۔
@@ -39,11 +38,8 @@ export default function HomePage() {
               <Link href="/contact" className="button-secondary">
                 Book Consultation
               </Link>
-              <Link href="/programs" className="button-primary">
-                View Programs
-              </Link>
-              <Link href="/contact" className="button-ghost border-white/18 text-cream">
-                Inquire Now
+              <Link href="/services" className="button-primary">
+                Explore Services
               </Link>
             </div>
           </Reveal>
@@ -53,34 +49,34 @@ export default function HomePage() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
-                    Flagship Pathway
+                    Institutional Focus
                   </div>
                   <h2 className="display-title mt-3 text-3xl">
-                    1-on-1 Civil Service Mentorship
+                    Consultancy with structure, taste, and accountability.
                   </h2>
                 </div>
                 <div className="rounded-full border border-gold/35 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-soft">
-                  Summer Intake
+                  Abbottabad
                 </div>
               </div>
               <div className="mt-8 grid gap-4 md:grid-cols-2">
                 <div className="rounded-[18px] bg-white/7 p-5">
                   <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
-                    Next Programs
+                    What We Do
                   </div>
                   <ul className="mt-4 space-y-3 text-sm leading-6 text-cream/82">
-                    <li>Essay Acceleration Lab • 18 May</li>
-                    <li>Current Affairs Note System • 24 May</li>
-                    <li>Women in Public Leadership Forum • 07 June</li>
+                    <li>CSS and PMS mentorship</li>
+                    <li>Admissions and scholarship guidance</li>
+                    <li>Workshops, seminars, and public events</li>
                   </ul>
                 </div>
                 <div className="rounded-[18px] bg-gold/10 p-5">
                   <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
-                    Why Families Trust Us
+                    Why It Feels Different
                   </div>
                   <p className="mt-4 text-sm leading-7 text-cream/82">
-                    Small-batch mentorship, direct writing evaluations, and a
-                    premium learning environment rooted in Abbottabad.
+                    We combine premium presentation with direct, practical guidance so
+                    families can trust the process and students can act with confidence.
                   </p>
                 </div>
               </div>
@@ -94,7 +90,7 @@ export default function HomePage() {
           <div className="ticker-track px-6 text-sm font-semibold uppercase tracking-[0.16em] text-navy">
             {[...announcements, ...announcements].map((item, index) => (
               <div key={`${item}-${index}`} className="flex items-center gap-4 whitespace-nowrap">
-                <span className="text-gold">●</span>
+                <span className="text-gold">•</span>
                 <span>{item}</span>
               </div>
             ))}
@@ -140,7 +136,7 @@ export default function HomePage() {
                   Diagnostic readiness assessment
                 </div>
                 <div className="rounded-[16px] bg-mist p-5 text-sm leading-7">
-                  Essay, précis, and current affairs labs
+                  Essay, composition, and current affairs labs
                 </div>
                 <div className="rounded-[16px] bg-mist p-5 text-sm leading-7">
                   Weekly evaluation and mock review
@@ -176,7 +172,7 @@ export default function HomePage() {
         <div className="site-container">
           <Reveal>
             <SectionIntro
-              label="Featured Bootcamp"
+              label="Flagship Program"
               title={featuredProgram.title}
               copy={`${featuredProgram.duration} • ${featuredProgram.schedule} • ${featuredProgram.format}`}
             />
@@ -184,7 +180,7 @@ export default function HomePage() {
           <Reveal delay={120} className="featured-card mt-12 rounded-[24px] p-8 md:p-10">
             <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr]">
               <div>
-                <div className="rounded-full border border-gold/30 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-soft inline-flex">
+                <div className="inline-flex rounded-full border border-gold/30 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-gold-soft">
                   {featuredProgram.status}
                 </div>
                 <ul className="mt-8 grid gap-4 md:grid-cols-2">
@@ -203,8 +199,8 @@ export default function HomePage() {
                   Program Promise
                 </div>
                 <p className="mt-4 text-base leading-8">
-                  A high-rhythm bootcamp built for candidates who want momentum,
-                  strong writing correction, and a disciplined study environment.
+                  A high-rhythm program built for candidates who want momentum,
+                  strong writing correction, and a disciplined academic environment.
                 </p>
                 <div className="muted-rule mt-6" />
                 <div className="mt-6 flex flex-wrap gap-3">
@@ -227,7 +223,7 @@ export default function HomePage() {
             <SectionIntro
               label="Testimonials"
               title="Families and aspirants trust thoughtful rigor."
-              copy="We want the platform to feel premium, but the proof is still in the outcomes and the experience students have with us week after week."
+              copy="The strongest branding signal is still the experience students and parents have with us after the first conversation."
             />
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -280,7 +276,7 @@ export default function HomePage() {
 
       <ConsultationBanner
         title="Need a tailored recommendation before choosing a path?"
-        copy="Book a consultation for CSS/PMS preparation, admissions guidance, writing review, or institutional collaboration."
+        copy="Book a consultation for CSS and PMS preparation, admissions guidance, writing review, or institutional collaboration."
       />
     </>
   );
