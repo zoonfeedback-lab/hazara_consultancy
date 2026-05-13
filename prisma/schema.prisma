@@ -1,0 +1,192 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Inquiry {
+  id                String        @id @default(uuid())
+  createdAt         DateTime      @default(now()) @map("created_at")
+  name              String
+  email             String
+  phone             String?
+  subject           String?
+  serviceOfInterest String?       @map("service_of_interest")
+  message           String
+  status            InquiryStatus @default(NEW)
+  notes             String?
+
+  @@map("inquiries")
+}
+
+model BlogPost {
+  id               String         @id @default(uuid())
+  createdAt        DateTime       @default(now()) @map("created_at")
+  updatedAt        DateTime       @updatedAt @map("updated_at")
+  title            String
+  slug             String         @unique
+  excerpt          String?
+  body             String?
+  category         String?
+  featuredImageUrl String?        @map("featured_image_url")
+  status           BlogPostStatus @default(DRAFT)
+  publishedAt      DateTime?      @map("published_at")
+  featured         Boolean        @default(false)
+
+  @@map("blog_posts")
+}
+
+model Service {
+  id          String        @id @default(uuid())
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  name        String
+  slug        String        @unique
+  tagline     String?
+  description String?
+  whoItsFor   String?       @map("who_its_for")
+  benefits    String[]
+  status      ServiceStatus @default(ACTIVE)
+  featured    Boolean       @default(false)
+  sortOrder   Int           @default(0) @map("sort_order")
+
+  @@map("services")
+}
+
+model Program {
+  id          String        @id @default(uuid())
+  createdAt   DateTime      @default(now()) @map("created_at")
+  updatedAt   DateTime      @updatedAt @map("updated_at")
+  name        String
+  slug        String        @unique
+  type        ProgramType
+  duration    String?
+  schedule    String?
+  description String?
+  curriculum  String[]
+  status      ProgramStatus @default(UPCOMING)
+  featured    Boolean       @default(false)
+  sortOrder   Int           @default(0) @map("sort_order")
+
+  @@map("programs")
+}
+
+model Event {
+  id          String      @id @default(uuid())
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+  name        String
+  slug        String      @unique
+  type        EventType
+  date        DateTime?
+  location    String?
+  description String?
+  imageUrl    String?     @map("image_url")
+  isPast      Boolean     @default(false) @map("is_past")
+  status      EventStatus @default(UPCOMING)
+  featured    Boolean     @default(false)
+
+  @@map("events")
+}
+
+model Testimonial {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now()) @map("created_at")
+  studentName String   @map("student_name")
+  program     String?
+  quote       String
+  featured    Boolean  @default(false)
+  sortOrder   Int      @default(0) @map("sort_order")
+
+  @@map("testimonials")
+}
+
+model Announcement {
+  id        String    @id @default(uuid())
+  createdAt DateTime  @default(now()) @map("created_at")
+  text      String
+  link      String?
+  active    Boolean   @default(true)
+  expiresAt DateTime? @map("expires_at")
+
+  @@map("announcements")
+}
+
+model Settings {
+  id              Int      @id @default(1)
+  consultancyName String?  @map("consultancy_name")
+  tagline         String?
+  contactEmail    String?  @map("contact_email")
+  phone           String?
+  whatsappNumber  String?  @map("whatsapp_number")
+  whatsappUrl     String?  @map("whatsapp_url")
+  address         String?
+  facebookUrl     String?  @map("facebook_url")
+  instagramUrl    String?  @map("instagram_url")
+  youtubeUrl      String?  @map("youtube_url")
+  linkedinUrl     String?  @map("linkedin_url")
+  studentsMentored Int?    @map("students_mentored")
+  passRate        Int?     @map("pass_rate")
+  programsLaunched Int?    @map("programs_launched")
+  facultyCount    Int?     @map("faculty_count")
+  updatedAt       DateTime @updatedAt @map("updated_at")
+
+  @@map("settings")
+}
+
+model Media {
+  id          String   @id @default(uuid())
+  createdAt   DateTime @default(now()) @map("created_at")
+  filename    String
+  storagePath String   @map("storage_path")
+  publicUrl   String   @map("public_url")
+  mimeType    String?  @map("mime_type")
+  sizeBytes   BigInt?  @map("size_bytes")
+  altText     String?  @map("alt_text")
+
+  @@map("media")
+}
+
+enum InquiryStatus {
+  NEW
+  IN_PROGRESS
+  RESOLVED
+}
+
+enum BlogPostStatus {
+  DRAFT
+  PUBLISHED
+}
+
+enum ServiceStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum ProgramType {
+  BOOTCAMP
+  WORKSHOP
+  CRASH_COURSE
+  MENTORSHIP
+}
+
+enum ProgramStatus {
+  ACTIVE
+  UPCOMING
+  COMPLETED
+}
+
+enum EventType {
+  SEMINAR
+  CONFERENCE
+  WORKSHOP
+  COMMUNITY
+}
+
+enum EventStatus {
+  UPCOMING
+  ACTIVE
+  COMPLETED
+}

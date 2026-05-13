@@ -1,9 +1,6 @@
 "use server";
 
-import { createClient } from "@/lib/supabase/server";
-import type { Database } from "@/lib/types/database";
-
-type InquiryInsert = Database["public"]["Tables"]["inquiries"]["Insert"];
+import prisma from "@/lib/prisma";
 
 type InquiryActionErrors = {
   email?: string;
@@ -34,28 +31,26 @@ function getTrimmedValue(formData: FormData, key: string) {
 }
 
 export async function submitInquiry(formData: FormData): Promise<InquiryActionState> {
-  const payload: InquiryInsert = {
-    email: getTrimmedValue(formData, "email"),
-    message: getTrimmedValue(formData, "message"),
-    name: getTrimmedValue(formData, "name"),
-    phone: getTrimmedValue(formData, "phone") || null,
-    service_of_interest: getTrimmedValue(formData, "service_of_interest") || null,
-    subject: getTrimmedValue(formData, "subject") || null,
-  };
+  const name = getTrimmedValue(formData, "name");
+  const email = getTrimmedValue(formData, "email");
+  const phone = getTrimmedValue(formData, "phone");
+  const subject = getTrimmedValue(formData, "subject");
+  const serviceOfInterest = getTrimmedValue(formData, "service_of_interest");
+  const message = getTrimmedValue(formData, "message");
 
   const errors: InquiryActionErrors = {};
 
-  if (!payload.name) {
+  if (!name) {
     errors.name = "Name is required.";
   }
 
-  if (!payload.email) {
+  if (!email) {
     errors.email = "Email is required.";
-  } else if (!emailPattern.test(payload.email)) {
+  } else if (!emailPattern.test(email)) {
     errors.email = "Enter a valid email address.";
   }
 
-  if (!payload.message) {
+  if (!message) {
     errors.message = "Message is required.";
   }
 
@@ -68,23 +63,23 @@ export async function submitInquiry(formData: FormData): Promise<InquiryActionSt
   }
 
   try {
-    const supabase = await createClient();
-    const { error } = await supabase.from("inquiries").insert(payload);
-
-    if (error) {
-      console.error("Failed to submit inquiry:", error);
-      return {
-        message: "We could not submit your inquiry right now. Please try again shortly.",
-        success: false,
-      };
-    }
+    await prisma.inquiry.create({
+      data: {
+        email,
+        message,
+        name,
+        phone: phone || null,
+        serviceOfInterest: serviceOfInterest || null,
+        subject: subject || null,
+      },
+    });
 
     return {
       message: "Your inquiry has been submitted successfully.",
       success: true,
     };
   } catch (error) {
-    console.error("Unexpected error while submitting inquiry:", error);
+    console.error("Failed to submit inquiry:", error);
     return {
       message: "We could not submit your inquiry right now. Please try again shortly.",
       success: false,
