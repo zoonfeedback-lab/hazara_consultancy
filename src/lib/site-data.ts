@@ -1,3 +1,7 @@
+// DEPRECATED: This file is no longer used by any public page.
+// All data is now served from src/lib/data/public.ts via Prisma.
+// Kept temporarily as reference. Safe to delete in next cleanup session.
+
 export type Service = {
   slug: string;
   name: string;

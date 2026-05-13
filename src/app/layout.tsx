@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans, Inter, Noto_Nastaliq_Urdu, Playfair_Display } from "next/font/google";
 import { AppChrome } from "@/components/app-chrome";
+import { getSettings } from "@/lib/data/public";
 import "./globals.css";
 
 const inter = Inter({
@@ -32,18 +33,20 @@ export const metadata: Metadata = {
     "Public-facing platform for Hazara Global Consultancy in Abbottabad, offering CSS/PMS mentorship, admissions guidance, writing support, events, and academic programs.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const settings = await getSettings();
+
   return (
     <html
       lang="en"
       className={`${inter.variable} ${playfair.variable} ${dmSans.variable} ${urdu.variable} h-full antialiased`}
     >
       <body className="min-h-full bg-cream text-ink">
-        <AppChrome>{children}</AppChrome>
+        <AppChrome settings={settings}>{children}</AppChrome>
       </body>
     </html>
   );

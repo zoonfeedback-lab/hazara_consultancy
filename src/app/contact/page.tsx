@@ -1,12 +1,17 @@
+import { ContactForm } from "@/components/contact-form";
 import { Reveal } from "@/components/reveal";
 import { PageHero, SectionIntro } from "@/components/section-primitives";
-import { office, services } from "@/lib/site-data";
+import { getServices, getSettings } from "@/lib/data/public";
 
 export const metadata = {
   title: "Contact and Inquiry",
 };
 
-export default function ContactPage() {
+export const revalidate = 60;
+
+export default async function ContactPage() {
+  const [settings, services] = await Promise.all([getSettings(), getServices()]);
+
   return (
     <>
       <PageHero
@@ -35,26 +40,35 @@ export default function ContactPage() {
                 our team will guide you to the right next step.
               </p>
               <div className="mt-6">
-                <a href={office.whatsapp} className="button-whatsapp">
-                  Message on WhatsApp
-                </a>
+                {settings?.whatsappUrl ? (
+                  <a href={settings.whatsappUrl} className="button-whatsapp">
+                    Message on WhatsApp
+                  </a>
+                ) : (
+                  <span className="text-sm text-cream/70">WhatsApp link coming soon.</span>
+                )}
               </div>
             </div>
 
             <div className="mt-8 rounded-[22px] bg-paper p-7 shadow-[0_20px_44px_rgba(15,36,71,0.08)]">
               <div className="space-y-4 text-sm leading-7 text-ink/78">
                 <p>
-                  <span className="font-semibold text-navy">Office:</span> {office.address}
+                  <span className="font-semibold text-navy">Office:</span>{" "}
+                  {settings?.address || "Abbottabad office details coming soon."}
+                </p>
+                {settings?.whatsappNumber ? (
+                  <p>
+                    <span className="font-semibold text-navy">WhatsApp:</span>{" "}
+                    {settings.whatsappNumber}
+                  </p>
+                ) : null}
+                <p>
+                  <span className="font-semibold text-navy">Phone:</span>{" "}
+                  {settings?.phone || "Phone number coming soon."}
                 </p>
                 <p>
-                  <span className="font-semibold text-navy">Location Detail:</span>{" "}
-                  {office.locationNote}
-                </p>
-                <p>
-                  <span className="font-semibold text-navy">Phone:</span> {office.phone}
-                </p>
-                <p>
-                  <span className="font-semibold text-navy">Email:</span> {office.email}
+                  <span className="font-semibold text-navy">Email:</span>{" "}
+                  {settings?.contactEmail || "Email address coming soon."}
                 </p>
               </div>
             </div>
@@ -67,58 +81,7 @@ export default function ContactPage() {
               copy="Use the form below for longer messages, event collaboration requests, or admissions and mentorship questions."
             />
 
-            <form className="mt-8 grid gap-5 md:grid-cols-2">
-              <label className="text-sm font-medium">
-                Name
-                <input
-                  className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
-                  placeholder="Your full name"
-                />
-              </label>
-              <label className="text-sm font-medium">
-                Email
-                <input
-                  className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
-                  placeholder="name@example.com"
-                  type="email"
-                />
-              </label>
-              <label className="text-sm font-medium">
-                Phone
-                <input
-                  className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
-                  placeholder="+92..."
-                />
-              </label>
-              <label className="text-sm font-medium">
-                Subject
-                <input
-                  className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
-                  placeholder="How can we help?"
-                />
-              </label>
-              <label className="text-sm font-medium md:col-span-2">
-                Service of Interest
-                <select className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none">
-                  {services.map((service) => (
-                    <option key={service.slug}>{service.name}</option>
-                  ))}
-                </select>
-              </label>
-              <label className="text-sm font-medium md:col-span-2">
-                Message
-                <textarea
-                  className="mt-2 min-h-40 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
-                  placeholder="Share your goals, timeline, or the kind of support you need."
-                />
-              </label>
-              <div className="flex flex-col gap-3 md:col-span-2 md:flex-row md:items-center md:justify-between">
-                <button type="button" className="button-primary">
-                  Submit Inquiry
-                </button>
-                <p className="text-sm text-ink/62">We respond within 2 business hours.</p>
-              </div>
-            </form>
+            <ContactForm services={services.map((service) => ({ id: service.id, name: service.name }))} />
           </Reveal>
         </div>
       </section>

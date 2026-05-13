@@ -1,14 +1,35 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { Reveal } from "@/components/reveal";
 import { ConsultationBanner, PageHero, SectionIntro } from "@/components/section-primitives";
-import { blogPosts } from "@/lib/site-data";
+import { getBlogPosts, getFeaturedBlogPost } from "@/lib/data/public";
 
 export const metadata = {
   title: "Blog and Resources",
 };
 
-export default function BlogIndexPage() {
-  const [featured, ...rest] = blogPosts;
+export const revalidate = 60;
+
+function formatPublishedDate(date: Date | null) {
+  if (!date) {
+    return "Publication date pending";
+  }
+
+  return new Intl.DateTimeFormat("en-PK", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  }).format(date);
+}
+
+export default async function BlogIndexPage() {
+  const [featuredPost, allPosts] = await Promise.all([
+    getFeaturedBlogPost(),
+    getBlogPosts(),
+  ]);
+
+  const resolvedFeatured = featuredPost ?? allPosts[0] ?? null;
+  const rest = allPosts.filter((post) => post.slug !== resolvedFeatured?.slug);
 
   return (
     <>
@@ -20,42 +41,72 @@ export default function BlogIndexPage() {
 
       <section className="section-frame bg-cream">
         <div className="site-container">
-          <Reveal>
-            <SectionIntro
-              label="Featured Article"
-              title={featured.title}
-              copy={featured.excerpt}
-            />
-          </Reveal>
-          <Reveal delay={120} className="featured-card mt-12 rounded-[24px] p-8 md:p-10">
-            <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.15em] text-gold-soft">
-              <span>{featured.category}</span>
-              <span>{featured.date}</span>
-              <span>{featured.readingTime}</span>
-            </div>
-            <p className="mt-6 max-w-3xl text-lg leading-8 text-cream/82">
-              {featured.body[0]}
-            </p>
-            <Link href={`/blog/${featured.slug}`} className="button-secondary mt-8">
-              Read More
-            </Link>
-          </Reveal>
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {rest.map((post, index) => (
-              <Reveal key={post.slug} delay={index * 70} className="card-shell p-8">
-                <div className="flex flex-wrap gap-3 text-[11px] uppercase tracking-[0.15em] text-gold">
-                  <span>{post.category}</span>
-                  <span>{post.date}</span>
+          {resolvedFeatured ? (
+            <>
+              <Reveal>
+                <SectionIntro
+                  label="Featured Article"
+                  title={resolvedFeatured.title}
+                  copy={resolvedFeatured.excerpt || "No excerpt available yet."}
+                />
+              </Reveal>
+              <Reveal delay={120} className="featured-card mt-12 rounded-[24px] p-8 md:p-10">
+                {resolvedFeatured.featuredImageUrl ? (
+                  <img
+                    src={resolvedFeatured.featuredImageUrl}
+                    alt={resolvedFeatured.title}
+                    className="mb-6 h-72 w-full rounded-[18px] object-cover"
+                  />
+                ) : (
+                  <div className="mb-6 h-72 w-full rounded-[18px] bg-white/10" />
+                )}
+                <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.15em] text-gold-soft">
+                  <span>{resolvedFeatured.category || "General"}</span>
+                  <span>{formatPublishedDate(resolvedFeatured.publishedAt)}</span>
+                  {resolvedFeatured.featured ? <span>Featured</span> : null}
                 </div>
-                <h2 className="display-title mt-4 text-3xl text-navy">{post.title}</h2>
-                <p className="mt-4 leading-8 text-ink/78">{post.excerpt}</p>
-                <Link href={`/blog/${post.slug}`} className="button-primary mt-8">
+                <p className="mt-6 max-w-3xl text-lg leading-8 text-cream/82">
+                  {resolvedFeatured.excerpt || "No excerpt available yet."}
+                </p>
+                <Link href={`/blog/${resolvedFeatured.slug}`} className="button-secondary mt-8">
                   Read More
                 </Link>
               </Reveal>
-            ))}
-          </div>
+            </>
+          ) : (
+            <div className="card-shell p-8 text-sm leading-7 text-ink/76">
+              No published blog posts are available yet.
+            </div>
+          )}
+
+          {rest.length > 0 ? (
+            <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+              {rest.map((post, index) => (
+                <Reveal key={post.id} delay={index * 70} className="card-shell p-8">
+                  {post.featuredImageUrl ? (
+                    <img
+                      src={post.featuredImageUrl}
+                      alt={post.title}
+                      className="mb-5 h-48 w-full rounded-[16px] object-cover"
+                    />
+                  ) : (
+                    <div className="mb-5 h-48 w-full rounded-[16px] bg-mist" />
+                  )}
+                  <div className="flex flex-wrap gap-3 text-[11px] uppercase tracking-[0.15em] text-gold">
+                    <span>{post.category || "General"}</span>
+                    <span>{formatPublishedDate(post.publishedAt)}</span>
+                  </div>
+                  <h2 className="display-title mt-4 text-3xl text-navy">{post.title}</h2>
+                  <p className="mt-4 leading-8 text-ink/78">
+                    {post.excerpt || "No excerpt available yet."}
+                  </p>
+                  <Link href={`/blog/${post.slug}`} className="button-primary mt-8">
+                    Read More
+                  </Link>
+                </Reveal>
+              ))}
+            </div>
+          ) : resolvedFeatured ? null : null}
         </div>
       </section>
 

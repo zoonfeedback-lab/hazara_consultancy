@@ -3,21 +3,22 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
 import { ConsultationBanner, PageHero, SectionIntro } from "@/components/section-primitives";
-import { getService, services } from "@/lib/site-data";
+import { getServiceBySlug, getServices } from "@/lib/data/public";
+
+export const revalidate = 60;
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  return services
-    .filter((service) => service.detail)
-    .map((service) => ({ slug: service.slug }));
+  const services = await getServices();
+  return services.map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const service = getService(slug);
+  const service = await getServiceBySlug(slug);
 
   if (!service) {
     return { title: "Service Not Found" };
@@ -25,29 +26,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: service.name,
-    description: service.short,
+    description: service.description || service.tagline || "Service details",
   };
 }
 
 export default async function ServiceDetailPage({ params }: Props) {
   const { slug } = await params;
-  const service = getService(slug);
+  const service = await getServiceBySlug(slug);
 
   if (!service) {
     notFound();
   }
+
+  const processSteps = [
+    "Book a consultation to discuss your goals and current stage.",
+    "Receive a tailored plan with the right service scope and next steps.",
+    "Move forward with structured support, review, and accountability.",
+  ];
 
   return (
     <>
       <PageHero
         label="Service Detail"
         title={service.name}
-        copy={service.short}
+        copy={service.description || service.tagline || "Service details coming soon."}
         dark
         actions={
           <>
             <Link href="/contact" className="button-secondary">
-              {service.cta}
+              Book Consultation
             </Link>
             <Link href="/services" className="button-ghost border-white/15 text-cream">
               Back to Services
@@ -57,10 +64,10 @@ export default async function ServiceDetailPage({ params }: Props) {
         aside={
           <div className="card-shell paper-panel rounded-[24px] p-7 text-navy">
             <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
-              Optional Pricing
+              Service Focus
             </div>
             <p className="mt-4 text-base leading-8">
-              {service.pricing ?? "Pricing shared on inquiry."}
+              {service.tagline || "Details and pricing are shared after your initial inquiry."}
             </p>
           </div>
         }
@@ -72,7 +79,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <SectionIntro
               label="Who It Is For"
               title="Designed for focused candidates who want more than generic guidance."
-              copy={service.audience}
+              copy={service.whoItsFor || "This service is tailored to people who need high-trust, structured support."}
             />
           </Reveal>
 
@@ -81,9 +88,11 @@ export default async function ServiceDetailPage({ params }: Props) {
               Core Benefits
             </div>
             <ul className="mt-5 space-y-4 text-base leading-8 text-ink/82">
-              {service.benefits.map((benefit) => (
-                <li key={benefit}>• {benefit}</li>
-              ))}
+              {service.benefits.length > 0 ? (
+                service.benefits.map((benefit) => <li key={benefit}>â€¢ {benefit}</li>)
+              ) : (
+                <li>â€¢ More benefit details will be added soon.</li>
+              )}
             </ul>
           </Reveal>
         </div>
@@ -98,7 +107,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             />
           </Reveal>
           <div className="mt-12 grid gap-6 md:grid-cols-3">
-            {service.process.map((step, index) => (
+            {processSteps.map((step, index) => (
               <Reveal key={step} delay={index * 90} className="card-shell p-8">
                 <div className="display-title text-4xl text-gold">0{index + 1}</div>
                 <p className="mt-4 text-base leading-8 text-ink/82">{step}</p>
@@ -111,7 +120,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       <ConsultationBanner
         title={`Ready to start ${service.name.toLowerCase()}?`}
         copy="We'll help you choose the right scope, timeline, and support level for your current stage."
-        label={service.cta}
+        label="Book Consultation"
       />
     </>
   );

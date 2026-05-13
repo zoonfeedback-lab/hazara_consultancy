@@ -3,19 +3,22 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Reveal } from "@/components/reveal";
 import { ConsultationBanner } from "@/components/section-primitives";
-import { blogPosts, getPost } from "@/lib/site-data";
+import { getBlogPostBySlug, getBlogPosts } from "@/lib/data/public";
+
+export const revalidate = 60;
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
 export async function generateStaticParams() {
-  return blogPosts.map((post) => ({ slug: post.slug }));
+  const posts = await getBlogPosts();
+  return posts.map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPost(slug);
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
     return { title: "Article Not Found" };
@@ -23,20 +26,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: post.title,
-    description: post.excerpt,
+    description: post.excerpt || "Blog article",
   };
+}
+
+function formatPublishedDate(date: Date | null) {
+  if (!date) {
+    return "Publication date pending";
+  }
+
+  return new Intl.DateTimeFormat("en-PK", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  }).format(date);
 }
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPost(slug);
+  const post = await getBlogPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
-  const relatedPosts = post.related
-    .map((relatedSlug) => blogPosts.find((entry) => entry.slug === relatedSlug))
+  const relatedPosts = await getBlogPosts();
+  const filtered = relatedPosts.filter((entry) => entry.slug !== slug).slice(0, 3);
+  const bodyParagraphs = (post.body || "")
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
     .filter(Boolean);
 
   return (
@@ -44,19 +62,20 @@ export default async function BlogPostPage({ params }: Props) {
       <article className="bg-paper py-24">
         <div className="site-container grid gap-14 lg:grid-cols-[0.95fr_0.35fr]">
           <Reveal>
-            <span className="eyebrow">{post.category}</span>
+            <span className="eyebrow">{post.category || "General"}</span>
             <h1 className="display-title mt-6 text-5xl leading-[1.05] text-navy md:text-6xl">
               {post.title}
             </h1>
             <div className="mt-6 flex flex-wrap gap-4 text-sm uppercase tracking-[0.15em] text-ink/58">
-              <span>{post.author}</span>
-              <span>{post.date}</span>
-              <span>{post.readingTime}</span>
+              <span>{formatPublishedDate(post.publishedAt)}</span>
+              {post.featured ? <span>Featured</span> : null}
             </div>
             <div className="mt-10 space-y-8 text-lg leading-9 text-ink/84">
-              {post.body.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
+              {bodyParagraphs.length > 0 ? (
+                bodyParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)
+              ) : (
+                <p>No article body has been added yet.</p>
+              )}
             </div>
           </Reveal>
 
@@ -66,13 +85,15 @@ export default async function BlogPostPage({ params }: Props) {
                 Related Articles
               </div>
               <div className="mt-5 space-y-5">
-                {relatedPosts.map((entry) =>
-                  entry ? (
-                    <Link key={entry.slug} href={`/blog/${entry.slug}`} className="block">
+                {filtered.length > 0 ? (
+                  filtered.map((entry) => (
+                    <Link key={entry.id} href={`/blog/${entry.slug}`} className="block">
                       <div className="display-title text-2xl text-navy">{entry.title}</div>
-                      <div className="mt-2 text-sm text-ink/62">{entry.category}</div>
+                      <div className="mt-2 text-sm text-ink/62">{entry.category || "General"}</div>
                     </Link>
-                  ) : null,
+                  ))
+                ) : (
+                  <div className="text-sm text-ink/62">No related articles are available yet.</div>
                 )}
               </div>
             </aside>

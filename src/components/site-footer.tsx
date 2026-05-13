@@ -1,7 +1,14 @@
 import Link from "next/link";
-import { office } from "@/lib/site-data";
+import type { Settings } from "@/lib/types/database";
 
-export function SiteFooter() {
+export function SiteFooter({ settings }: { settings: Settings | null }) {
+  const socialLinks = [
+    { href: settings?.facebookUrl, label: "Facebook" },
+    { href: settings?.instagramUrl, label: "Instagram" },
+    { href: settings?.youtubeUrl, label: "YouTube" },
+    { href: settings?.linkedinUrl, label: "LinkedIn" },
+  ].filter((entry) => entry.href);
+
   return (
     <footer className="bg-navy py-16 text-cream">
       <div className="site-container">
@@ -33,22 +40,30 @@ export function SiteFooter() {
               Contact & Social
             </div>
             <div className="mt-5 space-y-3 text-sm text-cream/84">
-              <p>{office.address}</p>
-              <p>{office.phone}</p>
-              <p>{office.email}</p>
+              {settings?.address ? <p>{settings.address}</p> : null}
+              {settings?.phone ? <p>{settings.phone}</p> : null}
+              {settings?.contactEmail ? <p>{settings.contactEmail}</p> : null}
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href={office.whatsapp} className="button-whatsapp">
-                WhatsApp
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noreferrer"
-                className="button-ghost border-white/15 text-cream"
-              >
-                Facebook
-              </a>
+              {settings?.whatsappUrl ? (
+                <a href={settings.whatsappUrl} className="button-whatsapp">
+                  WhatsApp
+                </a>
+              ) : null}
+              {socialLinks.map((entry) => (
+                <a
+                  key={entry.label}
+                  href={entry.href ?? undefined}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="button-ghost border-white/15 text-cream"
+                >
+                  {entry.label}
+                </a>
+              ))}
+              {!settings?.whatsappUrl && socialLinks.length === 0 ? (
+                <span className="text-sm text-cream/62">Social links coming soon.</span>
+              ) : null}
             </div>
           </div>
         </div>
