@@ -70,7 +70,7 @@ export default async function HomePage() {
               preparation, admissions guidance, writing support, and purposeful programs.
             </p>
             <p className="urdu-accent mt-5 text-gold-soft">
-              ÃšÂ©Ã˜Â§Ã™â€¦Ã›Å’Ã˜Â§Ã˜Â¨Ã›Å’ Ã™â€¦Ã˜Â­Ã™â€ Ã˜Âª Ã˜Â³Ã›â€™ Ã˜Â¨Ã™â€ Ã˜ÂªÃ›Å’ Ã›ÂÃ›â€™Ã˜Å’ Ã™â€¦ÃšÂ¯Ã˜Â± Ã˜Â±Ã›ÂÃ™â€ Ã™â€¦Ã˜Â§Ã˜Â¦Ã›Å’ Ã˜Â§Ã˜Â³Ã›â€™ Ã˜Â±Ã™ÂÃ˜ÂªÃ˜Â§Ã˜Â± Ã˜Â¯Ã›Å’Ã˜ÂªÃ›Å’ Ã›ÂÃ›â€
+              کامیابیاں محنت سے بنتی ہیں، مگر رہنمائی اسے رفتار دیتی ہے۔
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10">
               <Link href="/contact" className="button-secondary w-full sm:w-auto">
@@ -129,7 +129,7 @@ export default async function HomePage() {
             {announcements.length > 0 ? (
               [...announcements, ...announcements].map((item, index) => (
                 <div key={`${item.id}-${index}`} className="flex items-center gap-4 whitespace-nowrap">
-                  <span className="text-gold">Ã¢â‚¬Â¢</span>
+                  <span className="text-gold">&bull;</span>
                   {item.link ? (
                     <Link href={item.link}>{item.text}</Link>
                   ) : (
@@ -229,7 +229,7 @@ export default async function HomePage() {
               <SectionIntro
                 label="Flagship Program"
                 title={featuredProgram.name}
-                copy={`${featuredProgram.duration || "Schedule to be announced"} Ã¢â‚¬Â¢ ${featuredProgram.schedule || formatProgramType(featuredProgram.type)} Ã¢â‚¬Â¢ ${formatProgramType(featuredProgram.type)}`}
+                copy={`${featuredProgram.duration || "Schedule to be announced"} • ${featuredProgram.schedule || formatProgramType(featuredProgram.type)} • ${formatProgramType(featuredProgram.type)}`}
               />
             </Reveal>
             <Reveal delay={120} className="featured-card mt-12 rounded-[24px] p-6 md:p-10">
@@ -285,7 +285,7 @@ export default async function HomePage() {
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {homepageTestimonials.map((testimonial, index) => (
                 <Reveal key={testimonial.id} delay={index * 90} className="card-shell p-5 sm:p-6 lg:p-8">
-                  <p className="display-title text-2xl text-gold">Ã¢â‚¬Å“</p>
+                  <p className="display-title text-2xl text-gold">&ldquo;</p>
                   <p className="mt-3 text-base leading-7 text-ink/84 md:leading-8">{testimonial.quote}</p>
                   <div className="mt-8">
                     <div className="font-semibold text-navy">{testimonial.studentName}</div>

@@ -58,7 +58,7 @@ export default async function ServicesPage() {
                   </div>
                   <ul className="mt-6 space-y-3 text-sm leading-7 text-ink/78">
                     {service.benefits.map((benefit) => (
-                      <li key={benefit}>â€¢ {benefit}</li>
+                      <li key={benefit}>• {benefit}</li>
                     ))}
                   </ul>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

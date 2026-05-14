@@ -52,13 +52,15 @@ export function SiteHeader() {
         }`}
       >
         <div className="site-container flex h-16 items-center justify-between gap-3 lg:h-[72px]">
-          <Link href="/" className="min-w-0 shrink text-cream">
-            <div className="display-title text-[1rem] leading-tight sm:text-[1.1rem] md:text-[1.22rem] lg:text-[1.34rem]">
+          <Link href="/" className="min-w-0 max-w-[calc(100%-3.5rem)] shrink text-cream md:max-w-[calc(100%-4rem)] lg:max-w-none">
+            <div className="display-title text-[1rem] leading-tight sm:text-[1.1rem] md:text-[1.12rem] lg:text-[1.34rem]">
               <span className="sm:hidden">HGC</span>
-              <span className="hidden sm:inline">Hazara Global Consultancy</span>
+              <span className="hidden sm:inline lg:hidden">Hazara Global</span>
+              <span className="hidden lg:inline">Hazara Global Consultancy</span>
             </div>
-            <div className="mt-1 text-sm font-semibold uppercase tracking-[0.2em] text-gold">
-              Premium Mentorship Academy
+            <div className="mt-1 hidden text-xs font-semibold uppercase tracking-[0.18em] text-gold md:block lg:text-sm">
+              <span className="lg:hidden">Premium Mentorship</span>
+              <span className="hidden lg:inline">Premium Mentorship Academy</span>
             </div>
           </Link>
 
@@ -76,7 +78,7 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="flex items-center gap-3">
+          <div className="flex shrink-0 items-center gap-3">
             <Link href="/contact" className="button-primary hidden rounded-[10px] bg-navy px-5 text-gold lg:inline-flex">
               Book Consultation
             </Link>
@@ -86,7 +88,9 @@ export function SiteHeader() {
               onClick={() => setOpen(true)}
               className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold lg:hidden"
             >
-              <span className="text-2xl leading-none">≡</span>
+              <span className="text-2xl leading-none" aria-hidden="true">
+                &#9776;
+              </span>
             </button>
           </div>
         </div>
@@ -104,10 +108,10 @@ export function SiteHeader() {
         >
           <div className="flex items-start justify-between gap-4">
             <div className="min-w-0 pr-3 text-cream">
-              <div className="display-title text-[1.5rem] leading-tight sm:text-[1.75rem]">
+              <div className="display-title text-[1.3rem] leading-tight sm:text-[1.6rem]">
                 Hazara Global Consultancy
               </div>
-              <div className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-gold">
+              <div className="mt-2 text-sm font-semibold uppercase tracking-[0.18em] text-gold">
                 Premium Mentorship Academy
               </div>
             </div>
@@ -117,7 +121,9 @@ export function SiteHeader() {
               onClick={() => setOpen(false)}
               className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold"
             >
-              <span className="text-2xl leading-none">×</span>
+              <span className="text-2xl leading-none" aria-hidden="true">
+                &times;
+              </span>
             </button>
           </div>
 

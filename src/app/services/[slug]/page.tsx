@@ -89,9 +89,9 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
             <ul className="mt-5 space-y-4 text-base leading-8 text-ink/82">
               {service.benefits.length > 0 ? (
-                service.benefits.map((benefit) => <li key={benefit}>â€¢ {benefit}</li>)
+                service.benefits.map((benefit) => <li key={benefit}>• {benefit}</li>)
               ) : (
-                <li>â€¢ More benefit details will be added soon.</li>
+                <li>• More benefit details will be added soon.</li>
               )}
             </ul>
           </Reveal>

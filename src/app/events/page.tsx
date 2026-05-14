@@ -51,7 +51,7 @@ export default async function EventsPage() {
                   </div>
                   <h2 className="display-title mt-4 text-2xl text-navy md:text-3xl">{event.name}</h2>
                   <p className="mt-3 text-sm uppercase tracking-[0.15em] text-ink/62">
-                    {formatEventDate(event.date)} â€¢ {event.location || "Location to be announced"}
+                    {formatEventDate(event.date)} • {event.location || "Location to be announced"}
                   </p>
                   <p className="mt-5 leading-8 text-ink/78">
                     {event.description || "Further event details will be shared soon."}

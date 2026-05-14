@@ -75,7 +75,7 @@ export default async function ProgramsPage() {
                       program.featured ? "text-cream/68" : "text-ink/62"
                     }`}
                   >
-                    {program.schedule || "Schedule to be announced"} â€¢ {formatEnum(program.type)}
+                    {program.schedule || "Schedule to be announced"} • {formatEnum(program.type)}
                   </p>
                   <ul
                     className={`mt-7 space-y-3 text-sm leading-7 ${
@@ -83,9 +83,9 @@ export default async function ProgramsPage() {
                     }`}
                   >
                     {program.curriculum.length > 0 ? (
-                      program.curriculum.map((item) => <li key={item}>â€¢ {item}</li>)
+                      program.curriculum.map((item) => <li key={item}>• {item}</li>)
                     ) : (
-                      <li>â€¢ Curriculum details will be published soon.</li>
+                      <li>• Curriculum details will be published soon.</li>
                     )}
                   </ul>
                   <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">

@@ -69,7 +69,7 @@ export function SiteFooter({ settings }: { settings: Settings | null }) {
         </div>
         <div className="mt-12 h-px bg-gold/45" />
         <div className="mt-6 text-center text-sm uppercase tracking-[0.14em] text-cream/62 md:text-left">
-          © 2026 Hazara Global Consultancy.
+          &copy; 2026 Hazara Global Consultancy.
           <br className="md:hidden" /> Abbottabad, Pakistan.
         </div>
       </div>
