@@ -1,5 +1,6 @@
 import NextAuth from "next-auth";
 import Credentials from "next-auth/providers/credentials";
+import { checkRateLimit, resetRateLimit } from "@/lib/rate-limit";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -13,6 +14,12 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         const adminPassword = process.env.ADMIN_PASSWORD;
         const email = credentials?.email;
         const password = credentials?.password;
+        const identifier = typeof credentials?.email === "string" ? credentials.email : "unknown";
+        const rateLimit = checkRateLimit(identifier);
+
+        if (!rateLimit.allowed) {
+          throw new Error(`Too many login attempts. Please try again in ${rateLimit.resetInSeconds} seconds.`);
+        }
 
         if (
           typeof email === "string" &&
@@ -20,6 +27,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           email === adminEmail &&
           password === adminPassword
         ) {
+          resetRateLimit(identifier);
           return { id: "1", email: adminEmail, name: "Admin" };
         }
 

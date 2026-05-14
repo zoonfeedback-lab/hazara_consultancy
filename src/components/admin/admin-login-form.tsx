@@ -26,7 +26,7 @@ export function AdminLoginForm() {
       });
 
       if (!result || result.error) {
-        setError("Invalid email or password.");
+        setError(result?.error || "Invalid email or password.");
         return;
       }
 

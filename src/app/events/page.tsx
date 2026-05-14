@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { EventsInquiryForm } from "@/components/events-inquiry-form";
 import { Reveal } from "@/components/reveal";
 import { PageHero, SectionIntro } from "@/components/section-primitives";
 import { getEvents } from "@/lib/data/public";
@@ -50,7 +51,7 @@ export default async function EventsPage() {
                   </div>
                   <h2 className="display-title mt-4 text-3xl text-navy">{event.name}</h2>
                   <p className="mt-3 text-sm uppercase tracking-[0.15em] text-ink/62">
-                    {formatEventDate(event.date)} â€¢ {event.location || "Location to be announced"}
+                    {formatEventDate(event.date)} • {event.location || "Location to be announced"}
                   </p>
                   <p className="mt-5 leading-8 text-ink/78">
                     {event.description || "Further event details will be shared soon."}
@@ -129,51 +130,7 @@ export default async function EventsPage() {
             delay={120}
             className="rounded-[24px] bg-white p-8 text-navy shadow-[0_20px_60px_rgba(0,0,0,0.18)] md:p-10"
           >
-            <form className="grid gap-5 md:grid-cols-2">
-              <label className="text-sm font-medium md:col-span-1">
-                Organization
-                <input
-                  className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
-                  placeholder="Institution or organization name"
-                />
-              </label>
-              <label className="text-sm font-medium md:col-span-1">
-                Contact Person
-                <input
-                  className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
-                  placeholder="Full name"
-                />
-              </label>
-              <label className="text-sm font-medium md:col-span-1">
-                Email
-                <input
-                  className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
-                  placeholder="name@example.com"
-                  type="email"
-                />
-              </label>
-              <label className="text-sm font-medium md:col-span-1">
-                Event Type
-                <select className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none">
-                  <option>Seminar</option>
-                  <option>Workshop</option>
-                  <option>Women-Centered Program</option>
-                  <option>Institutional Partnership</option>
-                </select>
-              </label>
-              <label className="text-sm font-medium md:col-span-2">
-                Vision
-                <textarea
-                  className="mt-2 min-h-36 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
-                  placeholder="Tell us what you want to host and who it is for."
-                />
-              </label>
-              <div className="md:col-span-2">
-                <button type="button" className="button-primary">
-                  Send Inquiry
-                </button>
-              </div>
-            </form>
+            <EventsInquiryForm />
           </Reveal>
         </div>
       </section>

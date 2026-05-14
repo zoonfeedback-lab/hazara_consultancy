@@ -70,7 +70,7 @@ export default async function HomePage() {
               preparation, admissions guidance, writing support, and purposeful programs.
             </p>
             <p className="urdu-accent mt-5 text-gold-soft">
-              Ú©Ø§Ù…ÛŒØ§Ø¨ÛŒ Ù…Ø­Ù†Øª Ø³Û’ Ø¨Ù†ØªÛŒ ÛÛ’ØŒ Ù…Ú¯Ø± Ø±ÛÙ†Ù…Ø§Ø¦ÛŒ Ø§Ø³Û’ Ø±ÙØªØ§Ø± Ø¯ÛŒØªÛŒ ÛÛ’Û”
+              کامیابیاں محنت سے بنتی ہیں، مگر رہنمائی اسے رفتار دیتی ہے۔
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
               <Link href="/contact" className="button-secondary">
@@ -129,7 +129,7 @@ export default async function HomePage() {
             {announcements.length > 0 ? (
               [...announcements, ...announcements].map((item, index) => (
                 <div key={`${item.id}-${index}`} className="flex items-center gap-4 whitespace-nowrap">
-                  <span className="text-gold">â€¢</span>
+                  <span className="text-gold">•</span>
                   {item.link ? (
                     <Link href={item.link}>{item.text}</Link>
                   ) : (
@@ -229,7 +229,7 @@ export default async function HomePage() {
               <SectionIntro
                 label="Flagship Program"
                 title={featuredProgram.name}
-                copy={`${featuredProgram.duration || "Schedule to be announced"} â€¢ ${featuredProgram.schedule || formatProgramType(featuredProgram.type)} â€¢ ${formatProgramType(featuredProgram.type)}`}
+                copy={`${featuredProgram.duration || "Schedule to be announced"} • ${featuredProgram.schedule || formatProgramType(featuredProgram.type)} • ${formatProgramType(featuredProgram.type)}`}
               />
             </Reveal>
             <Reveal delay={120} className="featured-card mt-12 rounded-[24px] p-8 md:p-10">
@@ -285,7 +285,7 @@ export default async function HomePage() {
             <div className="mt-12 grid gap-6 md:grid-cols-3">
               {homepageTestimonials.map((testimonial, index) => (
                 <Reveal key={testimonial.id} delay={index * 90} className="card-shell p-8">
-                  <p className="display-title text-2xl text-gold">â€œ</p>
+                  <p className="display-title text-2xl text-gold">“</p>
                   <p className="mt-3 text-base leading-8 text-ink/84">{testimonial.quote}</p>
                   <div className="mt-8">
                     <div className="font-semibold text-navy">{testimonial.studentName}</div>

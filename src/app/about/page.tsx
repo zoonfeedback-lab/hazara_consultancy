@@ -47,11 +47,11 @@ export default async function AboutPage() {
           <Reveal delay={120} className="featured-card flex min-h-[420px] flex-col justify-between rounded-[24px] p-8 md:p-10">
             <div>
               <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
-                Abbottabad â€¢ Hazara Region
+                Abbottabad • Hazara Region
               </div>
               <p className="display-title mt-6 text-4xl leading-[1.08]">
-                â€œOur ambition has always been bigger than delivering information.
-                We build trust, direction, and readiness.â€
+                “Our ambition has always been bigger than delivering information.
+                We build trust, direction, and readiness.”
               </p>
             </div>
             <div className="rounded-[18px] border border-white/12 bg-white/7 p-5 text-sm leading-7 text-cream/82">
@@ -130,7 +130,7 @@ export default async function AboutPage() {
 
       <ConsultationBanner
         title="Ready to begin your journey?"
-        copy="Whether you need exam strategy, admissions clarity, writing guidance, or event collaboration, weâ€™re ready to help you move with confidence."
+        copy="Whether you need exam strategy, admissions clarity, writing guidance, or event collaboration, we’re ready to help you move with confidence."
         href="/contact"
         label="Book Consultation"
       />
