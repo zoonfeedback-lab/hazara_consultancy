@@ -50,25 +50,25 @@ export default async function BlogIndexPage() {
                   copy={resolvedFeatured.excerpt || "No excerpt available yet."}
                 />
               </Reveal>
-              <Reveal delay={120} className="featured-card mt-12 rounded-[24px] p-8 md:p-10">
+              <Reveal delay={120} className="featured-card mt-12 rounded-[24px] p-5 sm:p-6 md:p-10">
                 {resolvedFeatured.featuredImageUrl ? (
                   <img
                     src={resolvedFeatured.featuredImageUrl}
                     alt={resolvedFeatured.title}
-                    className="mb-6 h-72 w-full rounded-[18px] object-cover"
+                    className="mb-6 h-56 w-full rounded-[18px] object-cover sm:h-64 md:h-72"
                   />
                 ) : (
-                  <div className="mb-6 h-72 w-full rounded-[18px] bg-white/10" />
+                  <div className="mb-6 h-56 w-full rounded-[18px] bg-white/10 sm:h-64 md:h-72" />
                 )}
-                <div className="flex flex-wrap items-center gap-3 text-[11px] uppercase tracking-[0.15em] text-gold-soft">
+                <div className="flex flex-wrap items-center gap-3 text-sm uppercase tracking-[0.15em] text-gold-soft">
                   <span>{resolvedFeatured.category || "General"}</span>
                   <span>{formatPublishedDate(resolvedFeatured.publishedAt)}</span>
                   {resolvedFeatured.featured ? <span>Featured</span> : null}
                 </div>
-                <p className="mt-6 max-w-3xl text-lg leading-8 text-cream/82">
+                <p className="mt-6 max-w-3xl text-base leading-7 text-cream/82 md:text-lg md:leading-8">
                   {resolvedFeatured.excerpt || "No excerpt available yet."}
                 </p>
-                <Link href={`/blog/${resolvedFeatured.slug}`} className="button-secondary mt-8">
+                <Link href={`/blog/${resolvedFeatured.slug}`} className="button-secondary mt-8 w-full sm:w-auto">
                   Read More
                 </Link>
               </Reveal>
@@ -82,7 +82,7 @@ export default async function BlogIndexPage() {
           {rest.length > 0 ? (
             <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {rest.map((post, index) => (
-                <Reveal key={post.id} delay={index * 70} className="card-shell p-8">
+                <Reveal key={post.id} delay={index * 70} className="card-shell p-5 sm:p-6 lg:p-8">
                   {post.featuredImageUrl ? (
                     <img
                       src={post.featuredImageUrl}
@@ -92,15 +92,15 @@ export default async function BlogIndexPage() {
                   ) : (
                     <div className="mb-5 h-48 w-full rounded-[16px] bg-mist" />
                   )}
-                  <div className="flex flex-wrap gap-3 text-[11px] uppercase tracking-[0.15em] text-gold">
+                  <div className="flex flex-wrap gap-3 text-sm uppercase tracking-[0.15em] text-gold">
                     <span>{post.category || "General"}</span>
                     <span>{formatPublishedDate(post.publishedAt)}</span>
                   </div>
-                  <h2 className="display-title mt-4 text-3xl text-navy">{post.title}</h2>
+                  <h2 className="display-title mt-4 text-2xl text-navy md:text-3xl">{post.title}</h2>
                   <p className="mt-4 leading-8 text-ink/78">
                     {post.excerpt || "No excerpt available yet."}
                   </p>
-                  <Link href={`/blog/${post.slug}`} className="button-primary mt-8">
+                  <Link href={`/blog/${post.slug}`} className="button-primary mt-8 w-full sm:w-auto">
                     Read More
                   </Link>
                 </Reveal>

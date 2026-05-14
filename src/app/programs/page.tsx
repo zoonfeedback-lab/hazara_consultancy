@@ -43,11 +43,11 @@ export default async function ProgramsPage() {
                 <Reveal
                   key={program.id}
                   delay={index * 90}
-                  className={`${program.featured ? "featured-card" : "card-shell"} rounded-[22px] p-8 md:p-10`}
+                  className={`${program.featured ? "featured-card" : "card-shell"} rounded-[22px] p-5 sm:p-6 lg:p-10`}
                 >
                   <div className="flex flex-wrap items-center gap-3">
                     <span
-                      className={`rounded-full px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] ${
+                      className={`rounded-full px-4 py-2 text-sm font-semibold uppercase tracking-[0.16em] ${
                         program.featured
                           ? "border border-gold/35 text-gold-soft"
                           : "bg-mist text-navy"
@@ -56,7 +56,7 @@ export default async function ProgramsPage() {
                       {formatEnum(program.status)}
                     </span>
                     <span
-                      className={`text-[11px] uppercase tracking-[0.16em] ${
+                      className={`text-sm uppercase tracking-[0.16em] ${
                         program.featured ? "text-cream/70" : "text-ink/62"
                       }`}
                     >
@@ -64,9 +64,9 @@ export default async function ProgramsPage() {
                     </span>
                   </div>
                   <h2
-                    className={`display-title mt-5 text-3xl ${
+                    className={`display-title mt-5 text-2xl ${
                       program.featured ? "text-cream" : "text-navy"
-                    }`}
+                    } md:text-3xl`}
                   >
                     {program.name}
                   </h2>
@@ -75,7 +75,7 @@ export default async function ProgramsPage() {
                       program.featured ? "text-cream/68" : "text-ink/62"
                     }`}
                   >
-                    {program.schedule || "Schedule to be announced"} • {formatEnum(program.type)}
+                    {program.schedule || "Schedule to be announced"} â€¢ {formatEnum(program.type)}
                   </p>
                   <ul
                     className={`mt-7 space-y-3 text-sm leading-7 ${
@@ -83,25 +83,21 @@ export default async function ProgramsPage() {
                     }`}
                   >
                     {program.curriculum.length > 0 ? (
-                      program.curriculum.map((item) => <li key={item}>• {item}</li>)
+                      program.curriculum.map((item) => <li key={item}>â€¢ {item}</li>)
                     ) : (
-                      <li>• Curriculum details will be published soon.</li>
+                      <li>â€¢ Curriculum details will be published soon.</li>
                     )}
                   </ul>
-                  <div className="mt-8 flex flex-wrap gap-3">
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     <Link
                       href="/contact"
-                      className={program.featured ? "button-secondary" : "button-primary"}
+                      className={`${program.featured ? "button-secondary" : "button-primary"} w-full sm:w-auto`}
                     >
                       Register Interest
                     </Link>
                     <Link
                       href="/contact"
-                      className={
-                        program.featured
-                          ? "button-ghost border-white/15 text-cream"
-                          : "button-ghost"
-                      }
+                      className={`${program.featured ? "button-ghost border-white/15 text-cream" : "button-ghost"} w-full sm:w-auto`}
                     >
                       Learn More
                     </Link>

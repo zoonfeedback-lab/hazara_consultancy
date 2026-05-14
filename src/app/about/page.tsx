@@ -44,14 +44,14 @@ export default async function AboutPage() {
             </p>
           </Reveal>
 
-          <Reveal delay={120} className="featured-card flex min-h-[420px] flex-col justify-between rounded-[24px] p-8 md:p-10">
+          <Reveal delay={120} className="featured-card flex min-h-[320px] flex-col justify-between rounded-[24px] p-6 md:min-h-[420px] md:p-10">
             <div>
-              <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
-                Abbottabad • Hazara Region
+              <div className="text-sm uppercase tracking-[0.18em] text-gold-soft">
+                Abbottabad Ã¢â‚¬Â¢ Hazara Region
               </div>
-              <p className="display-title mt-6 text-4xl leading-[1.08]">
-                “Our ambition has always been bigger than delivering information.
-                We build trust, direction, and readiness.”
+              <p className="display-title mt-6 text-3xl leading-[1.08] md:text-4xl">
+                Ã¢â‚¬Å“Our ambition has always been bigger than delivering information.
+                We build trust, direction, and readiness.Ã¢â‚¬Â
               </p>
             </div>
             <div className="rounded-[18px] border border-white/12 bg-white/7 p-5 text-sm leading-7 text-cream/82">
@@ -71,13 +71,13 @@ export default async function AboutPage() {
               copy="The brand should feel premium, but the substance underneath it is discipline, integrity, and care."
             />
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
             {aboutValues.map((value, index) => (
-              <Reveal key={value.title} delay={index * 90} className="card-shell p-8">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+              <Reveal key={value.title} delay={index * 90} className="card-shell p-5 sm:p-6 lg:p-8">
+                <div className="text-sm uppercase tracking-[0.18em] text-gold">
                   Value 0{index + 1}
                 </div>
-                <h3 className="display-title mt-4 text-3xl text-navy">{value.title}</h3>
+                <h3 className="display-title mt-4 text-2xl text-navy md:text-3xl">{value.title}</h3>
                 <p className="mt-4 leading-8 text-ink/78">{value.copy}</p>
               </Reveal>
             ))}
@@ -94,19 +94,19 @@ export default async function AboutPage() {
               copy="Use these profiles as public-facing mentor cards that signal expertise without feeling like a staff directory."
             />
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
             {mentors.map((mentor, index) => (
-              <Reveal key={mentor.name} delay={index * 90} className="card-shell p-8">
-                <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+              <Reveal key={mentor.name} delay={index * 90} className="card-shell p-5 sm:p-6 lg:p-8">
+                <div className="text-sm uppercase tracking-[0.18em] text-gold">
                   {mentor.title}
                 </div>
-                <h3 className="display-title mt-4 text-3xl text-navy">{mentor.name}</h3>
+                <h3 className="display-title mt-4 text-2xl text-navy md:text-3xl">{mentor.name}</h3>
                 <p className="mt-4 leading-8 text-ink/78">{mentor.bio}</p>
                 <div className="mt-6 flex flex-wrap gap-2">
                   {mentor.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="rounded-full bg-mist px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.14em] text-navy"
+                      className="rounded-full bg-mist px-4 py-2 text-sm font-semibold uppercase tracking-[0.14em] text-navy"
                     >
                       {tag}
                     </span>
@@ -120,7 +120,7 @@ export default async function AboutPage() {
 
       <section className="bg-paper py-6">
         <div className="site-container">
-          <div className="featured-card grid rounded-[22px] py-4 md:grid-cols-4">
+          <div className="featured-card grid grid-cols-2 rounded-[22px] py-4 md:grid-cols-4">
             {stats.map((stat) => (
               <CountUpStat key={stat.label} {...stat} />
             ))}
@@ -130,7 +130,7 @@ export default async function AboutPage() {
 
       <ConsultationBanner
         title="Ready to begin your journey?"
-        copy="Whether you need exam strategy, admissions clarity, writing guidance, or event collaboration, we’re ready to help you move with confidence."
+        copy="Whether you need exam strategy, admissions clarity, writing guidance, or event collaboration, weÃ¢â‚¬â„¢re ready to help you move with confidence."
         href="/contact"
         label="Book Consultation"
       />

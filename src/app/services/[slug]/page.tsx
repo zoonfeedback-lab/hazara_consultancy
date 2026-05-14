@@ -62,8 +62,8 @@ export default async function ServiceDetailPage({ params }: Props) {
           </>
         }
         aside={
-          <div className="card-shell paper-panel rounded-[24px] p-7 text-navy">
-            <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+          <div className="card-shell paper-panel rounded-[24px] p-6 text-navy md:p-7">
+            <div className="text-sm uppercase tracking-[0.18em] text-gold">
               Service Focus
             </div>
             <p className="mt-4 text-base leading-8">
@@ -83,8 +83,8 @@ export default async function ServiceDetailPage({ params }: Props) {
             />
           </Reveal>
 
-          <Reveal delay={100} className="card-shell p-8 md:p-10">
-            <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+          <Reveal delay={100} className="card-shell p-6 md:p-10">
+            <div className="text-sm uppercase tracking-[0.18em] text-gold">
               Core Benefits
             </div>
             <ul className="mt-5 space-y-4 text-base leading-8 text-ink/82">
@@ -106,9 +106,9 @@ export default async function ServiceDetailPage({ params }: Props) {
               title="A clear process with accountable checkpoints."
             />
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {processSteps.map((step, index) => (
-              <Reveal key={step} delay={index * 90} className="card-shell p-8">
+              <Reveal key={step} delay={index * 90} className="card-shell p-6 md:p-8">
                 <div className="display-title text-4xl text-gold">0{index + 1}</div>
                 <p className="mt-4 text-base leading-8 text-ink/82">{step}</p>
               </Reveal>

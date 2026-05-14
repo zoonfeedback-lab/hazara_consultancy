@@ -45,13 +45,13 @@ export default async function EventsPage() {
           {upcoming.length > 0 ? (
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {upcoming.map((event, index) => (
-                <Reveal key={event.id} delay={index * 90} className="card-shell p-8 md:p-10">
-                  <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+                <Reveal key={event.id} delay={index * 90} className="card-shell p-5 sm:p-6 lg:p-10">
+                  <div className="text-sm uppercase tracking-[0.18em] text-gold">
                     {event.type.toLowerCase().replace(/_/g, " ")}
                   </div>
-                  <h2 className="display-title mt-4 text-3xl text-navy">{event.name}</h2>
+                  <h2 className="display-title mt-4 text-2xl text-navy md:text-3xl">{event.name}</h2>
                   <p className="mt-3 text-sm uppercase tracking-[0.15em] text-ink/62">
-                    {formatEventDate(event.date)} • {event.location || "Location to be announced"}
+                    {formatEventDate(event.date)} â€¢ {event.location || "Location to be announced"}
                   </p>
                   <p className="mt-5 leading-8 text-ink/78">
                     {event.description || "Further event details will be shared soon."}
@@ -79,28 +79,28 @@ export default async function EventsPage() {
             <div className="mt-12 grid gap-6 lg:grid-cols-2">
               {past.map((event, index) => (
                 <Reveal key={event.id} delay={index * 90} className="card-shell overflow-hidden">
-                  <div className="gradient-panel p-8 text-cream">
-                    <div className="text-[11px] uppercase tracking-[0.18em] text-gold-soft">
+                  <div className="gradient-panel p-5 text-cream sm:p-6 lg:p-8">
+                    <div className="text-sm uppercase tracking-[0.18em] text-gold-soft">
                       {formatEventDate(event.date)}
                     </div>
-                    <h2 className="display-title mt-4 text-3xl">{event.name}</h2>
+                    <h2 className="display-title mt-4 text-2xl md:text-3xl">{event.name}</h2>
                     <p className="mt-3 text-sm uppercase tracking-[0.15em] text-cream/70">
                       {event.location || "Location to be announced"}
                     </p>
                   </div>
-                  <div className="p-8">
+                  <div className="p-5 sm:p-6 lg:p-8">
                     <p className="leading-8 text-ink/78">
                       {event.description || "More portfolio details will be shared soon."}
                     </p>
-                    <div className="mt-6 grid gap-3 md:grid-cols-3">
+                    <div className="mt-6 grid gap-3">
                       {event.imageUrl ? (
                         <img
                           src={event.imageUrl}
                           alt={event.name}
-                          className="md:col-span-3 h-48 w-full rounded-[16px] object-cover"
+                          className="h-48 w-full rounded-[16px] object-cover"
                         />
                       ) : (
-                        <div className="gradient-panel md:col-span-3 flex min-h-32 items-end rounded-[16px] p-4 text-sm font-medium text-cream shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
+                        <div className="gradient-panel flex min-h-32 items-end rounded-[16px] p-4 text-sm font-medium text-cream shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
                           Event gallery placeholder
                         </div>
                       )}
@@ -128,7 +128,7 @@ export default async function EventsPage() {
           </Reveal>
           <Reveal
             delay={120}
-            className="rounded-[24px] bg-white p-8 text-navy shadow-[0_20px_60px_rgba(0,0,0,0.18)] md:p-10"
+            className="rounded-[24px] bg-white p-5 text-navy shadow-[0_20px_60px_rgba(0,0,0,0.18)] sm:p-6 md:p-10"
           >
             <EventsInquiryForm />
           </Reveal>

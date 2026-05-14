@@ -37,19 +37,19 @@ export default async function ServicesPage() {
                 <Reveal
                   key={service.id}
                   delay={index * 70}
-                  className={`card-shell p-8 ${
+                  className={`card-shell p-5 sm:p-6 lg:p-8 ${
                     index % 4 === 0 ? "md:col-span-2 xl:col-span-2" : ""
                   }`}
                 >
-                  <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+                  <div className="text-sm uppercase tracking-[0.18em] text-gold">
                     Detailed Service
                   </div>
-                  <h2 className="display-title mt-4 text-3xl text-navy">{service.name}</h2>
+                  <h2 className="display-title mt-4 text-2xl text-navy md:text-3xl">{service.name}</h2>
                   <p className="mt-4 leading-8 text-ink/78">
                     {service.description || service.tagline || "More details coming soon."}
                   </p>
                   <div className="mt-6 rounded-[16px] bg-mist p-5">
-                    <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-navy">
+                    <div className="text-sm font-semibold uppercase tracking-[0.15em] text-navy">
                       Who It Is For
                     </div>
                     <p className="mt-3 text-sm leading-7 text-ink/76">
@@ -58,14 +58,14 @@ export default async function ServicesPage() {
                   </div>
                   <ul className="mt-6 space-y-3 text-sm leading-7 text-ink/78">
                     {service.benefits.map((benefit) => (
-                      <li key={benefit}>• {benefit}</li>
+                      <li key={benefit}>â€¢ {benefit}</li>
                     ))}
                   </ul>
-                  <div className="mt-8 flex flex-wrap gap-3">
-                    <Link href={`/services/${service.slug}`} className="button-primary">
+                  <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+                    <Link href={`/services/${service.slug}`} className="button-primary w-full sm:w-auto">
                       Learn More
                     </Link>
-                    <Link href="/contact" className="button-ghost">
+                    <Link href="/contact" className="button-ghost w-full sm:w-auto">
                       Book Consultation
                     </Link>
                   </div>

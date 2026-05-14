@@ -29,7 +29,7 @@ export function ContactForm({ services }: ContactFormProps) {
 
   if (state?.success) {
     return (
-      <div className="rounded-[18px] border border-gold/30 bg-gold/10 px-5 py-6 text-sm leading-7 text-navy">
+      <div className="rounded-[18px] border border-gold/30 bg-gold/10 px-5 py-6 text-base leading-7 text-navy">
         Thank you for your message. We will be in touch within 2 business hours.
       </div>
     );
@@ -38,7 +38,7 @@ export function ContactForm({ services }: ContactFormProps) {
   const errors = state && "errors" in state ? state.errors : undefined;
 
   return (
-    <form ref={formRef} className="mt-8 grid gap-5 md:grid-cols-2" onSubmit={onSubmit}>
+    <form ref={formRef} className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2" onSubmit={onSubmit}>
       <label className="text-sm font-medium">
         Full Name
         <input
@@ -46,7 +46,7 @@ export function ContactForm({ services }: ContactFormProps) {
           className="mt-2 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
           placeholder="Your full name"
         />
-        {errors?.name ? <p className="mt-2 text-xs text-red-600">{errors.name}</p> : null}
+        {errors?.name ? <p className="mt-2 text-sm text-red-600">{errors.name}</p> : null}
       </label>
       <label className="text-sm font-medium">
         Email Address
@@ -56,7 +56,7 @@ export function ContactForm({ services }: ContactFormProps) {
           placeholder="name@example.com"
           type="email"
         />
-        {errors?.email ? <p className="mt-2 text-xs text-red-600">{errors.email}</p> : null}
+        {errors?.email ? <p className="mt-2 text-sm text-red-600">{errors.email}</p> : null}
       </label>
       <label className="text-sm font-medium">
         Phone Number
@@ -96,10 +96,10 @@ export function ContactForm({ services }: ContactFormProps) {
           className="mt-2 min-h-40 w-full rounded-[14px] border border-line px-4 py-3 outline-none"
           placeholder="Share your goals, timeline, or the kind of support you need."
         />
-        {errors?.message ? <p className="mt-2 text-xs text-red-600">{errors.message}</p> : null}
+        {errors?.message ? <p className="mt-2 text-sm text-red-600">{errors.message}</p> : null}
       </label>
       <div className="flex flex-col gap-3 md:col-span-2 md:flex-row md:items-center md:justify-between">
-        <button type="submit" disabled={isPending} className="button-primary disabled:opacity-60">
+        <button type="submit" disabled={isPending} className="button-primary w-full disabled:opacity-60 md:w-auto">
           {isPending ? "Submitting..." : "Submit Inquiry"}
         </button>
         <p className="text-sm text-ink/62">We respond within 2 business hours.</p>

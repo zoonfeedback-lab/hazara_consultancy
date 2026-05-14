@@ -21,7 +21,9 @@ export function AppChrome({
   return (
     <>
       <SiteHeader />
-      <main className="page-shell flex min-h-[calc(100vh-5rem)] flex-col">{children}</main>
+      <main className="page-shell flex min-h-[calc(100vh-4rem)] flex-col lg:min-h-[calc(100vh-4.5rem)]">
+        {children}
+      </main>
       <SiteFooter settings={settings} />
     </>
   );

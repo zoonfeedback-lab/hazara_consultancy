@@ -16,9 +16,13 @@ export function SectionIntro({
   return (
     <div className={align === "center" ? "mx-auto max-w-3xl text-center" : "max-w-3xl"}>
       <span className="eyebrow">{label}</span>
-      <h2 className="display-title mt-5 text-4xl text-navy md:text-5xl">{title}</h2>
+      <h2 className="display-title mt-4 text-3xl leading-tight text-navy md:mt-5 md:text-4xl lg:text-5xl">
+        {title}
+      </h2>
       {copy ? (
-        <p className="mt-5 text-base leading-8 text-ink/78 md:text-lg">{copy}</p>
+        <p className="mt-4 text-base leading-7 text-ink/78 md:mt-5 md:text-lg md:leading-8">
+          {copy}
+        </p>
       ) : null}
     </div>
   );
@@ -47,22 +51,26 @@ export function PageHero({
     >
       <div className="hero-orb" />
       <div className="hero-orb-alt" />
-      <div className="site-container grid min-h-[46vh] items-center gap-10 py-28 md:grid-cols-[1.2fr_0.8fr]">
+      <div className="site-container grid items-center gap-8 py-16 md:gap-10 md:py-20 lg:min-h-[46vh] lg:grid-cols-[1.2fr_0.8fr] lg:py-28">
         <div className="relative z-10">
           <span className={`eyebrow ${dark ? "text-gold-soft" : ""}`}>{label}</span>
           <h1
-            className={`display-title mt-6 max-w-4xl text-5xl leading-[1.05] md:text-7xl ${
+            className={`display-title mt-4 max-w-4xl break-words text-3xl leading-tight md:mt-6 md:text-5xl lg:text-7xl ${
               dark ? "text-cream" : "text-navy"
             }`}
           >
             {title}
           </h1>
-          <p className={`mt-6 max-w-2xl text-lg leading-8 ${dark ? "text-cream/82" : "text-ink/78"}`}>
+          <p className={`mt-4 max-w-2xl text-base leading-7 md:mt-6 md:text-lg md:leading-8 ${dark ? "text-cream/82" : "text-ink/78"}`}>
             {copy}
           </p>
-          {actions ? <div className="mt-10 flex flex-wrap gap-4">{actions}</div> : null}
+          {actions ? (
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap md:mt-10 [&>*]:w-full sm:[&>*]:w-auto">
+              {actions}
+            </div>
+          ) : null}
         </div>
-        {aside ? <div className="relative z-10">{aside}</div> : null}
+        {aside ? <div className="relative z-10 order-last lg:order-none">{aside}</div> : null}
       </div>
     </section>
   );
@@ -84,14 +92,14 @@ export function ConsultationBanner({
   return (
     <section className="section-frame bg-navy text-cream">
       <div className="site-container">
-        <div className="featured-card rounded-[24px] px-8 py-10 md:px-12 md:py-14">
+        <div className="featured-card rounded-[24px] px-5 py-8 sm:px-6 md:px-12 md:py-14">
           <span className="eyebrow text-gold-soft">Ready To Begin</span>
           <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div className="max-w-3xl">
-              <h2 className="display-title text-4xl md:text-5xl">{title}</h2>
-              <p className="mt-4 text-lg leading-8 text-cream/82">{copy}</p>
+              <h2 className="display-title text-3xl leading-tight md:text-4xl lg:text-5xl">{title}</h2>
+              <p className="mt-4 text-base leading-7 text-cream/82 md:text-lg md:leading-8">{copy}</p>
             </div>
-            <Link href={href} className="button-secondary">
+            <Link href={href} className="button-secondary w-full md:w-auto">
               {label}
             </Link>
           </div>

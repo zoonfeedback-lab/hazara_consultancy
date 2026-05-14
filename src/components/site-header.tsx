@@ -34,6 +34,14 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
+
   return (
     <>
       <header
@@ -43,17 +51,18 @@ export function SiteHeader() {
             : "border-b-transparent bg-navy"
         }`}
       >
-        <div className="site-container flex h-20 items-center justify-between gap-6">
-          <Link href="/" className="block w-[244px] shrink-0 text-cream">
-            <div className="display-title text-[1.34rem] leading-tight">
-              Hazara Global Consultancy
+        <div className="site-container flex h-16 items-center justify-between gap-3 lg:h-[72px]">
+          <Link href="/" className="min-w-0 shrink text-cream">
+            <div className="display-title text-[1rem] leading-tight sm:text-[1.1rem] md:text-[1.22rem] lg:text-[1.34rem]">
+              <span className="sm:hidden">HGC</span>
+              <span className="hidden sm:inline">Hazara Global Consultancy</span>
             </div>
-            <div className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-gold">
+            <div className="mt-1 text-sm font-semibold uppercase tracking-[0.2em] text-gold">
               Premium Mentorship Academy
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-6 xl:flex">
+          <nav className="hidden items-center gap-6 lg:flex">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -68,17 +77,14 @@ export function SiteHeader() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="button-primary hidden min-h-[44px] rounded-[10px] bg-navy px-5 py-[10px] text-[0.72rem] text-gold md:inline-flex"
-            >
+            <Link href="/contact" className="button-primary hidden rounded-[10px] bg-navy px-5 text-gold lg:inline-flex">
               Book Consultation
             </Link>
             <button
               type="button"
               aria-label="Open navigation"
               onClick={() => setOpen(true)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold xl:hidden"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold lg:hidden"
             >
               <span className="text-2xl leading-none">≡</span>
             </button>
@@ -87,21 +93,21 @@ export function SiteHeader() {
       </header>
 
       <div
-        className={`fixed inset-0 z-[60] bg-[rgba(6,14,28,0.55)] transition-opacity xl:hidden ${
+        className={`fixed inset-0 z-[60] bg-[rgba(6,14,28,0.55)] transition-opacity lg:hidden ${
           open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
         <div
-          className={`absolute inset-0 bg-navy px-6 py-6 transition-transform duration-300 ${
+          className={`absolute inset-0 flex h-full flex-col bg-navy px-4 py-5 sm:px-6 transition-transform duration-300 ${
             open ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex items-start justify-between gap-6">
-            <div className="w-[220px] text-cream">
-              <div className="display-title text-2xl leading-tight">
+          <div className="flex items-start justify-between gap-4">
+            <div className="min-w-0 pr-3 text-cream">
+              <div className="display-title text-[1.5rem] leading-tight sm:text-[1.75rem]">
                 Hazara Global Consultancy
               </div>
-              <div className="mt-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-gold">
+              <div className="mt-2 text-sm font-semibold uppercase tracking-[0.22em] text-gold">
                 Premium Mentorship Academy
               </div>
             </div>
@@ -109,18 +115,18 @@ export function SiteHeader() {
               type="button"
               aria-label="Close navigation"
               onClick={() => setOpen(false)}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-gold/40 text-gold"
+              className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-gold/40 text-gold"
             >
               <span className="text-2xl leading-none">×</span>
             </button>
           </div>
 
-          <nav className="mt-16 flex flex-col gap-6">
+          <nav className="mt-10 flex flex-1 flex-col gap-2 overflow-y-auto">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`display-title text-4xl ${
+                className={`display-title flex min-h-14 items-center border-b border-white/10 py-2 text-[1.5rem] sm:text-[1.75rem] ${
                   isActive(pathname, link.href) ? "text-gold" : "text-cream"
                 }`}
                 onClick={() => setOpen(false)}
@@ -130,12 +136,8 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="mt-12">
-            <Link
-              href="/contact"
-              className="button-secondary"
-              onClick={() => setOpen(false)}
-            >
+          <div className="mt-6">
+            <Link href="/contact" className="button-secondary w-full" onClick={() => setOpen(false)}>
               Book Consultation
             </Link>
           </div>

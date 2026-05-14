@@ -15,7 +15,8 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
   useEffect(() => {
     const node = ref.current;
 
-    if (!node) {
+    if (!node || typeof IntersectionObserver === "undefined") {
+      setVisible(true);
       return;
     }
 
@@ -26,7 +27,7 @@ export function Reveal({ children, className = "", delay = 0 }: RevealProps) {
           observer.disconnect();
         }
       },
-      { threshold: 0.15 },
+      { threshold: 0.05 },
     );
 
     observer.observe(node);

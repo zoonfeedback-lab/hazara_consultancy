@@ -59,18 +59,18 @@ export default async function BlogPostPage({ params }: Props) {
 
   return (
     <>
-      <article className="bg-paper py-24">
-        <div className="site-container grid gap-14 lg:grid-cols-[0.95fr_0.35fr]">
+      <article className="bg-paper py-14 md:py-24">
+        <div className="site-container grid gap-10 lg:grid-cols-[0.95fr_0.35fr] lg:gap-14">
           <Reveal>
             <span className="eyebrow">{post.category || "General"}</span>
-            <h1 className="display-title mt-6 text-5xl leading-[1.05] text-navy md:text-6xl">
+            <h1 className="display-title mt-4 text-3xl leading-tight text-navy md:mt-6 md:text-5xl lg:text-6xl">
               {post.title}
             </h1>
-            <div className="mt-6 flex flex-wrap gap-4 text-sm uppercase tracking-[0.15em] text-ink/58">
+            <div className="mt-4 flex flex-wrap gap-4 text-sm uppercase tracking-[0.15em] text-ink/58 md:mt-6">
               <span>{formatPublishedDate(post.publishedAt)}</span>
               {post.featured ? <span>Featured</span> : null}
             </div>
-            <div className="mt-10 space-y-8 text-lg leading-9 text-ink/84">
+            <div className="mt-8 space-y-6 text-base leading-8 text-ink/84 md:mt-10 md:space-y-8 md:text-lg md:leading-9">
               {bodyParagraphs.length > 0 ? (
                 bodyParagraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)
               ) : (
@@ -80,8 +80,8 @@ export default async function BlogPostPage({ params }: Props) {
           </Reveal>
 
           <Reveal delay={120}>
-            <aside className="card-shell sticky top-28 p-7">
-              <div className="text-[11px] uppercase tracking-[0.18em] text-gold">
+            <aside className="card-shell p-6 lg:sticky lg:top-28 lg:p-7">
+              <div className="text-sm uppercase tracking-[0.18em] text-gold">
                 Related Articles
               </div>
               <div className="mt-5 space-y-5">

@@ -50,12 +50,12 @@ export function CountUpStat({ value, suffix = "", label }: CountUpStatProps) {
   }, [value]);
 
   return (
-    <div ref={ref} className="px-5 py-4 text-center md:px-8">
-      <div className="display-title text-4xl text-gold md:text-5xl">
+    <div ref={ref} className="h-full px-4 py-4 text-center sm:px-5 md:px-8">
+      <div className="display-title text-[1.9rem] leading-none text-gold sm:text-4xl md:text-5xl">
         {count}
         {suffix}
       </div>
-      <div className="mt-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-[#d7deec]">
+      <div className="mt-2 text-sm font-semibold uppercase tracking-[0.14em] text-[#d7deec] md:tracking-[0.18em]">
         {label}
       </div>
     </div>
