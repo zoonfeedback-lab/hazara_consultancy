@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CountUpStat } from "@/components/count-up-stat";
+import MediaImage from "@/components/media-image";
 import { Reveal } from "@/components/reveal";
 import { ConsultationBanner, SectionIntro } from "@/components/section-primitives";
 import {
@@ -317,19 +318,27 @@ export default async function HomePage() {
                 <Reveal
                   key={event.id}
                   delay={index * 90}
-                  className="rounded-[22px] border border-white/10 bg-white/6 p-5 sm:p-6 lg:p-8 shadow-[0_20px_60px_rgba(0,0,0,0.18)]"
+                  className="overflow-hidden rounded-[22px] border border-white/10 bg-white/6 shadow-[0_20px_60px_rgba(0,0,0,0.18)]"
                 >
-                  <div className="text-sm uppercase tracking-[0.18em] text-gold-soft">
-                    {formatEventDate(event.date)}
+                  <MediaImage
+                    src={event.imageUrl}
+                    alt={event.name}
+                    aspectRatio="video"
+                    className="rounded-none"
+                  />
+                  <div className="flex flex-col p-5 sm:p-6 lg:p-8">
+                    <div className="text-sm uppercase tracking-[0.18em] text-gold-soft">
+                      {formatEventDate(event.date)}
+                    </div>
+                    <h3 className="display-title mt-4 text-2xl md:text-3xl">{event.name}</h3>
+                    <p className="mt-4 text-sm uppercase tracking-[0.15em] text-cream/68">
+                      {event.location || "Location to be announced"}
+                    </p>
+                    <p className="mt-5 flex-grow leading-8 text-cream/82">{event.description || "Details coming soon."}</p>
+                    <Link href="/events" className="button-secondary mt-7 w-full sm:w-auto">
+                      View Events
+                    </Link>
                   </div>
-                  <h3 className="display-title mt-4 text-2xl md:text-3xl">{event.name}</h3>
-                  <p className="mt-4 text-sm uppercase tracking-[0.15em] text-cream/68">
-                    {event.location || "Location to be announced"}
-                  </p>
-                  <p className="mt-5 leading-8 text-cream/82">{event.description || "Details coming soon."}</p>
-                  <Link href="/events" className="button-secondary mt-7 w-full sm:w-auto">
-                    View Events
-                  </Link>
                 </Reveal>
               ))}
             </div>

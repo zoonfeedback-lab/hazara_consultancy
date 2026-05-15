@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import MediaImage from "@/components/media-image";
 import { Reveal } from "@/components/reveal";
 import { ConsultationBanner } from "@/components/section-primitives";
 import { getBlogPostBySlug, getBlogPosts } from "@/lib/data/public";
@@ -69,6 +70,13 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mt-4 flex flex-wrap gap-4 text-sm uppercase tracking-[0.15em] text-ink/58 md:mt-6">
               <span>{formatPublishedDate(post.publishedAt)}</span>
               {post.featured ? <span>Featured</span> : null}
+            </div>
+            <div className="mb-8 mt-8 rounded-xl shadow-[0_18px_42px_rgba(15,36,71,0.14)]">
+              <MediaImage
+                src={post.featuredImageUrl}
+                alt={post.title}
+                aspectRatio="16/9"
+              />
             </div>
             <div className="mt-8 space-y-6 text-base leading-8 text-ink/84 md:mt-10 md:space-y-8 md:text-lg md:leading-9">
               {bodyParagraphs.length > 0 ? (

@@ -1,4 +1,5 @@
-/* eslint-disable @next/next/no-img-element */
+import Link from "next/link";
+import MediaImage from "@/components/media-image";
 import { EventsInquiryForm } from "@/components/events-inquiry-form";
 import { Reveal } from "@/components/reveal";
 import { PageHero, SectionIntro } from "@/components/section-primitives";
@@ -45,17 +46,32 @@ export default async function EventsPage() {
           {upcoming.length > 0 ? (
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {upcoming.map((event, index) => (
-                <Reveal key={event.id} delay={index * 90} className="card-shell p-5 sm:p-6 lg:p-10">
-                  <div className="text-sm uppercase tracking-[0.18em] text-gold">
-                    {event.type.toLowerCase().replace(/_/g, " ")}
+                <Reveal
+                  key={event.id}
+                  delay={index * 90}
+                  className="card-shell flex flex-col overflow-hidden rounded-[24px] p-0"
+                >
+                  <MediaImage
+                    src={event.imageUrl}
+                    alt={event.name}
+                    aspectRatio="video"
+                    className="rounded-none"
+                  />
+                  <div className="flex flex-grow flex-col p-5 sm:p-6 lg:p-10">
+                    <div className="text-sm uppercase tracking-[0.18em] text-gold">
+                      {event.type.toLowerCase().replace(/_/g, " ")}
+                    </div>
+                    <h2 className="display-title mt-4 text-2xl text-navy md:text-3xl">{event.name}</h2>
+                    <p className="mt-3 text-sm uppercase tracking-[0.15em] text-ink/62">
+                      {formatEventDate(event.date)} • {event.location || "Location to be announced"}
+                    </p>
+                    <p className="mt-5 flex-grow leading-8 text-ink/78">
+                      {event.description || "Further event details will be shared soon."}
+                    </p>
+                    <Link href="/contact" className="button-primary mt-7 w-full sm:w-auto">
+                      Inquire About This Event
+                    </Link>
                   </div>
-                  <h2 className="display-title mt-4 text-2xl text-navy md:text-3xl">{event.name}</h2>
-                  <p className="mt-3 text-sm uppercase tracking-[0.15em] text-ink/62">
-                    {formatEventDate(event.date)} • {event.location || "Location to be announced"}
-                  </p>
-                  <p className="mt-5 leading-8 text-ink/78">
-                    {event.description || "Further event details will be shared soon."}
-                  </p>
                 </Reveal>
               ))}
             </div>
@@ -76,35 +92,34 @@ export default async function EventsPage() {
             />
           </Reveal>
           {past.length > 0 ? (
-            <div className="mt-12 grid gap-6 lg:grid-cols-2">
+            <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
               {past.map((event, index) => (
-                <Reveal key={event.id} delay={index * 90} className="card-shell overflow-hidden">
-                  <div className="gradient-panel p-5 text-cream sm:p-6 lg:p-8">
-                    <div className="text-sm uppercase tracking-[0.18em] text-gold-soft">
-                      {formatEventDate(event.date)}
+                <Reveal
+                  key={event.id}
+                  delay={index * 90}
+                  className="card-shell overflow-hidden rounded-[24px] p-0"
+                >
+                  <div className="relative">
+                    <MediaImage
+                      src={event.imageUrl}
+                      alt={event.name}
+                      aspectRatio="4/3"
+                      className="rounded-none"
+                    />
+                    <div className="pointer-events-none absolute inset-x-0 bottom-0 bg-[linear-gradient(180deg,rgba(15,36,71,0)_0%,rgba(15,36,71,0.85)_100%)] px-5 pb-5 pt-14 sm:px-6">
+                      <div className="text-sm uppercase tracking-[0.18em] text-gold-soft">
+                        {formatEventDate(event.date)}
+                      </div>
+                      <h2 className="display-title mt-3 text-2xl text-cream">{event.name}</h2>
                     </div>
-                    <h2 className="display-title mt-4 text-2xl md:text-3xl">{event.name}</h2>
-                    <p className="mt-3 text-sm uppercase tracking-[0.15em] text-cream/70">
-                      {event.location || "Location to be announced"}
-                    </p>
                   </div>
                   <div className="p-5 sm:p-6 lg:p-8">
-                    <p className="leading-8 text-ink/78">
+                    <p className="text-sm uppercase tracking-[0.15em] text-ink/62">
+                      {event.location || "Location to be announced"}
+                    </p>
+                    <p className="mt-4 leading-8 text-ink/78">
                       {event.description || "More portfolio details will be shared soon."}
                     </p>
-                    <div className="mt-6 grid gap-3">
-                      {event.imageUrl ? (
-                        <img
-                          src={event.imageUrl}
-                          alt={event.name}
-                          className="h-48 w-full rounded-[16px] object-cover"
-                        />
-                      ) : (
-                        <div className="gradient-panel flex min-h-32 items-end rounded-[16px] p-4 text-sm font-medium text-cream shadow-[0_20px_60px_rgba(0,0,0,0.18)]">
-                          Event gallery placeholder
-                        </div>
-                      )}
-                    </div>
                   </div>
                 </Reveal>
               ))}
